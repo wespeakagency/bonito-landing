@@ -11,7 +11,7 @@ export default function IdeaSection() {
         <div className="space-y-12">
           {ideas.map((idea, index) => (
             <AnimatedBlock key={index} delay={index * 150}>
-              <p className="text-2xl md:text-4xl text-center font-headline leading-tight text-secondary-foreground">
+              <p className="text-xl md:text-2xl text-center font-headline leading-tight text-secondary-foreground">
                 {idea}
               </p>
             </AnimatedBlock>
