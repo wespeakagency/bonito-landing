@@ -16,7 +16,7 @@ export function Typewriter({ text, speed = 50, className }: TypewriterProps) {
     let i = 0;
     const typingInterval = setInterval(() => {
       if (i < text.length) {
-        setDisplayedText((prevState) => prevState + text.charAt(i));
+        setDisplayedText(text.substring(0, i + 1));
         i++;
       } else {
         clearInterval(typingInterval);
