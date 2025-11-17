@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 
 interface TypewriterProps {
   text: string;
@@ -8,14 +8,14 @@ interface TypewriterProps {
   className?: string;
   onComplete?: () => void;
   onStart?: () => void;
+  runOnce?: boolean;
 }
 
-export function Typewriter({ text, speed = 50, className, onComplete, onStart }: TypewriterProps) {
-  const [displayedText, setDisplayedText] = useState('');
-  const hasAnimated = useRef(false);
+export function Typewriter({ text, speed = 50, className, onComplete, onStart, runOnce = false }: TypewriterProps) {
+  const [displayedText, setDisplayedText] = useState(runOnce ? text : '');
 
   useEffect(() => {
-    if (hasAnimated.current) {
+    if (runOnce) {
       setDisplayedText(text);
       onComplete?.();
       return;
@@ -30,7 +30,6 @@ export function Typewriter({ text, speed = 50, className, onComplete, onStart }:
         i++;
       } else {
         clearInterval(typingInterval);
-        hasAnimated.current = true;
         onComplete?.();
       }
     }, speed);
@@ -38,7 +37,7 @@ export function Typewriter({ text, speed = 50, className, onComplete, onStart }:
     return () => {
       clearInterval(typingInterval);
     };
-  }, [text, speed, onComplete, onStart]);
+  }, [text, speed, onComplete, onStart, runOnce]);
 
   return <span className={className}>{displayedText}</span>;
 }

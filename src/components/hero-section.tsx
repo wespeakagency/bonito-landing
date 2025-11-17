@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle, ChevronDown } from 'lucide-react';
 import { Typewriter } from './typewriter';
@@ -14,6 +14,7 @@ const phrases = [
 export default function HeroSection() {
   const [step, setStep] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
+  const hasAnimated = useRef<boolean[]>([false, false, false]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,6 +31,7 @@ export default function HeroSection() {
   const handleAnimationComplete = () => {
     if (step < phrases.length - 1) {
       setShowScroll(true);
+      hasAnimated.current[step] = true;
     }
   };
   
@@ -64,20 +66,21 @@ export default function HeroSection() {
                   speed={80}
                   onComplete={handleAnimationComplete}
                   onStart={resetShowScroll}
+                  runOnce={hasAnimated.current[step]}
                 />
               </h1>
             </div>
           )}
 
           {step === 2 && (
-            <div className="animate-in fade-in duration-1000">
+            <div className="animate-in fade-in duration-1000 pt-10">
                <div className="min-h-[150px] flex items-center justify-center">
-                <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">
+                <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
                   {phrases[2]}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                 <Button size="lg" className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90" asChild>
                   <a href="#">
                     Comprar ahora
