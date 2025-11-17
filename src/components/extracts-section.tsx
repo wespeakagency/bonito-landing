@@ -1,5 +1,6 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import Autoplay from 'embla-carousel-autoplay';
 import {
   Carousel,
   CarouselContent,
@@ -19,6 +20,9 @@ const extracts = [
 export default function ExtractsSection() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
+  const plugin = useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
+  );
 
   useEffect(() => {
     if (!api) {
@@ -36,6 +40,15 @@ export default function ExtractsSection() {
     };
   }, [api]);
 
+  const handleTypewriterComplete = () => {
+    plugin.current.play();
+  };
+
+  const handleTypewriterStart = () => {
+    plugin.current.stop();
+  };
+
+
   return (
     <section className="py-24 sm:py-32 bg-secondary overflow-hidden">
       <div className="container mx-auto px-4">
@@ -44,6 +57,7 @@ export default function ExtractsSection() {
           opts={{
             loop: true,
           }}
+          plugins={[plugin.current]}
           className="w-full max-w-2xl mx-auto"
         >
           <CarouselContent>
@@ -52,7 +66,11 @@ export default function ExtractsSection() {
                 <div className="text-center h-48 flex items-center justify-center">
                   <h3 className="text-2xl md:text-3xl font-headline font-medium text-foreground leading-tight">
                     {current === index ? (
-                      <Typewriter text={`"${extract}"`} />
+                      <Typewriter 
+                        text={`"${extract}"`} 
+                        onComplete={handleTypewriterComplete}
+                        onStart={handleTypewriterStart}
+                      />
                     ) : (
                       `"${extract}"`
                     )}
