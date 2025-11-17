@@ -6,7 +6,7 @@ const ideas = [
 
 export default function IdeaSection() {
   return (
-    <section className="py-24 sm:py-32 bg-white">
+    <section className="py-24 sm:py-32 bg-secondary">
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="space-y-12">
           {ideas.map((idea, index) => (

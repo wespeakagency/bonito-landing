@@ -11,7 +11,7 @@ const channels = [
 
 export default function CtaSection() {
   return (
-    <section className="bg-white text-foreground py-24 sm:py-32">
+    <section className="bg-secondary text-foreground py-24 sm:py-32">
       <div className="container mx-auto px-4 text-center">
         <AnimatedBlock>
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 text-foreground">
