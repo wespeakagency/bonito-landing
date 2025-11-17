@@ -33,15 +33,15 @@ export default function PrinciplesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {principles.map((principle, index) => (
             <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
-              <Card className="text-left h-full bg-secondary border-none rounded-2xl p-6 hover:bg-muted/80 transition-colors duration-300">
-                <CardHeader className="p-0 mb-4">
+              <Card className="text-center h-full bg-secondary border-none rounded-2xl p-6 hover:bg-muted/80 transition-colors duration-300">
+                <CardHeader className="p-0 mb-4 flex flex-col items-center">
                   <div className="text-primary mb-3">
                     <principle.icon className="h-10 w-10 text-white" />
                   </div>
-                  <CardTitle className="font-headline text-2xl font-semibold text-white">{principle.title}</CardTitle>
+                  <CardTitle className="font-headline text-xl font-semibold text-white">{principle.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <p className="text-muted-foreground text-lg">{principle.description}</p>
+                  <p className="text-muted-foreground text-base text-justify">{principle.description}</p>
                 </CardContent>
               </Card>
             </AnimatedBlock>
