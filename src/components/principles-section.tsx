@@ -45,19 +45,15 @@ export default function PrinciplesSection() {
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="flip-card-inner">
-                  <Card className="flip-card-front text-center bg-secondary border-none p-6 transition-all duration-300">
-                    <CardHeader className="p-0 mb-4">
-                      <div className="text-primary mb-4">
-                        <principle.icon className="h-12 w-12 text-foreground mx-auto" />
-                      </div>
-                      <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
-                    </CardHeader>
-                  </Card>
-                  <Card className="flip-card-back text-center bg-secondary border-none p-6 transition-all duration-300">
-                    <CardContent className="p-0">
-                      <p className="text-muted-foreground text-sm text-justify">{principle.description}</p>
-                    </CardContent>
-                  </Card>
+                  <div className="flip-card-front text-center bg-secondary border-none p-6 rounded-2xl">
+                    <div className="text-primary mb-4">
+                      <principle.icon className="h-12 w-12 text-foreground mx-auto" />
+                    </div>
+                    <h3 className="font-headline text-xl font-semibold text-foreground">{principle.title}</h3>
+                  </div>
+                  <div className="flip-card-back text-center bg-secondary border-none p-6 rounded-2xl">
+                    <p className="text-muted-foreground text-sm text-justify">{principle.description}</p>
+                  </div>
                 </div>
               </div>
             </AnimatedBlock>
