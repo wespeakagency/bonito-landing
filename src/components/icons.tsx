@@ -5,7 +5,7 @@ export const EarIcon = (props: SVGProps<SVGSVGElement>) => (
     xmlns="http://www.w3.org/2000/svg"
     width="24"
     height="24"
-    viewBox="0 0 24 24"
+    viewBox="0 -1 24 24"
     fill="none"
     stroke="currentColor"
     strokeWidth="2"
@@ -35,15 +35,4 @@ export const BonitoLogo = (props: SVGProps<SVGSVGElement>) => (
         <tspan x="0" y="55">BONITO</tspan>
       </text>
     </svg>
-);
-
-export const PaperBirdIcon = (props: SVGProps<SVGSVGElement>) => (
-  <svg 
-    viewBox="0 0 100 100" 
-    fill="none" 
-    xmlns="http://www.w3.org/2000/svg"
-    {...props}
-  >
-    <path d="M1.5 50.5L98.5 1.5L50.5 98.5L44 57L1.5 50.5Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round"/>
-  </svg>
 );

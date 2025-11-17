@@ -87,43 +87,4 @@
   .scroll-down-indicator {
     animation: scroll-down 2s ease-in-out infinite;
   }
-
-  @keyframes fly-bird {
-    0% {
-      left: -10%;
-      top: 50%;
-      transform: scale(0.5) rotate(0deg);
-    }
-    20% {
-      transform: scale(1) rotate(10deg);
-    }
-    80% {
-      transform: scale(1) rotate(-10deg);
-    }
-    100% {
-      left: 110%;
-      top: 40%;
-      transform: scale(0.5) rotate(0deg);
-    }
-  }
-
-  .bird-animation {
-    animation: fly-bird 10s linear infinite;
-  }
-
-  @keyframes reveal-text {
-    from {
-      clip-path: inset(0 100% 0 0);
-    }
-    to {
-      clip-path: inset(0 0 0 0);
-    }
-  }
-  
-  .reveal-text-animation {
-    animation: reveal-text 5s linear forwards;
-    animation-timeline: view();
-    animation-range-start: 25%;
-    animation-range-end: 75%;
-  }
 }
