@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    --background: 19 100% 95%;
-    --foreground: 20 14.3% 4.1%;
-    --card: 19 100% 95%;
-    --card-foreground: 20 14.3% 4.1%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 98%;
+    --card: 20 14.3% 4.1%;
+    --card-foreground: 0 0% 98%;
     --popover: 19 100% 95%;
     --popover-foreground: 20 14.3% 4.1%;
     --primary: 12 76% 61%;
     --primary-foreground: 20 14.3% 4.1%;
     --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 20 8.8% 47.1%;
+    --muted: 17 10% 12%;
+    --muted-foreground: 0 0% 63.9%;
     --accent: 273 87% 67%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 84.2% 60.2%;
@@ -86,5 +86,44 @@
 
   .scroll-down-indicator {
     animation: scroll-down 2s ease-in-out infinite;
+  }
+
+  @keyframes fly-bird {
+    0% {
+      left: -10%;
+      top: 50%;
+      transform: scale(0.5) rotate(0deg);
+    }
+    20% {
+      transform: scale(1) rotate(10deg);
+    }
+    80% {
+      transform: scale(1) rotate(-10deg);
+    }
+    100% {
+      left: 110%;
+      top: 40%;
+      transform: scale(0.5) rotate(0deg);
+    }
+  }
+
+  .bird-animation {
+    animation: fly-bird 10s linear infinite;
+  }
+
+  @keyframes reveal-text {
+    from {
+      clip-path: inset(0 100% 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
+  }
+  
+  .reveal-text-animation {
+    animation: reveal-text 5s linear forwards;
+    animation-timeline: view();
+    animation-range-start: 25%;
+    animation-range-end: 75%;
   }
 }

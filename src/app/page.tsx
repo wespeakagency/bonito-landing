@@ -1,6 +1,6 @@
 import Header from '@/components/header';
 import HeroSection from '@/components/hero-section';
-import IdeaSection from '@/components/idea-section';
+import PaperBirdsSection from '@/components/paper-birds-section';
 import PrinciplesSection from '@/components/principles-section';
 import AuthorVideosSection from '@/components/author-videos-section';
 import ExtractsSection from '@/components/extracts-section';
@@ -15,7 +15,7 @@ export default function Home() {
       <main className="flex-1">
         <HeroSection />
         <AnimatedBlock>
-          <IdeaSection />
+          <PaperBirdsSection />
         </AnimatedBlock>
         <AnimatedBlock>
           <PrinciplesSection />
