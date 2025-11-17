@@ -37,7 +37,7 @@ export default function ExtractsSection() {
   }, [api]);
 
   return (
-    <section className="py-24 sm:py-32 bg-secondary overflow-hidden">
+    <section className="py-24 sm:py-32 bg-white overflow-hidden">
       <div className="container mx-auto px-4">
         <Carousel
           setApi={setApi}
@@ -50,7 +50,7 @@ export default function ExtractsSection() {
             {extracts.map((extract, index) => (
               <CarouselItem key={index}>
                 <div className="text-center h-48 flex items-center justify-center">
-                  <h3 className="text-2xl md:text-3xl font-headline font-medium text-secondary-foreground leading-tight">
+                  <h3 className="text-2xl md:text-3xl font-headline font-medium text-foreground leading-tight">
                     {current === index ? (
                       <Typewriter text={`"${extract}"`} />
                     ) : (

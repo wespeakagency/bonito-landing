@@ -21,7 +21,7 @@ export default function HeroSection() {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline leading-tight mb-6">
             Negociar es un arte.
             <br />
-            Practícalo con compasión.
+            <span className="text-lg md:text-xl lg:text-2xl">Practícalo con compasión.</span>
           </h1>
         </AnimatedBlock>
         <AnimatedBlock delay={150}>
