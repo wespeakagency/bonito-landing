@@ -18,14 +18,14 @@ export default function AuthorVideosSection() {
   );
 
   return (
-    <section className="py-20 sm:py-24 bg-background">
+    <section className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
-          <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-4">
-            En voz de Roberto
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-primary-foreground">
+            En la voz del autor.
           </h2>
-          <p className="text-lg md:text-xl text-center text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Clips del autor explicando ideas clave del libro.
+          <p className="text-xl md:text-2xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
+            Extractos y reflexiones de Roberto para entender la esencia de negociar bonito.
           </p>
         </AnimatedBlock>
         <AnimatedBlock delay={200}>
@@ -34,13 +34,13 @@ export default function AuthorVideosSection() {
               align: 'start',
               loop: true,
             }}
-            className="w-full max-w-4xl mx-auto"
+            className="w-full max-w-6xl mx-auto"
           >
             <CarouselContent>
               {videoThumbnails.map((thumbnail, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
-                  <div className="p-1">
-                    <Card className="overflow-hidden group">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                  <div className="p-2">
+                    <Card className="overflow-hidden group border-none rounded-2xl">
                       <CardContent className="relative flex aspect-video items-center justify-center p-0">
                         <Image
                           src={thumbnail.imageUrl}
@@ -48,10 +48,10 @@ export default function AuthorVideosSection() {
                           width={1280}
                           height={720}
                           data-ai-hint={thumbnail.imageHint}
-                          className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+                          className="object-cover w-full h-full transition-transform duration-500 ease-in-out group-hover:scale-105"
                         />
-                        <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-                          <PlayCircle className="h-16 w-16 text-white/80 group-hover:text-white transition-colors" />
+                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                          <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-all duration-300 transform group-hover:scale-110" />
                         </div>
                       </CardContent>
                     </Card>

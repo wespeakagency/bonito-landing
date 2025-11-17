@@ -19,22 +19,18 @@ export const EarIcon = (props: SVGProps<SVGSVGElement>) => (
 );
 
 export const BonitoLogo = (props: SVGProps<SVGSVGElement>) => (
-    <svg
-      viewBox="0 0 100 25"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+    <svg 
+      viewBox="0 0 140 25" 
+      fill="none" 
+      xmlns="http://www.w3.org/2000/svg" 
       {...props}
     >
-      <path
-        d="M12.5 0C5.59644 0 0 5.59644 0 12.5C0 19.4036 5.59644 25 12.5 25C20.4086 25 25 19.4036 25 12.5C25 5.59644 19.4036 0 12.5 0Z"
-        fill="currentColor"
-      />
-      <text
-        x="35"
-        y="19"
-        fontFamily="Inter, sans-serif"
-        fontSize="16"
-        fontWeight="bold"
+      <text 
+        x="0" 
+        y="19" 
+        fontFamily="Inter, sans-serif" 
+        fontSize="22" 
+        fontWeight="600" 
         fill="currentColor"
       >
         BONITO

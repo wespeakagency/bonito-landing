@@ -7,41 +7,41 @@ const principles = [
   {
     icon: Eye,
     title: 'Claridad',
-    description: 'Un poco de claridad es suficiente para poder compartir y comprender.',
+    description: 'Comunica tu intención con simpleza y honestidad. La transparencia es el camino más corto hacia la confianza.',
   },
   {
     icon: EarIcon,
-    title: 'Escucha',
-    description: 'Escuchar no para responder, sino para comprender.',
+    title: 'Escucha Activa',
+    description: 'Escucha para comprender, no solo para responder. Entiende las necesidades y motivaciones de la otra parte.',
   },
   {
     icon: HeartHandshake,
-    title: 'Respeto',
-    description: 'Negociar bonito no es ceder: es sostener lo importante sin imponerse y sin romper al otro.',
+    title: 'Respeto Mutuo',
+    description: 'Sostén tu posición sin romper la relación. El respeto es la base de cualquier acuerdo duradero y beneficioso.',
   },
 ];
 
 export default function PrinciplesSection() {
   return (
-    <section className="py-20 sm:py-24 bg-secondary">
+    <section className="py-24 sm:py-32 bg-background">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
-          <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-12">
-            Principios del libro
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-primary-foreground">
+            Los 3 pilares de la negociación.
           </h2>
         </AnimatedBlock>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {principles.map((principle, index) => (
             <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
-              <Card className="text-center h-full shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
-                <CardHeader>
-                  <div className="mx-auto bg-primary/10 text-primary p-3 rounded-full w-fit mb-4">
-                    <principle.icon className="h-8 w-8" />
+              <Card className="text-left h-full bg-secondary border-none rounded-2xl p-6 hover:bg-muted/80 transition-colors duration-300">
+                <CardHeader className="p-0 mb-4">
+                  <div className="text-primary mb-3">
+                    <principle.icon className="h-10 w-10" />
                   </div>
-                  <CardTitle className="font-headline text-2xl">{principle.title}</CardTitle>
+                  <CardTitle className="font-headline text-2xl font-semibold text-secondary-foreground">{principle.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-muted-foreground">{principle.description}</p>
+                <CardContent className="p-0">
+                  <p className="text-muted-foreground text-lg">{principle.description}</p>
                 </CardContent>
               </Card>
             </AnimatedBlock>
