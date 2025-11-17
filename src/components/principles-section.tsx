@@ -23,10 +23,10 @@ const principles = [
 
 export default function PrinciplesSection() {
   return (
-    <section className="py-24 sm:py-32 bg-background">
+    <section className="py-24 sm:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-primary-foreground">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-white">
             Los 3 pilares de la negociación.
           </h2>
         </AnimatedBlock>
@@ -36,9 +36,9 @@ export default function PrinciplesSection() {
               <Card className="text-left h-full bg-secondary border-none rounded-2xl p-6 hover:bg-muted/80 transition-colors duration-300">
                 <CardHeader className="p-0 mb-4">
                   <div className="text-primary mb-3">
-                    <principle.icon className="h-10 w-10" />
+                    <principle.icon className="h-10 w-10 text-white" />
                   </div>
-                  <CardTitle className="font-headline text-2xl font-semibold text-secondary-foreground">{principle.title}</CardTitle>
+                  <CardTitle className="font-headline text-2xl font-semibold text-white">{principle.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <p className="text-muted-foreground text-lg">{principle.description}</p>

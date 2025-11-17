@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
+import { AnimatedBlock } from './animated-block';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -24,16 +25,18 @@ export default function Header() {
       )}
     >
       <div className="container mx-auto px-4">
+        <AnimatedBlock>
         <div className="flex justify-between items-center h-20">
           <a href="#" aria-label="Back to top">
-            <Logo className="h-8 w-auto text-primary-foreground" />
+            <Logo className="h-6 w-auto text-white" />
           </a>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="hidden sm:inline-flex text-primary-foreground hover:bg-white/10 hover:text-white">Capítulos</Button>
-            <Button variant="ghost" className="hidden sm:inline-flex text-primary-foreground hover:bg-white/10 hover:text-white">Autor</Button>
+            <Button variant="ghost" className="hidden sm:inline-flex text-white hover:bg-white/10 hover:text-white">Capítulos</Button>
+            <Button variant="ghost" className="hidden sm:inline-flex text-white hover:bg-white/10 hover:text-white">Autor</Button>
             <Button className="bg-white text-black hover:bg-white/90 rounded-full">Comprar</Button>
           </div>
         </div>
+        </AnimatedBlock>
       </div>
     </header>
   );

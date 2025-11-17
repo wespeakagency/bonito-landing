@@ -18,10 +18,10 @@ export default function AuthorVideosSection() {
   );
 
   return (
-    <section className="py-24 sm:py-32 bg-background">
+    <section className="py-24 sm:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-primary-foreground">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-white">
             En la voz del autor.
           </h2>
           <p className="text-xl md:text-2xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
@@ -59,8 +59,8 @@ export default function AuthorVideosSection() {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden sm:flex" />
-            <CarouselNext className="hidden sm:flex" />
+            <CarouselPrevious className="hidden sm:flex bg-secondary border-border text-white" />
+            <CarouselNext className="hidden sm:flex bg-secondary border-border text-white" />
           </Carousel>
         </AnimatedBlock>
       </div>

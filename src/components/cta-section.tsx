@@ -14,7 +14,7 @@ export default function CtaSection() {
     <section className="bg-secondary text-secondary-foreground py-24 sm:py-32">
       <div className="container mx-auto px-4 text-center">
         <AnimatedBlock>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 text-white">
             Comienza a negociar bonito.
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
@@ -28,7 +28,7 @@ export default function CtaSection() {
                 key={channel.name}
                 variant="outline"
                 size="lg"
-                className="bg-background border-border text-foreground hover:bg-accent hover:text-accent-foreground transition-transform duration-200 hover:scale-105"
+                className="bg-background border-border text-white hover:bg-accent hover:text-accent-foreground transition-transform duration-200 hover:scale-105 rounded-full"
                 asChild
               >
                 <a href={channel.href}>
