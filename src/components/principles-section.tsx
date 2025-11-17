@@ -50,9 +50,9 @@ export default function PrinciplesSection() {
               >
                 <CardHeader className="p-0 mb-4 flex flex-col items-center">
                   <div className="text-primary mb-4">
-                    <principle.icon className="h-12 w-12 text-white" />
+                    <principle.icon className="h-12 w-12 text-foreground" />
                   </div>
-                  <CardTitle className="font-headline text-xl font-semibold text-white">{principle.title}</CardTitle>
+                  <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="p-0 px-4">
                   <p className="text-muted-foreground text-sm text-justify">{principle.description}</p>
