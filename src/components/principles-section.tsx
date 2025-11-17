@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Eye, HeartHandshake } from 'lucide-react';
 import { EarIcon } from './icons';
 import { AnimatedBlock } from './animated-block';
@@ -9,21 +9,21 @@ const principles = [
     icon: Eye,
     title: 'Claridad',
     description: 'Comunica tu intención con simpleza y honestidad. La transparencia es el camino más corto hacia la confianza.',
-    hoverColor: 'hover:bg-blue-900/40',
+    hoverColor: 'hover:border-blue-400',
     glowColor: 'hover:shadow-[0_0_25px_-5px_#60a5fa]',
   },
   {
     icon: EarIcon,
     title: 'Escucha Activa',
     description: 'Escucha para comprender, no solo para responder. Entiende las necesidades y motivaciones de la otra parte.',
-    hoverColor: 'hover:bg-purple-900/40',
+    hoverColor: 'hover:border-purple-400',
     glowColor: 'hover:shadow-[0_0_25px_-5px_#c084fc]',
   },
   {
     icon: HeartHandshake,
     title: 'Respeto Mutuo',
     description: 'Sostén tu posición sin romper la relación. El respeto es la base de cualquier acuerdo duradero y beneficioso.',
-    hoverColor: 'hover:bg-red-900/40',
+    hoverColor: 'hover:border-red-400',
     glowColor: 'hover:shadow-[0_0_25px_-5px_#f87171]',
   },
 ];
@@ -40,22 +40,25 @@ export default function PrinciplesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {principles.map((principle, index) => (
             <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
-              <div
-                className={cn('flip-card group rounded-2xl', principle.hoverColor, principle.glowColor)}
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="flip-card-inner">
-                  <div className="flip-card-front text-center bg-secondary border-none p-6 rounded-2xl">
-                    <div className="text-primary mb-4">
-                      <principle.icon className="h-12 w-12 text-foreground mx-auto" />
+              <Card className={cn(
+                "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-all duration-300",
+                principle.hoverColor,
+                principle.glowColor
+              )}>
+                <CardHeader className="pt-8">
+                  <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-between pt-2">
+                  <CardDescription className="text-muted-foreground text-sm mb-6">
+                    {principle.description}
+                  </CardDescription>
+                  <div className="flex justify-center items-end">
+                    <div className="bg-background rounded-lg p-4 border border-border">
+                        <principle.icon className="h-10 w-10 text-foreground" />
                     </div>
-                    <h3 className="font-headline text-xl font-semibold text-foreground">{principle.title}</h3>
                   </div>
-                  <div className="flip-card-back text-center bg-secondary border-none p-6 rounded-2xl">
-                    <p className="text-muted-foreground text-sm text-justify">{principle.description}</p>
-                  </div>
-                </div>
-              </div>
+                </CardContent>
+              </Card>
             </AnimatedBlock>
           ))}
         </div>
