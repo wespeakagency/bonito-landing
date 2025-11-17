@@ -28,7 +28,7 @@ export default function Header() {
         <AnimatedBlock>
         <div className="flex justify-between items-center h-24">
           <a href="#" aria-label="Back to top">
-            <Logo />
+            <Logo className="h-8 w-auto" />
           </a>
           <div className="flex items-center gap-4">
             <Button variant="ghost" className="hidden sm:inline-flex text-white hover:bg-white/10 hover:text-white">Capítulos</Button>
