@@ -29,8 +29,6 @@ export default function Header() {
             <Logo className="h-8 w-auto" />
           </a>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="hidden sm:inline-flex text-white hover:bg-white/10 hover:text-white">Capítulos</Button>
-            <Button variant="ghost" className="hidden sm:inline-flex text-white hover:bg-white/10 hover:text-white">Autor</Button>
             <Button className="bg-white text-black hover:bg-white/90 rounded-full">Comprar</Button>
           </div>
         </div>
