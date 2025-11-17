@@ -61,8 +61,8 @@ export default function ExtractsSection() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className="hidden sm:flex bg-background border-border text-white" />
-          <CarouselNext className="hidden sm:flex bg-background border-border text-white" />
+          <CarouselPrevious className="hidden sm:flex bg-background border-border text-foreground" />
+          <CarouselNext className="hidden sm:flex bg-background border-border text-foreground" />
         </Carousel>
       </div>
     </section>
