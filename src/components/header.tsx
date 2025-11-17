@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import AccessibilityControls from './accessibility-controls';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +27,6 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex justify-end items-center h-24">
           <div className="flex items-center gap-4">
-            <AccessibilityControls />
             <Button className="bg-white text-black hover:bg-white/90 rounded-full">
               Comprar
             </Button>
