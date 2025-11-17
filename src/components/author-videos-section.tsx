@@ -21,7 +21,7 @@ export default function AuthorVideosSection() {
     <section className="py-24 sm:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-white">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-foreground">
             En la voz del autor.
           </h2>
           <p className="text-xl md:text-2xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">

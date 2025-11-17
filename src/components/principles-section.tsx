@@ -33,7 +33,7 @@ export default function PrinciplesSection() {
     <section className="py-24 sm:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-white">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
             Los 3 pilares de la negociación.
           </h2>
         </AnimatedBlock>
