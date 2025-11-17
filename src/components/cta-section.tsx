@@ -24,7 +24,7 @@ export default function CtaSection() {
               key={channel.name}
               variant="outline"
               size="lg"
-              className="bg-transparent border-background/50 text-background hover:bg-background/10 hover:text-background"
+              className="bg-background border-border text-foreground hover:bg-accent hover:text-accent-foreground"
               asChild
             >
               <a href={channel.href}>

@@ -23,7 +23,7 @@ const principles = [
 
 export default function PrinciplesSection() {
   return (
-    <section className="py-20 sm:py-24 bg-muted">
+    <section className="py-20 sm:py-24 bg-secondary">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
           <h2 className="text-3xl md:text-4xl font-headline font-bold text-center mb-12">
@@ -33,7 +33,7 @@ export default function PrinciplesSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {principles.map((principle, index) => (
             <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
-              <Card className="text-center h-full shadow-lg hover:shadow-xl transition-shadow duration-300 border-0">
+              <Card className="text-center h-full shadow-lg hover:shadow-xl transition-shadow duration-300 bg-background">
                 <CardHeader>
                   <div className="mx-auto bg-primary/10 text-primary p-3 rounded-full w-fit mb-4">
                     <principle.icon className="h-8 w-8" />

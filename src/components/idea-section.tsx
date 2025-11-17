@@ -8,7 +8,7 @@ const ideas = [
 
 export default function IdeaSection() {
   return (
-    <section className="py-20 sm:py-24 bg-secondary/50">
+    <section className="py-20 sm:py-24 bg-secondary">
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="space-y-12">
           {ideas.map((idea, index) => (

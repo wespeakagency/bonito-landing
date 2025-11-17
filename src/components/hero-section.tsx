@@ -3,7 +3,7 @@ import { ArrowRight, Video } from 'lucide-react';
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-10">
+    <section className="relative min-h-screen flex items-center justify-center pt-20 pb-10 bg-background">
       <div className="container mx-auto px-4 text-center">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-headline leading-tight mb-6">
           Negociar es abrazar con compasión a una persona mientras experimentamos los altibajos de la vida.
@@ -18,7 +18,7 @@ export default function HeroSection() {
               <ArrowRight className="ml-2 h-5 w-5" />
             </a>
           </Button>
-          <Button size="lg" variant="outline" className="font-bold border-accent text-accent-foreground hover:bg-accent/20 hover:text-accent-foreground" asChild>
+          <Button size="lg" variant="outline" className="font-bold" asChild>
             <a href="#">
               <Video className="mr-2 h-5 w-5" />
               Ver video del autor
