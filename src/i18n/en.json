@@ -1,0 +1,50 @@
+{
+  "header": {
+    "buy": "Buy"
+  },
+  "hero": {
+    "phrases": [
+      "Negotiating is an art.",
+      "Practice it with compassion.",
+      "A book to transform difficult conversations into mutual agreements."
+    ],
+    "buyButton": "Buy now",
+    "trailerButton": "Watch trailer"
+  },
+  "idea": {
+    "paragraphs": [
+      "It's not about winning at all costs. It's about building bridges, understanding the other, and finding common ground. Negotiating beautifully is, in essence, an act of empathy and strategy."
+    ]
+  },
+  "principles": {
+    "title": "The 3 pillars of negotiation.",
+    "clarity": {
+      "title": "Clarity",
+      "description": "Communicate your intention with simplicity and honesty. Transparency is the shortest path to trust."
+    },
+    "activeListening": {
+      "title": "Active Listening",
+      "description": "Listen to understand, not just to respond. Understand the needs and motivations of the other party."
+    },
+    "mutualRespect": {
+      "title": "Mutual Respect",
+      "description": "Hold your position without breaking the relationship. Respect is the foundation of any lasting and beneficial agreement."
+    }
+  },
+  "extracts": [
+    "Clarity is not a starting point, it is a result. It is built.",
+    "Listen to understand, not to respond. That is the key.",
+    "Negotiating beautifully is about caring for the relationship without betraying your intention."
+  ],
+  "authorVideos": {
+    "title": "In the author's voice.",
+    "subtitle": "Excerpts and reflections from Roberto to understand the essence of negotiating beautifully."
+  },
+  "cta": {
+    "title": "Start negotiating beautifully.",
+    "subtitle": "Available in your preferred format. Get your copy and transform your conversations."
+  },
+  "footer": {
+    "copyright": "Roberto. All Rights Reserved."
+  }
+}

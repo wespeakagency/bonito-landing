@@ -10,14 +10,12 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { Typewriter } from '@/components/typewriter';
-
-const extracts = [
-  "La claridad no es un punto de partida, es un resultado. Se construye.",
-  "Escuchar para comprender, no para responder. Ahí está la clave.",
-  "Negociar bonito es cuidar la relación sin traicionar tu intención.",
-];
+import { useTranslation } from '@/context/language-context';
 
 export default function ExtractsSection() {
+  const { t } = useTranslation();
+  const extracts = t('extracts', { returnObjects: true }) as string[];
+  
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const plugin = useRef(
@@ -61,7 +59,7 @@ export default function ExtractsSection() {
           className="w-full max-w-2xl mx-auto"
         >
           <CarouselContent>
-            {extracts.map((extract, index) => (
+            {extracts.map((extract: string, index: number) => (
               <CarouselItem key={index}>
                 <div className="text-center h-48 flex items-center justify-center">
                   <h3 className="text-2xl md:text-3xl font-headline font-medium text-foreground leading-tight">

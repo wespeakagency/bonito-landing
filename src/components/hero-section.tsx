@@ -4,14 +4,12 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle, ChevronDown } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { cn } from '@/lib/utils';
-
-const phrases = [
-  'Negociar es un arte.',
-  'Practícalo con compasión.',
-  'Un libro para transformar conversaciones difíciles en acuerdos mutuos.',
-];
+import { useTranslation } from '@/context/language-context';
 
 export default function HeroSection() {
+  const { t } = useTranslation();
+  const phrases = t('hero.phrases', { returnObjects: true }) as string[];
+
   const [step, setStep] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
   const hasAnimated = useRef<boolean[]>([false, false, false]);
@@ -26,7 +24,7 @@ export default function HeroSection() {
 
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [phrases.length]);
 
   const handleAnimationComplete = () => {
     if (step < phrases.length - 1) {
@@ -61,7 +59,7 @@ export default function HeroSection() {
             <div className="min-h-[150px]">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight">
                 <Typewriter
-                  key={step}
+                  key={`${t('hero.phrases')}-${step}`}
                   text={phrases[step]}
                   speed={80}
                   onComplete={handleAnimationComplete}
@@ -75,7 +73,7 @@ export default function HeroSection() {
           {step === 2 && (
             <div className="animate-in fade-in duration-1000 pt-10">
                <div className="min-h-[150px] flex items-center justify-center">
-                <p className="text-xl md:text-2xl text-white/80 max-w-3xl mx-auto">
+                <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto">
                   {phrases[2]}
                 </p>
               </div>
@@ -83,14 +81,14 @@ export default function HeroSection() {
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                 <Button size="lg" className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90" asChild>
                   <a href="#">
-                    Comprar ahora
+                    {t('hero.buyButton')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>
                 </Button>
                 <Button size="lg" variant="ghost" className="font-semibold rounded-full px-8 py-6 text-lg text-white hover:bg-white/10" asChild>
                   <a href="#">
                     <PlayCircle className="mr-2 h-5 w-5" />
-                    Ver el trailer
+                    {t('hero.trailerButton')}
                   </a>
                 </Button>
               </div>

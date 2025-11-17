@@ -1,0 +1,50 @@
+{
+  "header": {
+    "buy": "Comprar"
+  },
+  "hero": {
+    "phrases": [
+      "Negociar es un arte.",
+      "Practícalo con compasión.",
+      "Un libro para transformar conversaciones difíciles en acuerdos mutuos."
+    ],
+    "buyButton": "Comprar ahora",
+    "trailerButton": "Ver el trailer"
+  },
+  "idea": {
+    "paragraphs": [
+      "No se trata de ganar a toda costa. Se trata de construir puentes, de entender al otro y de encontrar un terreno común. Negociar bonito es, en esencia, un acto de empatía y estrategia."
+    ]
+  },
+  "principles": {
+    "title": "Los 3 pilares de la negociación.",
+    "clarity": {
+      "title": "Claridad",
+      "description": "Comunica tu intención con simpleza y honestidad. La transparencia es el camino más corto hacia la confianza."
+    },
+    "activeListening": {
+      "title": "Escucha Activa",
+      "description": "Escucha para comprender, no solo para responder. Entiende las necesidades y motivaciones de la otra parte."
+    },
+    "mutualRespect": {
+      "title": "Respeto Mutuo",
+      "description": "Sostén tu posición sin romper la relación. El respeto es la base de cualquier acuerdo duradero y beneficioso."
+    }
+  },
+  "extracts": [
+    "La claridad no es un punto de partida, es un resultado. Se construye.",
+    "Escuchar para comprender, no para responder. Ahí está la clave.",
+    "Negociar bonito es cuidar la relación sin traicionar tu intención."
+  ],
+  "authorVideos": {
+    "title": "En la voz del autor.",
+    "subtitle": "Extractos y reflexiones de Roberto para entender la esencia de negociar bonito."
+  },
+  "cta": {
+    "title": "Comienza a negociar bonito.",
+    "subtitle": "Disponible en tu formato preferido. Adquiere tu copia y transforma tus conversaciones."
+  },
+  "footer": {
+    "copyright": "Roberto. All Rights Reserved."
+  }
+}

@@ -1,41 +1,46 @@
+'use client';
+
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Eye, HeartHandshake } from 'lucide-react';
 import { EarIcon } from './icons';
 import { AnimatedBlock } from './animated-block';
 import { cn } from '@/lib/utils';
-
-const principles = [
-  {
-    icon: Eye,
-    title: 'Claridad',
-    description: 'Comunica tu intención con simpleza y honestidad. La transparencia es el camino más corto hacia la confianza.',
-  },
-  {
-    icon: EarIcon,
-    title: 'Escucha Activa',
-    description: 'Escucha para comprender, no solo para responder. Entiende las necesidades y motivaciones de la otra parte.',
-  },
-  {
-    icon: HeartHandshake,
-    title: 'Respeto Mutuo',
-    description: 'Sostén tu posición sin romper la relación. El respeto es la base de cualquier acuerdo duradero y beneficioso.',
-  },
-];
+import { useTranslation } from '@/context/language-context';
 
 export default function PrinciplesSection() {
+  const { t } = useTranslation();
+
+  const principles = [
+    {
+      icon: Eye,
+      title: t('principles.clarity.title'),
+      description: t('principles.clarity.description'),
+    },
+    {
+      icon: EarIcon,
+      title: t('principles.activeListening.title'),
+      description: t('principles.activeListening.description'),
+    },
+    {
+      icon: HeartHandshake,
+      title: t('principles.mutualRespect.title'),
+      description: t('principles.mutualRespect.description'),
+    },
+  ];
+
   return (
     <section className="py-24 sm:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
         <AnimatedBlock>
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
-            Los 3 pilares de la negociación.
+            {t('principles.title')}
           </h2>
         </AnimatedBlock>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto group">
           {principles.map((principle, index) => (
             <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
               <Card className={cn(
-                "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-all duration-300 group-hover:blur-sm hover:!blur-none hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(255,255,255,0.2)]"
+                "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-all duration-300 group-hover:blur-sm hover:!blur-none hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(255,255,255,0.1)] shadow-white/5"
               )}>
                 <CardHeader className="pt-8">
                   <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>

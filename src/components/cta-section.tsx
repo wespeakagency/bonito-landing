@@ -1,6 +1,9 @@
+'use client';
+
 import { Button } from '@/components/ui/button';
 import { ShoppingCart, BookOpen, Headphones, Globe } from 'lucide-react';
 import { AnimatedBlock } from './animated-block';
+import { useTranslation } from '@/context/language-context';
 
 const channels = [
   { name: 'Amazon', icon: ShoppingCart, href: '#' },
@@ -10,15 +13,17 @@ const channels = [
 ];
 
 export default function CtaSection() {
+  const { t } = useTranslation();
+
   return (
     <section className="bg-secondary text-foreground py-24 sm:py-32">
       <div className="container mx-auto px-4 text-center">
         <AnimatedBlock>
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 text-foreground">
-            Comienza a negociar bonito.
+            {t('cta.title')}
           </h2>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            Disponible en tu formato preferido. Adquiere tu copia y transforma tus conversaciones.
+            {t('cta.subtitle')}
           </p>
         </AnimatedBlock>
         <AnimatedBlock delay={200}>

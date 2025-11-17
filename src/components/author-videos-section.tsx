@@ -11,8 +11,10 @@ import {
 import { PlayCircle } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { AnimatedBlock } from './animated-block';
+import { useTranslation } from '@/context/language-context';
 
 export default function AuthorVideosSection() {
+  const { t } = useTranslation();
   const videoThumbnails = PlaceHolderImages.filter((img) =>
     img.id.startsWith('author-video')
   );
@@ -22,10 +24,10 @@ export default function AuthorVideosSection() {
       <div className="container mx-auto px-4">
         <AnimatedBlock>
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-foreground">
-            En la voz del autor.
+            {t('authorVideos.title')}
           </h2>
           <p className="text-xl md:text-2xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
-            Extractos y reflexiones de Roberto para entender la esencia de negociar bonito.
+            {t('authorVideos.subtitle')}
           </p>
         </AnimatedBlock>
         <AnimatedBlock delay={200}>
