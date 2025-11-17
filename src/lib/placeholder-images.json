@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "author-video-1",
+      "description": "Thumbnail for author video 1",
+      "imageUrl": "https://images.unsplash.com/photo-1726690316003-d9ab26fc659a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtYW4lMjB0YWxraW5nfGVufDB8fHx8MTc2MzI2NTQ3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "man talking"
+    },
+    {
+      "id": "author-video-2",
+      "description": "Thumbnail for author video 2",
+      "imageUrl": "https://images.unsplash.com/photo-1680356475155-3ca8fa2192aa?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxhdXRob3IlMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjMzMzYzOTF8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "author portrait"
+    },
+    {
+      "id": "author-video-3",
+      "description": "Thumbnail for author video 3",
+      "imageUrl": "https://images.unsplash.com/photo-1692713473084-76a73f2cf22c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxwZXJzb24lMjBzcGVha2luZ3xlbnwwfHx8fDE3NjMyNzI0MzZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "person speaking"
+    }
+  ]
 }
