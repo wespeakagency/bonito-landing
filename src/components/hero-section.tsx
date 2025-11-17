@@ -18,7 +18,7 @@ export default function HeroSection() {
       </video>
       <div className="container mx-auto px-4 text-center z-20">
         <AnimatedBlock>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight mb-6">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold font-headline leading-tight mb-6">
             Negociar es un arte.
             <br />
             Practícalo con compasión.
