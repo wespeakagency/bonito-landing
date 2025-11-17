@@ -41,31 +41,23 @@ export default function PrinciplesSection() {
           {principles.map((principle, index) => (
             <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
               <div
-                className={cn('flip-card float group', principle.hoverColor, principle.glowColor)}
+                className={cn('flip-card group rounded-2xl', principle.hoverColor, principle.glowColor)}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="flip-card-inner">
-                  <div className="flip-card-front">
-                    <Card
-                      className="text-center h-full w-full bg-secondary border-none rounded-2xl p-6 transition-all duration-300 flex flex-col items-center justify-center"
-                    >
-                      <CardHeader className="p-0 mb-4 flex flex-col items-center">
-                        <div className="text-primary mb-4">
-                          <principle.icon className="h-12 w-12 text-foreground" />
-                        </div>
-                        <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
-                      </CardHeader>
-                    </Card>
-                  </div>
-                  <div className="flip-card-back">
-                    <Card
-                      className="text-center h-full w-full bg-secondary border-none rounded-2xl p-6 transition-all duration-300 flex flex-col items-center justify-center"
-                    >
-                      <CardContent className="p-0">
-                        <p className="text-muted-foreground text-sm text-justify px-4">{principle.description}</p>
-                      </CardContent>
-                    </Card>
-                  </div>
+                  <Card className="flip-card-front text-center bg-secondary border-none p-6 transition-all duration-300">
+                    <CardHeader className="p-0 mb-4">
+                      <div className="text-primary mb-4">
+                        <principle.icon className="h-12 w-12 text-foreground mx-auto" />
+                      </div>
+                      <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
+                    </CardHeader>
+                  </Card>
+                  <Card className="flip-card-back text-center bg-secondary border-none p-6 transition-all duration-300">
+                    <CardContent className="p-0">
+                      <p className="text-muted-foreground text-sm text-justify">{principle.description}</p>
+                    </CardContent>
+                  </Card>
                 </div>
               </div>
             </AnimatedBlock>
