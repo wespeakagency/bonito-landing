@@ -54,7 +54,7 @@ export default function PrinciplesSection() {
                   </div>
                   <CardTitle className="font-headline text-xl font-semibold text-white">{principle.title}</CardTitle>
                 </CardHeader>
-                <CardContent className="p-0">
+                <CardContent className="p-0 px-4">
                   <p className="text-muted-foreground text-sm text-justify">{principle.description}</p>
                 </CardContent>
               </Card>
