@@ -27,7 +27,7 @@
   }
 
   .dark {
-    --background: 20 14.3% 4.1%;
+    --background: 0 0% 0%;
     --foreground: 0 0% 98%;
     --card: 20 14.3% 4.1%;
     --card-foreground: 0 0% 98%;
@@ -70,5 +70,23 @@
 
   .float {
     animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes scroll-down {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+  }
+
+  .scroll-down-indicator {
+    animation: scroll-down 2s ease-in-out infinite;
   }
 }

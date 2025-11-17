@@ -13,9 +13,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-1">
-        <AnimatedBlock>
-          <HeroSection />
-        </AnimatedBlock>
+        <HeroSection />
         <AnimatedBlock>
           <IdeaSection />
         </AnimatedBlock>

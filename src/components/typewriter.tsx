@@ -6,13 +6,16 @@ interface TypewriterProps {
   text: string;
   speed?: number;
   className?: string;
+  onComplete?: () => void;
+  onStart?: () => void;
 }
 
-export function Typewriter({ text, speed = 50, className }: TypewriterProps) {
+export function Typewriter({ text, speed = 50, className, onComplete, onStart }: TypewriterProps) {
   const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
-    setDisplayedText(''); // Reset on text change
+    onStart?.();
+    setDisplayedText(''); 
     let i = 0;
     const typingInterval = setInterval(() => {
       if (i < text.length) {
@@ -20,13 +23,14 @@ export function Typewriter({ text, speed = 50, className }: TypewriterProps) {
         i++;
       } else {
         clearInterval(typingInterval);
+        onComplete?.();
       }
     }, speed);
 
     return () => {
       clearInterval(typingInterval);
     };
-  }, [text, speed]);
+  }, [text, speed, onComplete, onStart]);
 
   return <span className={className}>{displayedText}</span>;
 }
