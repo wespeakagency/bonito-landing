@@ -41,7 +41,7 @@ export default function PrinciplesSection() {
     <section className="relative py-24 sm:py-32 bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType='slide-in-up'>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-24 text-foreground">
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
