@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
@@ -26,20 +27,16 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64">
-      <div className="absolute inset-0">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute z-0 w-auto min-w-full min-h-full max-w-none opacity-20 object-cover"
-          poster="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1280&h=720&fit=crop"
-        >
-          <source src="https://cdn.pixabay.com/video/2021/09/16/87411-611352485_large.mp4" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
+    <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
+      <div className="absolute inset-0 opacity-20 float">
+        <Image
+          src="https://i.ibb.co/xK55mxcM/proto1.png"
+          alt="Symbolic hands background"
+          fill
+          className="object-cover"
+        />
       </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
       
       <div className="container mx-auto px-4 text-center z-20 relative">
         <div className="min-h-[300px] md:min-h-[350px] flex flex-col items-center justify-center">
