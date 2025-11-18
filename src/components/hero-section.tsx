@@ -44,12 +44,12 @@ export default function HeroSection() {
       <div className="container mx-auto px-4 text-center z-20 relative">
         <div className="min-h-[300px] md:min-h-[350px] flex flex-col items-center justify-center">
             <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight whitespace-nowrap">
-                <Typewriter text={phrases[0]} onComplete={() => setStep(1)} />
+                <Typewriter text={phrases[0]} onComplete={() => setStep(1)} runOnce />
             </h1>
 
             {step >= 1 && (
                  <h2 className="text-3xl md:text-4xl lg:text-5xl font-medium font-headline text-white/80 mt-4 animate-in fade-in duration-1000">
-                    <Typewriter text={phrases[1]} onComplete={() => setStep(2)} />
+                    <Typewriter text={phrases[1]} onComplete={() => setStep(2)} runOnce />
                 </h2>
             )}
             
