@@ -20,7 +20,7 @@ export default function ExtractsSection() {
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);
   const plugin = useRef(
-    Autoplay({ delay: 5000, stopOnInteraction: true, stopOnMouseEnter: true })
+    Autoplay({ delay: 1000, stopOnInteraction: true, stopOnMouseEnter: true })
   );
 
   useEffect(() => {
@@ -30,9 +30,15 @@ export default function ExtractsSection() {
 
     const onSelect = () => {
       setCurrent(api.selectedScrollSnap());
+      // Reset and play the autoplay plugin when a new slide is selected
+      plugin.current.reset();
+      plugin.current.play();
     };
 
     api.on('select', onSelect);
+    // Stop autoplay initially, it will be started by the typewriter
+    plugin.current.stop();
+
 
     return () => {
       api.off('select', onSelect);
@@ -40,7 +46,11 @@ export default function ExtractsSection() {
   }, [api]);
 
   const handleTypewriterComplete = () => {
-    plugin.current.play();
+    // The onSelect handler will take care of playing the autoplay
+    // We just need to trigger the next slide after a short delay
+    setTimeout(() => {
+        api?.scrollNext();
+    }, 1000);
   };
 
   const handleTypewriterStart = () => {
