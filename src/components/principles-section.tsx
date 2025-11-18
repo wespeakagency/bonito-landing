@@ -2,7 +2,7 @@
 import type { ComponentType } from 'react';
 import { useState } from 'react';
 import type { LucideProps } from 'lucide-react';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardDescription, CardTitle } from '@/components/ui/card';
 import { Eye, HeartHandshake } from 'lucide-react';
 import { EarIcon } from './icons';
 import { AnimatedBlock } from './animated-block';
@@ -64,13 +64,11 @@ export default function PrinciplesSection() {
                     {/* Front of the card */}
                     <div className="flip-card-front">
                       <Card className="bg-secondary border-muted-foreground/20 w-full h-full">
-                        <CardHeader className="p-4 pt-8">
-                          <CardTitle className="font-headline text-2xl font-semibold text-foreground">{principle.title}</CardTitle>
-                        </CardHeader>
-                        <CardContent className="flex-grow flex flex-col justify-center items-center p-4">
-                           <div className="p-4">
-                              <principle.icon className="h-10 w-10 text-foreground" />
-                           </div>
+                        <CardContent className="p-6 pt-12 flex flex-col items-center">
+                          <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center mb-8">{principle.title}</CardTitle>
+                          <div className="p-4">
+                             <principle.icon className="h-10 w-10 text-foreground" />
+                          </div>
                         </CardContent>
                       </Card>
                     </div>
@@ -78,7 +76,7 @@ export default function PrinciplesSection() {
                     {/* Back of the card */}
                     <div className="flip-card-back">
                       <Card className="bg-secondary border-muted-foreground/20 w-full h-full">
-                        <CardContent className="p-6">
+                        <CardContent className="p-6 flex flex-col justify-center h-full">
                           <CardDescription className="text-muted-foreground text-md text-center">
                             {principle.description}
                           </CardDescription>
