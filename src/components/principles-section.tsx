@@ -55,7 +55,7 @@ export default function PrinciplesSection() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={cn(
                   "transition-all duration-300",
-                  hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-50' : 'blur-0 opacity-100',
+                  hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-20' : 'blur-0 opacity-100',
                   hoveredIndex === index ? 'scale-105' : ''
                 )}
               >
