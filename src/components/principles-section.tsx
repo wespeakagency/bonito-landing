@@ -13,6 +13,7 @@ type Principle = {
   icon: ComponentType<LucideProps>;
   title: string;
   description: string;
+  glowClass: string;
 };
 
 export default function PrinciplesSection() {
@@ -24,16 +25,19 @@ export default function PrinciplesSection() {
       icon: Eye,
       title: t('principles.clarity.title'),
       description: t('principles.clarity.description'),
+      glowClass: 'card-glow-1',
     },
     {
       icon: EarIcon,
       title: t('principles.activeListening.title'),
       description: t('principles.activeListening.description'),
+      glowClass: 'card-glow-2',
     },
     {
       icon: HeartHandshake,
       title: t('principles.mutualRespect.title'),
       description: t('principles.mutualRespect.description'),
+      glowClass: 'card-glow-3',
     },
   ];
 
@@ -59,24 +63,24 @@ export default function PrinciplesSection() {
                   hoveredIndex === index ? 'scale-105' : ''
                 )}
               >
-                <div className="flip-card rounded-lg">
+                <div className={cn("flip-card rounded-lg", principle.glowClass)}>
                   <div className="flip-card-inner">
                     {/* Front of the card */}
                     <div className="flip-card-front">
-                      <Card className="bg-secondary border-none w-full h-full">
-                        <CardContent className="p-6 pt-12 flex flex-col items-center justify-center">
-                          <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center mb-8">{principle.title}</CardTitle>
-                          <div className="p-4">
-                             <principle.icon className="h-10 w-10 text-foreground" />
-                          </div>
+                      <Card className="bg-secondary border-none w-full h-full card-glow transition-shadow duration-300">
+                        <CardContent className="p-6 flex flex-col items-center justify-center text-center gap-8">
+                          <CardTitle className="font-headline text-2xl font-semibold text-foreground">
+                            {principle.title}
+                          </CardTitle>
+                          <principle.icon className="h-10 w-10 text-foreground" />
                         </CardContent>
                       </Card>
                     </div>
 
                     {/* Back of the card */}
                     <div className="flip-card-back">
-                      <Card className="bg-secondary border-none w-full h-full">
-                        <CardContent className="p-6 flex flex-col justify-center items-center h-full">
+                      <Card className="bg-secondary border-none w-full h-full card-glow transition-shadow duration-300">
+                        <CardContent className="p-6 flex items-center justify-center h-full">
                           <CardDescription className="text-muted-foreground text-md text-center">
                             {principle.description}
                           </CardDescription>

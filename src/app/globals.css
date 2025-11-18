@@ -127,7 +127,7 @@
   .card-glow-2 { --glow-color: hsl(var(--accent)); }
   .card-glow-3 { --glow-color: hsl(var(--foreground)); }
 
-  [class^="card-glow-"]:hover {
+  .flip-card:hover .card-glow {
     box-shadow: 0 0 15px -3px var(--glow-color), 0 0 30px -10px var(--glow-color);
   }
 }
