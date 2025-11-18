@@ -51,7 +51,7 @@ export default function PrinciplesSection() {
                   </CardDescription>
                   <div className="flex justify-center items-end">
                     <div className="bg-background rounded-lg p-4 border border-border">
-                        <principle.icon className="h-10 w-10 text-foreground" />
+                        <principle.icon className="h-8 w-8 text-foreground" />
                     </div>
                   </div>
                 </CardContent>
