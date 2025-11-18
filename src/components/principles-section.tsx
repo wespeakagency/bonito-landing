@@ -31,14 +31,14 @@ export default function PrinciplesSection() {
   return (
     <section className="py-24 sm:py-32 bg-background text-foreground">
       <div className="container mx-auto px-4">
-        <AnimatedBlock>
+        <AnimatedBlock animationType='slide-in-up'>
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto group">
           {principles.map((principle, index) => (
-            <AnimatedBlock key={principle.title} delay={100 * (index + 1)}>
+            <AnimatedBlock key={principle.title} delay={150 * (index + 1)} animationType='zoom-in'>
               <Card className={cn(
                 "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-all duration-300 group-hover:blur-sm hover:!blur-none hover:scale-105 hover:shadow-[0_0_25px_-5px_rgba(255,255,255,0.1)] shadow-white/5"
               )}>

@@ -18,19 +18,20 @@ export default function CtaSection() {
   return (
     <section className="bg-secondary text-foreground py-24 sm:py-32">
       <div className="container mx-auto px-4 text-center">
-        <AnimatedBlock>
+        <AnimatedBlock animationType='zoom-in'>
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 text-foreground">
             {t('cta.title')}
           </h2>
+        </AnimatedBlock>
+        <AnimatedBlock animationType='zoom-in' delay={150}>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
             {t('cta.subtitle')}
           </p>
         </AnimatedBlock>
-        <AnimatedBlock delay={200}>
-          <div className="flex flex-wrap justify-center gap-4">
-            {channels.map((channel) => (
+        <div className="flex flex-wrap justify-center gap-4">
+          {channels.map((channel, index) => (
+            <AnimatedBlock key={channel.name} delay={300 + index * 100} animationType='slide-in-up'>
               <Button
-                key={channel.name}
                 variant="outline"
                 size="lg"
                 className="bg-background border-border text-foreground hover:bg-accent hover:text-accent-foreground transition-transform duration-200 hover:scale-105 rounded-full"
@@ -41,9 +42,9 @@ export default function CtaSection() {
                   {channel.name}
                 </a>
               </Button>
-            ))}
-          </div>
-        </AnimatedBlock>
+            </AnimatedBlock>
+          ))}
+        </div>
       </div>
     </section>
   );

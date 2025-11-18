@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/carousel';
 import { Typewriter } from '@/components/typewriter';
 import { useTranslation } from '@/context/language-context';
+import { AnimatedBlock } from './animated-block';
 
 export default function ExtractsSection() {
   const { t } = useTranslation();
@@ -49,7 +50,7 @@ export default function ExtractsSection() {
 
   return (
     <section className="py-24 sm:py-32 bg-secondary overflow-hidden">
-      <div className="container mx-auto px-4">
+      <AnimatedBlock className="container mx-auto px-4" animationType='zoom-in'>
         <Carousel
           setApi={setApi}
           opts={{
@@ -80,7 +81,7 @@ export default function ExtractsSection() {
           <CarouselPrevious className="hidden sm:flex bg-background border-border text-foreground" />
           <CarouselNext className="hidden sm:flex bg-background border-border text-foreground" />
         </Carousel>
-      </div>
+      </AnimatedBlock>
     </section>
   );
 }

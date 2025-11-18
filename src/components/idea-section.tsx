@@ -12,7 +12,7 @@ export default function IdeaSection() {
       <div className="container mx-auto px-4 max-w-4xl">
         <div className="space-y-12">
           {ideas.map((idea: string, index: number) => (
-            <AnimatedBlock key={index} delay={index * 150}>
+            <AnimatedBlock key={index} delay={index * 200} animationType="zoom-in">
               <p className="text-xl md:text-2xl text-center font-headline leading-tight text-foreground">
                 {idea}
               </p>
