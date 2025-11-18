@@ -1,5 +1,6 @@
 'use client';
 import type { ComponentType } from 'react';
+import { useState } from 'react';
 import type { LucideProps } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Eye, HeartHandshake } from 'lucide-react';
@@ -16,6 +17,7 @@ type Principle = {
 
 export default function PrinciplesSection() {
   const { t } = useTranslation();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const principles: Principle[] = [
     {
@@ -43,29 +45,35 @@ export default function PrinciplesSection() {
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div 
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          onMouseLeave={() => setHoveredIndex(null)}
+        >
           {principles.map((principle, index) => (
              <AnimatedBlock key={principle.title} delay={150 * (index + 1)} animationType='zoom-in'>
-              <Card 
-                className={cn(
-                  "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-shadow duration-300",
-                  `card-glow-${index + 1}`
-                )}
-              >
-                <CardHeader className="pt-8">
-                  <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
-                </CardHeader>
-                <CardContent className="flex-grow flex flex-col justify-between pt-2">
-                  <CardDescription className="text-muted-foreground text-sm mb-6">
-                    {principle.description}
-                  </CardDescription>
-                  <div className="flex justify-center items-end">
-                    <div className="bg-background rounded-lg p-4 border border-border">
-                        <principle.icon className="h-7 w-7 text-foreground" />
+              <div onMouseEnter={() => setHoveredIndex(index)}>
+                <Card 
+                  className={cn(
+                    "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-all duration-300",
+                    hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-50' : 'scale-100 blur-0 opacity-100',
+                    hoveredIndex === index ? 'scale-105 shadow-2xl shadow-white/20' : ''
+                  )}
+                >
+                  <CardHeader className="pt-8">
+                    <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent className="flex-grow flex flex-col justify-between pt-2">
+                    <CardDescription className="text-muted-foreground text-sm mb-6">
+                      {principle.description}
+                    </CardDescription>
+                    <div className="flex justify-center items-end">
+                      <div className="bg-background rounded-lg p-4 border border-border">
+                          <principle.icon className="h-7 w-7 text-foreground" />
+                      </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardContent>
+                </Card>
+              </div>
             </AnimatedBlock>
           ))}
         </div>
