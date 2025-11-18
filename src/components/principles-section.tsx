@@ -1,5 +1,5 @@
 'use client';
-import { useState, useRef, type MouseEvent, type ComponentType } from 'react';
+import { useState, type ComponentType } from 'react';
 import type { LucideProps } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Eye, HeartHandshake } from 'lucide-react';
@@ -13,42 +13,6 @@ type Principle = {
   title: string;
   description: string;
 };
-
-const TiltCard = ({ children, className }: { children: React.ReactNode, className?: string }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
-    const el = ref.current;
-    if (!el) return;
-
-    const { left, top, width, height } = el.getBoundingClientRect();
-    const x = (e.clientX - left - width / 2) / (width / 2);
-    const y = (e.clientY - top - height / 2) / (height / 2);
-
-    const rotateX = y * 10; // Max rotation 10 degrees
-    const rotateY = -x * 10; // Max rotation 10 degrees
-
-    el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
-  };
-
-  const handleMouseLeave = () => {
-    const el = ref.current;
-    if (!el) return;
-    el.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-  };
-
-  return (
-    <div
-      ref={ref}
-      className={cn("transition-transform duration-300 ease-out", className)}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-    >
-      {children}
-    </div>
-  );
-};
-
 
 export default function PrinciplesSection() {
   const { t } = useTranslation();
@@ -74,36 +38,34 @@ export default function PrinciplesSection() {
   return (
     <section className="relative py-24 sm:py-32 bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
-        <AnimatedBlock animationType='slide-in-up'>
+        <AnimatedBlock animationType='slide-in-up' isVisible>
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {principles.map((principle, index) => (
-            <AnimatedBlock key={principle.title} delay={150 * (index + 1)} animationType='zoom-in'>
-               <TiltCard>
-                <Card 
-                  className={cn(
-                    "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-shadow duration-300",
-                    `card-glow-${index + 1}`
-                  )}
-                >
-                  <CardHeader className="pt-8">
-                    <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between pt-2">
-                    <CardDescription className="text-muted-foreground text-sm mb-6">
-                      {principle.description}
-                    </CardDescription>
-                    <div className="flex justify-center items-end">
-                      <div className="bg-background rounded-lg p-4 border border-border">
-                          <principle.icon className="h-7 w-7 text-foreground" />
-                      </div>
+             <AnimatedBlock key={principle.title} delay={150 * (index + 1)} isVisible animationType='zoom-in'>
+              <Card 
+                className={cn(
+                  "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-shadow duration-300",
+                  `card-glow-${index + 1}`
+                )}
+              >
+                <CardHeader className="pt-8">
+                  <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-grow flex flex-col justify-between pt-2">
+                  <CardDescription className="text-muted-foreground text-sm mb-6">
+                    {principle.description}
+                  </CardDescription>
+                  <div className="flex justify-center items-end">
+                    <div className="bg-background rounded-lg p-4 border border-border">
+                        <principle.icon className="h-7 w-7 text-foreground" />
                     </div>
-                  </CardContent>
-                </Card>
-              </TiltCard>
+                  </div>
+                </CardContent>
+              </Card>
             </AnimatedBlock>
           ))}
         </div>
