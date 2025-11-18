@@ -41,7 +41,7 @@ export default function PrinciplesSection() {
     <section className="relative py-24 sm:py-32 bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType='slide-in-up'>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-24 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-32 text-foreground">
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
@@ -63,12 +63,12 @@ export default function PrinciplesSection() {
                   <div className="flip-card-inner">
                     {/* Front of the card */}
                     <div className="flip-card-front">
-                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full flex flex-col items-center justify-center">
-                        <CardHeader className="pt-2">
-                          <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center">{principle.title}</CardTitle>
+                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full flex flex-col items-center justify-center text-center">
+                        <CardHeader className="p-4">
+                          <CardTitle className="font-headline text-2xl font-semibold text-foreground">{principle.title}</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex-grow flex flex-col justify-center items-center pt-2">
-                           <div className="bg-background rounded-lg p-4">
+                        <CardContent className="flex-grow flex flex-col justify-center items-center p-4">
+                           <div className="p-4">
                               <principle.icon className="h-10 w-10 text-foreground" />
                            </div>
                         </CardContent>
