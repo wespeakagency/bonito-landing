@@ -26,7 +26,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative bg-black text-white h-screen flex flex-col justify-center">
+    <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64">
       <div className="absolute inset-0">
         <video
           autoPlay
