@@ -63,8 +63,8 @@ export default function PrinciplesSection() {
                   <div className="flip-card-inner">
                     {/* Front of the card */}
                     <div className="flip-card-front">
-                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full">
-                        <CardContent className="p-6 pt-12 flex flex-col items-center">
+                      <Card className="bg-secondary border-none w-full h-full">
+                        <CardContent className="p-6 pt-12 flex flex-col items-center justify-center">
                           <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center mb-8">{principle.title}</CardTitle>
                           <div className="p-4">
                              <principle.icon className="h-10 w-10 text-foreground" />
@@ -75,8 +75,8 @@ export default function PrinciplesSection() {
 
                     {/* Back of the card */}
                     <div className="flip-card-back">
-                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full">
-                        <CardContent className="p-6 flex flex-col justify-center h-full">
+                      <Card className="bg-secondary border-none w-full h-full">
+                        <CardContent className="p-6 flex flex-col justify-center items-center h-full">
                           <CardDescription className="text-muted-foreground text-md text-center">
                             {principle.description}
                           </CardDescription>
