@@ -64,11 +64,11 @@ export default function PrinciplesSection() {
                     {/* Front of the card */}
                     <div className="flip-card-front">
                       <Card className="bg-secondary border-muted-foreground/20 w-full h-full flex flex-col items-center justify-center">
-                        <CardHeader className="pt-8">
+                        <CardHeader className="pt-2">
                           <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center">{principle.title}</CardTitle>
                         </CardHeader>
                         <CardContent className="flex-grow flex flex-col justify-center items-center pt-2">
-                           <div className="bg-background rounded-lg p-4 border border-border mt-4">
+                           <div className="bg-background rounded-lg p-4">
                               <principle.icon className="h-10 w-10 text-foreground" />
                            </div>
                         </CardContent>
