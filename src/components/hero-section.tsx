@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, PlayCircle, ChevronDown } from 'lucide-react';
+import { ArrowRight, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useTranslation } from '@/context/language-context';
 
@@ -10,31 +10,16 @@ export default function HeroSection() {
   const phrases = t('hero.phrases', { returnObjects: true }) as string[];
 
   const [step, setStep] = useState(0);
-  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-
-  useEffect(() => {
-    if (step < phrases.length - 1) {
-      const timer = setTimeout(() => {
-        setStep(step + 1);
-      }, 5000); // Wait 5 seconds before going to next step
-      return () => clearTimeout(timer);
-    } else {
-      setShowScrollIndicator(false);
-    }
-  }, [step, phrases.length]);
 
   const handleAnimationComplete = () => {
-    // The useEffect will handle moving to the next step.
+    if (step < phrases.length) {
+      setStep(prev => prev + 1);
+    }
   };
-  
-  const resetShowScroll = () => {
-    setShowScrollIndicator(true);
-  }
 
   return (
     <section className="relative bg-black text-white py-48 md:py-64">
       <div className="absolute inset-0">
-        {/* Video Background */}
         <video
           autoPlay
           loop
@@ -48,26 +33,23 @@ export default function HeroSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
       </div>
       
-      {/* Content */}
       <div className="container mx-auto px-4 text-center z-20 relative">
-        <div className="min-h-[150px] flex items-center justify-center">
-            {step < phrases.length - 1 ? (
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight">
-                <Typewriter
-                  key={`${t('hero.phrases')}-${step}`}
-                  text={phrases[step]}
-                  speed={50}
-                  onComplete={handleAnimationComplete}
-                  onStart={resetShowScroll}
-                />
-              </h1>
-            ) : (
-              <div className="animate-in fade-in duration-1000">
-                 <div className="min-h-[150px] flex items-center justify-center">
-                  <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto">
-                    {phrases[phrases.length - 1]}
+        <div className="min-h-[250px] md:min-h-[300px] flex flex-col items-center justify-center">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight">
+                {step > 0 ? phrases[0] : <Typewriter text={phrases[0]} onComplete={handleAnimationComplete} />}
+            </h1>
+
+            {step >= 1 && (
+                 <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium font-headline text-white/80 mt-4">
+                    {step > 1 ? phrases[1] : <Typewriter text={phrases[1]} onComplete={handleAnimationComplete} />}
+                </h2>
+            )}
+            
+            {step >= 2 && (
+              <div className="animate-in fade-in duration-1000 delay-500">
+                 <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto mt-12">
+                    {phrases[2]}
                   </p>
-                </div>
   
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                   <Button size="lg" className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90" asChild>
