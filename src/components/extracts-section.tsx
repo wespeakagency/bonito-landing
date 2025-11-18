@@ -49,7 +49,7 @@ export default function ExtractsSection() {
 
 
   return (
-    <section className="py-24 sm:py-32 bg-secondary overflow-hidden">
+    <section className="py-12 sm:py-16 bg-secondary overflow-hidden">
       <AnimatedBlock className="container mx-auto px-4" animationType='zoom-in'>
         <Carousel
           setApi={setApi}
