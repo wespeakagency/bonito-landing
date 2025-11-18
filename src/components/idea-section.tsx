@@ -10,12 +10,12 @@ export default function IdeaSection() {
 
   return (
     <section className="relative py-24 sm:py-32 bg-background overflow-hidden">
-      <div className="absolute inset-0 opacity-10 float">
+      <div className="absolute inset-0 opacity-20 float">
         <Image
           src="https://i.ibb.co/xK55mxcM/proto1.png"
           alt="Symbolic hands background"
           fill
-          className="object-contain"
+          className="object-cover"
         />
       </div>
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
