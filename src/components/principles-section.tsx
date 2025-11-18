@@ -1,5 +1,5 @@
 'use client';
-import { useState, type ComponentType } from 'react';
+import type { ComponentType } from 'react';
 import type { LucideProps } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Eye, HeartHandshake } from 'lucide-react';
@@ -38,14 +38,14 @@ export default function PrinciplesSection() {
   return (
     <section className="relative py-24 sm:py-32 bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
-        <AnimatedBlock animationType='slide-in-up' isVisible>
+        <AnimatedBlock animationType='slide-in-up'>
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {principles.map((principle, index) => (
-             <AnimatedBlock key={principle.title} delay={150 * (index + 1)} isVisible animationType='zoom-in'>
+             <AnimatedBlock key={principle.title} delay={150 * (index + 1)} animationType='zoom-in'>
               <Card 
                 className={cn(
                   "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-shadow duration-300",
