@@ -51,28 +51,42 @@ export default function PrinciplesSection() {
         >
           {principles.map((principle, index) => (
              <AnimatedBlock key={principle.title} delay={150 * (index + 1)} animationType='zoom-in'>
-              <div onMouseEnter={() => setHoveredIndex(index)}>
-                <Card 
-                  className={cn(
-                    "bg-secondary border-muted-foreground/20 text-center h-full flex flex-col transition-all duration-300",
-                    hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-50' : 'scale-100 blur-0 opacity-100',
-                    hoveredIndex === index ? 'scale-105 shadow-2xl shadow-white/20' : ''
-                  )}
-                >
-                  <CardHeader className="pt-8">
-                    <CardTitle className="font-headline text-xl font-semibold text-foreground">{principle.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent className="flex-grow flex flex-col justify-between pt-2">
-                    <CardDescription className="text-muted-foreground text-sm mb-6">
-                      {principle.description}
-                    </CardDescription>
-                    <div className="flex justify-center items-end">
-                      <div className="bg-background rounded-lg p-4 border border-border">
-                          <principle.icon className="h-7 w-7 text-foreground" />
-                      </div>
+              <div 
+                onMouseEnter={() => setHoveredIndex(index)}
+                className={cn(
+                  "transition-all duration-300",
+                  hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-50' : 'blur-0 opacity-100',
+                  hoveredIndex === index ? 'scale-105' : ''
+                )}
+              >
+                <div className="flip-card rounded-lg">
+                  <div className="flip-card-inner">
+                    {/* Front of the card */}
+                    <div className="flip-card-front">
+                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full">
+                        <CardHeader className="pt-8">
+                          <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center">{principle.title}</CardTitle>
+                        </CardHeader>
+                        <CardContent className="flex-grow flex flex-col justify-center items-center pt-2">
+                           <div className="bg-background rounded-lg p-4 border border-border mt-4">
+                              <principle.icon className="h-10 w-10 text-foreground" />
+                           </div>
+                        </CardContent>
+                      </Card>
                     </div>
-                  </CardContent>
-                </Card>
+
+                    {/* Back of the card */}
+                    <div className="flip-card-back">
+                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full flex items-center justify-center">
+                        <CardContent className="p-6">
+                          <CardDescription className="text-muted-foreground text-md text-center">
+                            {principle.description}
+                          </CardDescription>
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </div>
+                </div>
               </div>
             </AnimatedBlock>
           ))}
