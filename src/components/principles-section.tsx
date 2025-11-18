@@ -63,7 +63,7 @@ export default function PrinciplesSection() {
                   <div className="flip-card-inner">
                     {/* Front of the card */}
                     <div className="flip-card-front">
-                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full">
+                      <Card className="bg-secondary border-muted-foreground/20 w-full h-full flex flex-col items-center justify-center">
                         <CardHeader className="pt-8">
                           <CardTitle className="font-headline text-2xl font-semibold text-foreground text-center">{principle.title}</CardTitle>
                         </CardHeader>
