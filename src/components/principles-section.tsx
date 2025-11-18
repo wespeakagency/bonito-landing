@@ -11,85 +11,70 @@ import { useTranslation } from '@/context/language-context';
 
 type Principle = {
   icon: ComponentType<LucideProps>;
-  title: string;
-  description: string;
-  glowClass: string;
+  titleKey: string;
+  descriptionKey: string;
 };
+
+const principlesData: Principle[] = [
+    {
+      icon: Eye,
+      titleKey: 'principles.clarity.title',
+      descriptionKey: 'principles.clarity.description',
+    },
+    {
+      icon: EarIcon,
+      titleKey: 'principles.activeListening.title',
+      descriptionKey: 'principles.activeListening.description',
+    },
+    {
+      icon: HeartHandshake,
+      titleKey: 'principles.mutualRespect.title',
+      descriptionKey: 'principles.mutualRespect.description',
+    },
+  ];
 
 export default function PrinciplesSection() {
   const { t } = useTranslation();
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-  const principles: Principle[] = [
-    {
-      icon: Eye,
-      title: t('principles.clarity.title'),
-      description: t('principles.clarity.description'),
-      glowClass: 'card-glow-1',
-    },
-    {
-      icon: EarIcon,
-      title: t('principles.activeListening.title'),
-      description: t('principles.activeListening.description'),
-      glowClass: 'card-glow-2',
-    },
-    {
-      icon: HeartHandshake,
-      title: t('principles.mutualRespect.title'),
-      description: t('principles.mutualRespect.description'),
-      glowClass: 'card-glow-3',
-    },
-  ];
-
   return (
     <section className="relative py-24 sm:py-32 bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType='slide-in-up'>
-          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-48 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
             {t('principles.title')}
           </h2>
         </AnimatedBlock>
         <div 
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          {principles.map((principle, index) => (
-             <AnimatedBlock key={principle.title} delay={150 * (index + 1)} animationType='zoom-in'>
-              <div 
+          {principlesData.map((principle, index) => (
+             <AnimatedBlock 
+                key={index} 
+                delay={150 * (index + 1)} 
+                animationType='zoom-in'
                 onMouseEnter={() => setHoveredIndex(index)}
                 className={cn(
                   "transition-all duration-300",
-                  hoveredIndex !== null && hoveredIndex !== index ? 'blur-sm opacity-20' : 'blur-0 opacity-100',
-                  hoveredIndex === index ? 'scale-105' : ''
+                  hoveredIndex !== null && hoveredIndex !== index ? 'opacity-30 scale-95' : 'opacity-100 scale-100'
                 )}
               >
-                <div className={cn("flip-card rounded-lg", principle.glowClass)}>
-                  <div className="flip-card-inner">
-                    {/* Front of the card */}
-                    <div className="flip-card-front">
-                      <Card className="bg-secondary border-none w-full h-full card-glow transition-shadow duration-300">
-                        <CardContent className="p-6 flex flex-col items-center justify-center text-center gap-8">
-                          <CardTitle className="font-headline text-2xl font-semibold text-foreground">
-                            {principle.title}
-                          </CardTitle>
-                          <principle.icon className="h-10 w-10 text-foreground" />
-                        </CardContent>
-                      </Card>
+              <Card className="bg-secondary border-none rounded-2xl text-center h-full flex flex-col pt-8">
+                <CardContent className="flex flex-col items-center gap-6">
+                    <div className="bg-primary/10 p-4 rounded-full">
+                         <principle.icon className="h-8 w-8 text-primary" />
                     </div>
-
-                    {/* Back of the card */}
-                    <div className="flip-card-back">
-                      <Card className="bg-secondary border-none w-full h-full card-glow transition-shadow duration-300">
-                        <CardContent className="p-6 flex items-center justify-center h-full">
-                          <CardDescription className="text-muted-foreground text-md text-center">
-                            {principle.description}
-                          </CardDescription>
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </div>
-                </div>
-              </div>
+                    <CardTitle className="font-headline text-2xl font-semibold text-foreground">
+                        {t(principle.titleKey)}
+                    </CardTitle>
+                </CardContent>
+                <CardContent className='pt-4 pb-8'>
+                    <CardDescription className="text-muted-foreground text-md">
+                        {t(principle.descriptionKey)}
+                    </CardDescription>
+                </CardContent>
+              </Card>
             </AnimatedBlock>
           ))}
         </div>
