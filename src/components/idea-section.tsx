@@ -10,15 +10,6 @@ export default function IdeaSection() {
 
   return (
     <section className="relative py-24 sm:py-32 bg-background overflow-hidden">
-       <AnimatedBlock animationType="fade-in" delay={500} className="absolute inset-0 z-0">
-         <Image
-            src="/hands-background.png"
-            alt="Abstract hands"
-            fill
-            className="object-contain opacity-20 float"
-            data-ai-hint="hands connection"
-          />
-      </AnimatedBlock>
       <div className="container mx-auto px-4 max-w-4xl relative z-10">
         <div className="space-y-12">
           {ideas.map((idea: string, index: number) => (
