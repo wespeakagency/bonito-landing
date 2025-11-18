@@ -1,9 +1,8 @@
 'use client';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle, ChevronDown } from 'lucide-react';
 import { Typewriter } from './typewriter';
-import { cn } from '@/lib/utils';
 import { useTranslation } from '@/context/language-context';
 
 export default function HeroSection() {
@@ -11,6 +10,7 @@ export default function HeroSection() {
   const phrases = t('hero.phrases', { returnObjects: true }) as string[];
 
   const [step, setStep] = useState(0);
+  const [showScrollIndicator, setShowScrollIndicator] = useState(true);
 
   useEffect(() => {
     if (step < phrases.length - 1) {
@@ -18,17 +18,17 @@ export default function HeroSection() {
         setStep(step + 1);
       }, 5000); // Wait 5 seconds before going to next step
       return () => clearTimeout(timer);
+    } else {
+      setShowScrollIndicator(false);
     }
   }, [step, phrases.length]);
 
   const handleAnimationComplete = () => {
-    if (step < phrases.length - 1) {
-      // The useEffect will handle moving to the next step.
-    }
+    // The useEffect will handle moving to the next step.
   };
   
   const resetShowScroll = () => {
-    // No longer needed
+    setShowScrollIndicator(true);
   }
 
   return (
@@ -55,7 +55,7 @@ export default function HeroSection() {
                   <Typewriter
                     key={`${t('hero.phrases')}-${step}`}
                     text={phrases[step]}
-                    speed={80}
+                    speed={50}
                     onComplete={handleAnimationComplete}
                     onStart={resetShowScroll}
                   />
@@ -86,6 +86,15 @@ export default function HeroSection() {
               )}
           </div>
         </div>
+        
+        {/* Scroll down indicator */}
+        {showScrollIndicator && (
+          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20">
+            <div className="scroll-down-indicator">
+              <ChevronDown className="h-8 w-8 text-white/50" />
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );
