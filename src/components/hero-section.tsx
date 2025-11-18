@@ -57,7 +57,7 @@ export default function HeroSection() {
               "transition-opacity duration-1000",
               showScrollContent ? "opacity-100" : "opacity-0"
             )}>
-               <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto mt-16">
+               <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto mt-24">
                   {phrases[2]}
                 </p>
 
