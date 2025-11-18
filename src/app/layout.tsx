@@ -1,9 +1,12 @@
+'use client';
+
 import type { Metadata } from 'next';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/context/language-context';
+import SocialLinks from '@/components/social-links';
 
-export const metadata: Metadata = {
+const metadata: Metadata = {
   title: 'Bonito Landing',
   description: 'Negociar es abrazar con compasión a una persona mientras experimentamos los altibajos de la vida.',
 };
@@ -22,6 +25,7 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <LanguageProvider>
+          <SocialLinks />
           {children}
           <Toaster />
         </LanguageProvider>
