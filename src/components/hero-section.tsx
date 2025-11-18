@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, PlayCircle } from 'lucide-react';
@@ -12,19 +12,6 @@ export default function HeroSection() {
   const phrases = t('hero.phrases', { returnObjects: true }) as string[];
 
   const [step, setStep] = useState(0);
-  const [showScrollContent, setShowScrollContent] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setShowScrollContent(true);
-      } else {
-        setShowScrollContent(false);
-      }
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   return (
     <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
@@ -36,7 +23,6 @@ export default function HeroSection() {
           className="object-cover"
         />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent z-10"></div>
       
       <div className="container mx-auto px-4 text-center z-20 relative">
         <div className="min-h-[300px] md:min-h-[350px] flex flex-col items-center justify-center">
@@ -52,7 +38,7 @@ export default function HeroSection() {
             
             <div className={cn(
               "transition-opacity duration-1000",
-              showScrollContent ? "opacity-100" : "opacity-0"
+              step >= 2 ? "opacity-100" : "opacity-0"
             )}>
                <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto mt-24">
                   {phrases[2]}
