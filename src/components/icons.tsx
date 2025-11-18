@@ -13,7 +13,7 @@ export const EarIcon = (props: SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     {...props}
   >
-    <g transform="translate(0, 2)">
+    <g transform="translate(0, 4)">
       <path d="M6 8a7 7 0 1 1 12 0v5a7 7 0 0 1-7 7h-1a7 7 0 0 1-5-7Z" />
       <path d="M12 8a3 3 0 0 1 3 3v2" />
     </g>
