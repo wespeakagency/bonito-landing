@@ -21,25 +21,25 @@ const bookChapters = [
     id: 1,
     title: 'Introducción: El Arte de la Compasión',
     duration: '0:15',
-    audioSrc: 'https://u.pcloud.link/publink/download?code=XZmKMP5Z8LL2t1x5md0I3VyFi0CkUVWd3yvV',
+    audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/bb6467550019e13b9e379a43d2185f6bf5c0ce1f/Pro%CC%81logo.mp3',
   },
   {
     id: 2,
     title: 'Pilar 1: Claridad',
     duration: '0:12',
-    audioSrc: 'https://storage.googleapis.com/studiopublic/pilar1.mp3',
+    audioSrc: '',
   },
   {
     id: 3,
     title: 'Pilar 2: Escucha Activa',
     duration: '0:11',
-    audioSrc: 'https://storage.googleapis.com/studiopublic/pilar2.mp3',
+    audioSrc: '',
   },
   {
     id: 4,
     title: 'Pilar 3: Respeto Mutuo',
     duration: '0:12',
-    audioSrc: 'https://storage.googleapis.com/studiopublic/pilar3.mp3',
+    audioSrc: '',
   },
   {
     id: 5,
@@ -123,12 +123,20 @@ export default function AudioPlayerSection() {
   };
 
   const handleNext = () => {
-    const nextIndex = (currentChapterIndex + 1) % chapters.length;
+    // Find the next available chapter with audio
+    let nextIndex = (currentChapterIndex + 1) % chapters.length;
+    while (!chapters[nextIndex].audioSrc && nextIndex !== currentChapterIndex) {
+      nextIndex = (nextIndex + 1) % chapters.length;
+    }
     selectChapter(nextIndex);
   };
 
   const handlePrevious = () => {
-    const prevIndex = (currentChapterIndex - 1 + chapters.length) % chapters.length;
+    // Find the previous available chapter with audio
+    let prevIndex = (currentChapterIndex - 1 + chapters.length) % chapters.length;
+    while (!chapters[prevIndex].audioSrc && prevIndex !== currentChapterIndex) {
+      prevIndex = (prevIndex - 1 + chapters.length) % chapters.length;
+    }
     selectChapter(prevIndex);
   };
 
