@@ -6,6 +6,7 @@ import AuthorVideosSection from '@/components/author-videos-section';
 import ExtractsSection from '@/components/extracts-section';
 import CtaSection from '@/components/cta-section';
 import Footer from '@/components/footer';
+import AudioPlayerSection from '@/components/audio-player-section';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <PrinciplesSection />
         <ExtractsSection />
         <AuthorVideosSection />
+        <AudioPlayerSection />
         <CtaSection />
       </main>
       <Footer />
