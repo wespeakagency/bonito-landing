@@ -21,7 +21,7 @@ const bookChapters = [
     id: 1,
     title: 'Introducción: El Arte de la Compasión',
     duration: '0:15',
-    audioSrc: 'https://drive.google.com/uc?export=download&id=1IRH1qBNCTR3K-ieSCQ9tG--wx3DlRO00', // Provide your MP3 URL here
+    audioSrc: 'https://storage.googleapis.com/studiopublic/prologo.mp3',
   },
   {
     id: 2,
