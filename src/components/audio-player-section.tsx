@@ -84,10 +84,15 @@ export default function AudioPlayerSection() {
     if (currentChapter.audioSrc && audio.src !== currentChapter.audioSrc) {
       audio.src = currentChapter.audioSrc;
       audio.load();
-      audio.pause();
-      setIsPlaying(false);
     }
     
+    // If we select a new chapter, we want it to start playing if the player was already playing
+    if (isPlaying) {
+      audio.play().catch(error => console.error("Audio play failed:", error));
+    } else {
+        audio.pause();
+    }
+
     return () => {
       audio.removeEventListener('loadeddata', setAudioData);
       audio.removeEventListener('timeupdate', setAudioTime);
@@ -95,10 +100,13 @@ export default function AudioPlayerSection() {
   }, [currentChapterIndex, currentChapter.audioSrc]);
   
   useEffect(() => {
+    const audio = audioRef.current;
+    if(!audio) return;
+    
     if (isPlaying) {
-      audioRef.current?.play().catch(error => console.error('Audio play failed:', error));
+      audio.play().catch(error => console.error('Audio play failed:', error));
     } else {
-      audioRef.current?.pause();
+      audio.pause();
     }
   }, [isPlaying]);
 
@@ -109,6 +117,8 @@ export default function AudioPlayerSection() {
 
   const selectChapter = (index: number) => {
     setCurrentChapterIndex(index);
+    // When a new chapter is selected, we pause it initially. 
+    // The play state will be handled by the user clicking play.
     setIsPlaying(false);
   };
 
@@ -221,11 +231,13 @@ export default function AudioPlayerSection() {
                         <li key={chapter.id}>
                           <button
                             onClick={() => selectChapter(index)}
+                            disabled={!chapter.audioSrc}
                             className={cn(
                               'w-full text-left p-4 rounded-lg transition-colors flex items-center justify-between',
                               index === currentChapterIndex
                                 ? 'bg-primary/10 text-primary'
-                                : 'hover:bg-muted/50 text-foreground'
+                                : 'hover:bg-muted/50 text-foreground',
+                              !chapter.audioSrc && 'opacity-50 cursor-not-allowed'
                             )}
                           >
                             <div className="flex items-center gap-4">
@@ -257,6 +269,7 @@ export default function AudioPlayerSection() {
             </div>
             <audio
               ref={audioRef}
+              src={chapters.find(c => c.audioSrc)?.audioSrc || ''}
               onPlay={() => setIsPlaying(true)}
               onPause={() => setIsPlaying(false)}
               onEnded={handleNext}
