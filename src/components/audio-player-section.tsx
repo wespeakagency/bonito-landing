@@ -27,31 +27,31 @@ const bookChapters = [
     id: 2,
     title: 'Pilar 1: Claridad',
     duration: '0:12',
-    audioSrc: '', // Provide your MP3 URL here
+    audioSrc: 'https://storage.googleapis.com/studiopublic/pilar1.mp3',
   },
   {
     id: 3,
     title: 'Pilar 2: Escucha Activa',
     duration: '0:11',
-    audioSrc: '', // Provide your MP3 URL here
+    audioSrc: 'https://storage.googleapis.com/studiopublic/pilar2.mp3',
   },
   {
     id: 4,
     title: 'Pilar 3: Respeto Mutuo',
     duration: '0:12',
-    audioSrc: '', // Provide your MP3 URL here
+    audioSrc: 'https://storage.googleapis.com/studiopublic/pilar3.mp3',
   },
   {
     id: 5,
     title: 'Casos de Estudio: Negociaciones Reales',
     duration: '0:18',
-    audioSrc: '', // Provide your MP3 URL here
+    audioSrc: '', // Placeholder
   },
   {
     id: 6,
     title: 'Conclusión: El Camino del Negociador',
     duration: '0:14',
-    audioSrc: '', // Provide your MP3 URL here
+    audioSrc: '', // Placeholder
   },
 ];
 
@@ -84,6 +84,7 @@ export default function AudioPlayerSection() {
     if (currentChapter.audioSrc && audio.src !== currentChapter.audioSrc) {
       audio.src = currentChapter.audioSrc;
       audio.load();
+      audio.pause();
       setIsPlaying(false);
     }
     
@@ -92,16 +93,17 @@ export default function AudioPlayerSection() {
       audio.removeEventListener('timeupdate', setAudioTime);
     };
   }, [currentChapterIndex, currentChapter.audioSrc]);
+  
+  useEffect(() => {
+    if (isPlaying) {
+      audioRef.current?.play().catch(error => console.error('Audio play failed:', error));
+    } else {
+      audioRef.current?.pause();
+    }
+  }, [isPlaying]);
 
   const handlePlayPause = () => {
-    const audio = audioRef.current;
-    if (!audio || !currentChapter.audioSrc) return;
-
-    if (isPlaying) {
-      audio.pause();
-    } else {
-      audio.play().catch(error => console.error('Audio play failed:', error));
-    }
+    if (!currentChapter.audioSrc) return;
     setIsPlaying(!isPlaying);
   };
 
@@ -228,7 +230,7 @@ export default function AudioPlayerSection() {
                           >
                             <div className="flex items-center gap-4">
                               {!chapter.audioSrc ? (
-                                <LoaderCircle className="h-4 w-4 animate-spin" />
+                                <LoaderCircle className="h-4 w-4 animate-spin text-muted-foreground" />
                               ) : (
                                 <>
                                   {index === currentChapterIndex && isPlaying ? (
