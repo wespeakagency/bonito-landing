@@ -15,54 +15,47 @@ import { AnimatedBlock } from './animated-block';
 import { useTranslation } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from './ui/scroll-area';
-import { generateAudiobookChapter } from '@/ai/flows/generate-audiobook-chapter';
 
 const bookChapters = [
   {
     id: 1,
     title: 'Introducción: El Arte de la Compasión',
     duration: '0:15',
-    text: 'Negociar es un arte. Practícalo con compasión. Este libro es una guía para transformar conversaciones difíciles en acuerdos mutuos, donde la empatía y la estrategia se unen para construir puentes en lugar de muros.',
-    audioSrc: '',
+    audioSrc: '', // Provide your MP3 URL here
   },
   {
     id: 2,
     title: 'Pilar 1: Claridad',
     duration: '0:12',
-    text: 'La claridad no es un punto de partida, es un resultado. Se construye. Comunica tu intención con simpleza y honestidad. La transparencia es el camino más corto hacia la confianza.',
-    audioSrc: '',
+    audioSrc: '', // Provide your MP3 URL here
   },
   {
     id: 3,
     title: 'Pilar 2: Escucha Activa',
     duration: '0:11',
-    text: 'Escucha para comprender, no solo para responder. Entiende las necesidades y motivaciones de la otra parte. Ahí está la clave de cualquier negociación exitosa.',
-    audioSrc: '',
+    audioSrc: '', // Provide your MP3 URL here
   },
   {
     id: 4,
     title: 'Pilar 3: Respeto Mutuo',
     duration: '0:12',
-    text: 'Sostén tu posición sin romper la relación. El respeto es la base de cualquier acuerdo duradero y beneficioso. Se puede ser firme y amable al mismo tiempo.',
-    audioSrc: '',
+    audioSrc: '', // Provide your MP3 URL here
   },
   {
     id: 5,
     title: 'Casos de Estudio: Negociaciones Reales',
     duration: '0:18',
-    text: 'Analizaremos escenarios reales donde estos pilares se pusieron en práctica. Desde conflictos empresariales hasta discusiones familiares, veremos cómo negociar bonito puede cambiar el resultado y fortalecer las relaciones.',
-    audioSrc: '',
+    audioSrc: '', // Provide your MP3 URL here
   },
   {
     id: 6,
     title: 'Conclusión: El Camino del Negociador',
     duration: '0:14',
-    text: 'Negociar bonito es un camino de mejora continua. Es cuidar la relación sin traicionar tu intención. Al dominar este arte, no solo cerrarás mejores tratos, sino que construirás un mundo más compasivo.',
-    audioSrc: '',
+    audioSrc: '', // Provide your MP3 URL here
   },
 ];
 
-type Chapter = (typeof bookChapters)[0] & { audioSrc: string };
+type Chapter = (typeof bookChapters)[0];
 
 export default function AudioPlayerSection() {
   const { t } = useTranslation();
@@ -72,38 +65,8 @@ export default function AudioPlayerSection() {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [chapters, setChapters] = useState<Chapter[]>(bookChapters);
-  const [loadingChapters, setLoadingChapters] = useState<Set<number>>(new Set());
 
   const currentChapter = chapters[currentChapterIndex];
-
-  useEffect(() => {
-    const generateAudio = async (chapter: Chapter) => {
-      if (chapter.audioSrc || loadingChapters.has(chapter.id)) return;
-
-      setLoadingChapters((prev) => new Set(prev).add(chapter.id));
-      try {
-        const result = await generateAudiobookChapter(chapter.text);
-        if (result.media) {
-          setChapters((prevChapters) =>
-            prevChapters.map((c) =>
-              c.id === chapter.id ? { ...c, audioSrc: result.media } : c
-            )
-          );
-        }
-      } catch (error) {
-        console.error('Failed to generate audio for chapter:', chapter.title, error);
-      } finally {
-        setLoadingChapters((prev) => {
-          const newSet = new Set(prev);
-          newSet.delete(chapter.id);
-          return newSet;
-        });
-      }
-    };
-    // Pre-generate audio for the first chapter
-    generateAudio(chapters[0]);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -118,7 +81,6 @@ export default function AudioPlayerSection() {
     audio.addEventListener('loadeddata', setAudioData);
     audio.addEventListener('timeupdate', setAudioTime);
 
-    // If a new chapter is selected and has an audio source, load it
     if (currentChapter.audioSrc && audio.src !== currentChapter.audioSrc) {
       audio.src = currentChapter.audioSrc;
       audio.load();
@@ -143,29 +105,7 @@ export default function AudioPlayerSection() {
     setIsPlaying(!isPlaying);
   };
 
-  const selectChapter = async (index: number) => {
-    const chapter = chapters[index];
-    if (!chapter.audioSrc && !loadingChapters.has(chapter.id)) {
-      setLoadingChapters((prev) => new Set(prev).add(chapter.id));
-      try {
-        const result = await generateAudiobookChapter(chapter.text);
-        if (result.media) {
-          setChapters((prevChapters) =>
-            prevChapters.map((c, i) =>
-              i === index ? { ...c, audioSrc: result.media } : c
-            )
-          );
-        }
-      } catch (error) {
-        console.error('Failed to generate audio for chapter:', chapter.title, error);
-      } finally {
-        setLoadingChapters((prev) => {
-          const newSet = new Set(prev);
-          newSet.delete(chapter.id);
-          return newSet;
-        });
-      }
-    }
+  const selectChapter = (index: number) => {
     setCurrentChapterIndex(index);
     setIsPlaying(false);
   };
@@ -231,7 +171,7 @@ export default function AudioPlayerSection() {
                       {isPlaying ? (
                         <Pause className="h-8 w-8" />
                       ) : (
-                        <Play className="h-8 w-8 ml-1" />
+                         currentChapter.audioSrc ? <Play className="h-8 w-8 ml-1" /> : <LoaderCircle className="h-8 w-8 animate-spin" />
                       )}
                     </Button>
                     <div className="flex items-center gap-2">
@@ -287,7 +227,7 @@ export default function AudioPlayerSection() {
                             )}
                           >
                             <div className="flex items-center gap-4">
-                              {loadingChapters.has(chapter.id) ? (
+                              {!chapter.audioSrc ? (
                                 <LoaderCircle className="h-4 w-4 animate-spin" />
                               ) : (
                                 <>
