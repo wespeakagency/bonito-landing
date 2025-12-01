@@ -63,7 +63,8 @@ export default function CustomCursor() {
           isHovering ? 'scale-125' : 'scale-100'
         )}
         style={{
-          transform: isHovering ? 'scale(1.25) rotate(-15deg)' : 'scale(1) rotate(0deg)'
+          transform: isHovering ? 'scale(1.25) rotate(-15deg)' : 'scale(1) rotate(0deg)',
+          filter: 'invert(1)'
         }}
       />
     </div>
