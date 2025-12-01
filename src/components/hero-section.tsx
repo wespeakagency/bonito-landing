@@ -26,7 +26,7 @@ export default function HeroSection() {
       
       <div className="container mx-auto px-4 text-center z-20 relative">
         <div className="min-h-[300px] md:min-h-[350px] flex flex-col items-center justify-center">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight whitespace-nowrap">
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-headline leading-tight">
                 <Typewriter text={phrases[0]} onComplete={() => setStep(1)} runOnce />
             </h1>
 
