@@ -87,9 +87,6 @@ export const TiktokIcon = (props: SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     {...props}
   >
-    <path d="M21 8v5a4 4 0 0 1-4 4H9" />
-    <path d="M12 17V4a4 4 0 0 0-4-4H4" />
-    <circle cx="8" cy="17" r="4" />
-    <circle cx="17" cy="8" r="4" />
+    <path d="M16.5 8.5c4.69 0 8.5 3.81 8.5 8.5V21h-4v-4.5c0-2.48-2.02-4.5-4.5-4.5s-4.5 2.02-4.5 4.5V21h-4V8.5c0-4.69 3.81-8.5 8.5-8.5v4Z" />
   </svg>
 );
