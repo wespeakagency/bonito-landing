@@ -10,15 +10,29 @@ export default function IdeaSection() {
 
   return (
     <section className="py-24 sm:py-32 bg-background">
-      <div className="container mx-auto px-4 max-w-4xl">
-        <div className="space-y-12">
-          {ideas.map((idea: string, index: number) => (
-            <AnimatedBlock key={index} delay={index * 200} animationType="zoom-in">
-              <p className="text-xl md:text-2xl text-center font-headline leading-tight text-foreground">
-                {idea}
-              </p>
-            </AnimatedBlock>
-          ))}
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center max-w-6xl mx-auto">
+          <AnimatedBlock animationType="slide-in-left">
+            <Image
+              src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/mantra.png"
+              alt="Mantra"
+              width={500}
+              height={500}
+              className="rounded-lg object-contain w-full h-auto"
+            />
+          </AnimatedBlock>
+          <AnimatedBlock animationType="slide-in-right" delay={200}>
+            <div className="space-y-6">
+              {ideas.map((idea: string, index: number) => (
+                <p
+                  key={index}
+                  className="text-xl md:text-2xl font-headline leading-tight text-foreground text-center md:text-left"
+                >
+                  {idea}
+                </p>
+              ))}
+            </div>
+          </AnimatedBlock>
         </div>
       </div>
     </section>
