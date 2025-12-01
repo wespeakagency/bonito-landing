@@ -44,7 +44,17 @@
   },
   "cta": {
     "title": "开始优雅地谈判。",
-    "subtitle": "提供您喜欢的格式。获取您的副本并改变您的对话。"
+    "subtitle": "提供您喜欢的格式。获取您的副本并改变您的对话。",
+    "channels": {
+      "amazon": "亚马逊",
+      "gandhi": "Gandhi",
+      "audible": "Audible",
+      "appleBooks": "Apple Books",
+      "googlePlay": "Google Play",
+      "international": "国际版"
+    },
+    "more": "更多...",
+    "allStores": "可在这些商店购买"
   },
   "footer": {
     "copyright": "罗伯托。版权所有。"

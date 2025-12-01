@@ -44,7 +44,17 @@
   },
   "cta": {
     "title": "Comienza a negociar bonito.",
-    "subtitle": "Disponible en tu formato preferido. Adquiere tu copia y transforma tus conversaciones."
+    "subtitle": "Disponible en tu formato preferido. Adquiere tu copia y transforma tus conversaciones.",
+    "channels": {
+      "amazon": "Amazon",
+      "gandhi": "Gandhi",
+      "audible": "Audible",
+      "appleBooks": "Apple Books",
+      "googlePlay": "Google Play",
+      "international": "Internacional"
+    },
+    "more": "y más...",
+    "allStores": "Disponible en estas tiendas"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."

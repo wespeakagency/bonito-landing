@@ -44,7 +44,17 @@
   },
   "cta": {
     "title": "Start negotiating beautifully.",
-    "subtitle": "Available in your preferred format. Get your copy and transform your conversations."
+    "subtitle": "Available in your preferred format. Get your copy and transform your conversations.",
+    "channels": {
+      "amazon": "Amazon",
+      "gandhi": "Gandhi",
+      "audible": "Audible",
+      "appleBooks": "Apple Books",
+      "googlePlay": "Google Play",
+      "international": "International"
+    },
+    "more": "and more...",
+    "allStores": "Available in these stores"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
