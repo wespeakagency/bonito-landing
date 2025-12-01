@@ -19,39 +19,87 @@ import { ScrollArea } from './ui/scroll-area';
 const bookChapters = [
   {
     id: 1,
-    title: 'Introducción: El Arte de la Compasión',
+    title: 'Prólogo',
     duration: '0:15',
-    audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/bb6467550019e13b9e379a43d2185f6bf5c0ce1f/Pro%CC%81logo.mp3',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/bb6467550019e13b9e379a43d2185f6bf5c0ce1f/Pro%CC%81logo.mp3',
   },
   {
     id: 2,
-    title: 'Pilar 1: Claridad',
+    title: 'C1 - Negociando con compasión',
     duration: '0:12',
-    audioSrc: '',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C1%20-%20Negociando%20con%20compasio%CC%81n.mp3',
   },
   {
     id: 3,
-    title: 'Pilar 2: Escucha Activa',
+    title: 'C2 - La compasión como ventaja competitiva',
     duration: '0:11',
-    audioSrc: '',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C2%20-%20La%20compasio%CC%81n%20como%20ventaja%20competitiva.mp3',
   },
   {
     id: 4,
-    title: 'Pilar 3: Respeto Mutuo',
+    title: 'C3 - Hagamos un intercambio ( el trueque )',
     duration: '0:12',
-    audioSrc: '',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C3%20-%20Hagamos%20un%20intercambio%20(%20el%20trueque%20).mp3',
   },
   {
     id: 5,
-    title: 'Casos de Estudio: Negociaciones Reales',
+    title: "C4 - Habla bonito ( lección del pueblo Q'ero )",
     duration: '0:18',
-    audioSrc: '', // Placeholder
+    audioSrc:
+      "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C4%20-%20Habla%20bonito%20(%20leccio%CC%81n%20del%20pueblo%20Q'ero%20).mp3",
   },
   {
     id: 6,
-    title: 'Conclusión: El Camino del Negociador',
+    title: 'C5 - Las seis paramitas ( negociar desde la virtud )',
     duration: '0:14',
-    audioSrc: '', // Placeholder
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C5%20-%20La%20seis%20paramitas%20(%20negociar%20desde%20la%20virtud%20).mp3',
+  },
+  {
+    id: 7,
+    title: 'C6 - Desaprender',
+    duration: '0:10',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C6%20-%20Desaprender.mp3',
+  },
+  {
+    id: 8,
+    title: 'C7 - Perder para ganar',
+    duration: '0:10',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C7%20-%20Perder%20para%20ganar.mp3',
+  },
+  {
+    id: 9,
+    title: 'C8 - Negociar para ayudar',
+    duration: '0:10',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C8%20-%20Negociar%20para%20ayudar.mp3',
+  },
+  {
+    id: 10,
+    title: 'C9 - Un secuestro',
+    duration: '0:10',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C9%20-%20Un%20secuestro.mp3',
+  },
+  {
+    id: 11,
+    title: 'C10 - Negociando con el espejo',
+    duration: '0:10',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C10%20-%20Negociando%20con%20el%20espejo.mp3',
+  },
+  {
+    id: 12,
+    title: 'C11 - Gracias por negociar bonito',
+    duration: '0:10',
+    audioSrc:
+      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C11%20-%20Gracias%20por%20negociar%20bonito.mp3',
   },
 ];
 
