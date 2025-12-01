@@ -19,7 +19,9 @@ export default function Home() {
         <ExtractsSection />
         <AuthorSection />
         <AudioPlayerSection />
-        <CtaSection />
+        <div id="comprar">
+          <CtaSection />
+        </div>
       </main>
       <Footer />
     </div>

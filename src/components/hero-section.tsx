@@ -46,7 +46,7 @@ export default function HeroSection() {
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                 <Button size="lg" className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90" asChild>
-                  <a href="#">
+                  <a href="#comprar">
                     {t('hero.buyButton')}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </a>

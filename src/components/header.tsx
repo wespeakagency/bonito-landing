@@ -64,8 +64,8 @@ export default function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
-            <Button className="bg-white text-black hover:bg-white/90 rounded-full">
-              {t('header.buy')}
+            <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full">
+              <a href="#comprar">{t('header.buy')}</a>
             </Button>
           </div>
         </div>
