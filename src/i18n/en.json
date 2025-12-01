@@ -36,9 +36,11 @@
     "Listen to understand, not to respond. That is the key.",
     "Negotiating beautifully is about caring for the relationship without betraying your intention."
   ],
-  "authorVideos": {
-    "title": "In the author's voice.",
-    "subtitle": "Excerpts and reflections from Roberto to understand the essence of negotiating beautifully."
+  "audioPlayer": {
+    "title": "Listen to a preview",
+    "subtitle": "Dive into the first chapters and discover the power of negotiating beautifully.",
+    "chapterLabel": "CHAPTER",
+    "chaptersTitle": "Chapters"
   },
   "cta": {
     "title": "Start negotiating beautifully.",

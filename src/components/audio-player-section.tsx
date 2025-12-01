@@ -207,12 +207,12 @@ export default function AudioPlayerSection() {
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType="slide-in-up">
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-foreground">
-            Escucha un adelanto
+            {t('audioPlayer.title')}
           </h2>
         </AnimatedBlock>
         <AnimatedBlock animationType="slide-in-up" delay={150}>
           <p className="text-xl md:text-2xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
-            Sumérgete en los primeros capítulos y descubre el poder de negociar bonito.
+            {t('audioPlayer.subtitle')}
           </p>
         </AnimatedBlock>
         <AnimatedBlock delay={300} animationType="zoom-in">
@@ -221,7 +221,7 @@ export default function AudioPlayerSection() {
               <div className="md:col-span-1 p-8 bg-muted/30 flex flex-col justify-between">
                 <div>
                   <p className="text-sm text-muted-foreground font-medium mb-1">
-                    CAPÍTULO {currentChapter.id}
+                    {t('audioPlayer.chapterLabel')} {currentChapter.id}
                   </p>
                   <h3 className="text-2xl font-bold font-headline text-foreground">
                     {currentChapter.title}
@@ -280,7 +280,7 @@ export default function AudioPlayerSection() {
                 <ScrollArea className="h-96 w-full">
                   <div className="p-4">
                     <h4 className="text-lg font-semibold font-headline p-4 text-foreground">
-                      Capítulos
+                      {t('audioPlayer.chaptersTitle')}
                     </h4>
                     <ul className="space-y-1">
                       {chapters.map((chapter, index) => (

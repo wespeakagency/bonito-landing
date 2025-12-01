@@ -36,9 +36,11 @@
     "Escuchar para comprender, no para responder. Ahí está la clave.",
     "Negociar bonito es cuidar la relación sin traicionar tu intención."
   ],
-  "authorVideos": {
-    "title": "En la voz del autor.",
-    "subtitle": "Extractos y reflexiones de Roberto para entender la esencia de negociar bonito."
+  "audioPlayer": {
+    "title": "Escucha un adelanto",
+    "subtitle": "Sumérgete en los primeros capítulos y descubre el poder de negociar bonito.",
+    "chapterLabel": "CAPÍTULO",
+    "chaptersTitle": "Capítulos"
   },
   "cta": {
     "title": "Comienza a negociar bonito.",

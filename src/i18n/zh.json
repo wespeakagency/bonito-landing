@@ -36,9 +36,11 @@
     "倾听是为了理解，而不是为了回应。这才是关键。",
     "优雅地谈判是在不背叛自己意图的情况下维系关系。"
   ],
-  "authorVideos": {
-    "title": "作者的声音。",
-    "subtitle": "罗伯托的节选和反思，以理解优雅谈判的精髓。"
+  "audioPlayer": {
+    "title": "收听预览",
+    "subtitle": "深入了解前几章，发现优雅谈判的力量。",
+    "chapterLabel": "章节",
+    "chaptersTitle": "章节"
   },
   "cta": {
     "title": "开始优雅地谈判。",
