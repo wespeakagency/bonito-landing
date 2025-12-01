@@ -6,6 +6,7 @@ import ExtractsSection from '@/components/extracts-section';
 import CtaSection from '@/components/cta-section';
 import Footer from '@/components/footer';
 import AudioPlayerSection from '@/components/audio-player-section';
+import AuthorSection from '@/components/author-section';
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
         <IdeaSection />
         <PrinciplesSection />
         <ExtractsSection />
+        <AuthorSection />
         <AudioPlayerSection />
         <CtaSection />
       </main>
