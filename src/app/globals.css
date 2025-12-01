@@ -54,6 +54,12 @@
   body {
     @apply bg-background text-foreground;
   }
+  body, html {
+    cursor: none;
+  }
+  a, button {
+    cursor: none;
+  }
 }
 
 @layer utilities {
@@ -86,5 +92,21 @@
 
   .scroll-down-indicator {
     animation: scroll-down 2s ease-in-out infinite;
+  }
+  
+  .cursor-click {
+    animation: cursor-click-animation 0.3s ease-in-out forwards;
+  }
+
+  @keyframes cursor-click-animation {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 }
