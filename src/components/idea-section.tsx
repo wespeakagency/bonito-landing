@@ -18,7 +18,7 @@ export default function IdeaSection() {
               alt="Mantra"
               width={500}
               height={500}
-              className="rounded-lg object-contain w-full h-auto"
+              className="rounded-lg object-contain w-full h-auto invert"
             />
           </AnimatedBlock>
           <AnimatedBlock animationType="slide-in-right" delay={200}>
