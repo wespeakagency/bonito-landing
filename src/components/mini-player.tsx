@@ -38,13 +38,13 @@ export default function MiniPlayer({
         isVisible ? 'translate-y-0 opacity-100' : 'translate-y-16 opacity-0 pointer-events-none'
       )}
     >
-      <div className="p-4">
-        <div className="flex items-center gap-4">
-          <div className="flex-1">
+      <div className="p-4 space-y-3">
+        <div>
             <p className="text-sm font-bold truncate text-foreground">{chapter.title}</p>
             <p className="text-xs text-muted-foreground">Reproduciendo ahora...</p>
-          </div>
-          <div className="flex items-center gap-1">
+        </div>
+
+        <div className="flex items-center gap-2">
             <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" onClick={onPrevious}>
               <SkipBack className="h-4 w-4" />
             </Button>
@@ -54,9 +54,8 @@ export default function MiniPlayer({
             <Button variant="ghost" size="icon" className="rounded-full h-8 w-8" onClick={onNext}>
               <SkipForward className="h-4 w-4" />
             </Button>
-          </div>
+            <Progress value={progress} className="h-1 flex-1" />
         </div>
-        <Progress value={progress} className="h-1 mt-3" />
       </div>
     </div>
   );
