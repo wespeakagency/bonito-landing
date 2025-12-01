@@ -17,7 +17,7 @@ export default function HeroSection() {
     <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
       <div className="absolute inset-0 opacity-20 float">
         <Image
-          src="https://i.ibb.co/xK55mxcM/proto1.png"
+          src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/MANOS.png"
           alt="Symbolic hands background"
           fill
           className="object-cover"
