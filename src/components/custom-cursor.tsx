@@ -58,7 +58,7 @@ export default function CustomCursor() {
         width={40}
         height={40}
         className={cn(
-          'transition-transform duration-300',
+          'transition-transform duration-300 -translate-x-1 -translate-y-1',
           isClicked && 'cursor-click',
           isHovering ? 'scale-125' : 'scale-100'
         )}
