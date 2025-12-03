@@ -10,7 +10,7 @@ export default function FloatingPlayerButton() {
   return (
     <a
       href="#audiolibro"
-      className="fixed bottom-6 left-6 z-50 group"
+      className="fixed bottom-6 right-6 z-50 group"
     >
       <Button
         variant="outline"
