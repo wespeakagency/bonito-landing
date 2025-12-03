@@ -22,7 +22,9 @@ export default function CustomCursor() {
       const dy = newPos.y - prevPos.y;
 
       if (dx !== 0 || dy !== 0) {
-        const newAngle = Math.atan2(dy, dx) * (180 / Math.PI);
+        // Corrected angle calculation: atan2 gives the angle relative to the positive x-axis.
+        // We add 90 degrees because the swallow image is pointing upwards by default.
+        const newAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
         setAngle(newAngle);
       }
 
@@ -74,11 +76,12 @@ export default function CustomCursor() {
         width={40}
         height={40}
         className={cn(
-          'transition-transform duration-300 -translate-x-1/2 -translate-y-1/2',
+          'transition-transform duration-300',
           isClicked && 'cursor-click'
         )}
         style={{
           transform: `
+            translate(-50%, -50%)
             rotate(${isHovering ? angle - 15 : angle}deg) 
             scale(${isHovering ? 1.25 : 1})
           `,
