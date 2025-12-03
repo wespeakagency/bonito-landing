@@ -54,7 +54,8 @@
     "title": "Listen to the full book",
     "subtitle": "Enjoy the full audiobook experience, chapter by chapter.",
     "chapterLabel": "CHAPTER",
-    "chaptersTitle": "Chapters"
+    "chaptersTitle": "Chapters",
+    "listenButton": "Listen to the audiobook"
   },
   "cta": {
     "title": "Start negotiating beautifully.",

@@ -54,7 +54,8 @@
     "title": "Escucha el libro completo",
     "subtitle": "Disfruta de la experiencia completa del audiolibro, capítulo por capítulo.",
     "chapterLabel": "CAPÍTULO",
-    "chaptersTitle": "Capítulos"
+    "chaptersTitle": "Capítulos",
+    "listenButton": "Escucha el audiolibro"
   },
   "cta": {
     "title": "Comienza a negociar bonito.",

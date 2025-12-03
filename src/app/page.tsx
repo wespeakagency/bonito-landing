@@ -7,6 +7,7 @@ import CtaSection from '@/components/cta-section';
 import Footer from '@/components/footer';
 import AudioPlayerSection from '@/components/audio-player-section';
 import AuthorSection from '@/components/author-section';
+import FloatingPlayerButton from '@/components/floating-player-button';
 
 export default function Home() {
   return (
@@ -18,11 +19,14 @@ export default function Home() {
         <PrinciplesSection />
         <ExtractsSection />
         <AuthorSection />
-        <AudioPlayerSection />
+        <div id="audiolibro">
+          <AudioPlayerSection />
+        </div>
         <div id="comprar">
           <CtaSection />
         </div>
       </main>
+      <FloatingPlayerButton />
       <Footer />
     </div>
   );

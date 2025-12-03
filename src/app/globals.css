@@ -59,7 +59,8 @@
 
 @layer utilities {
   @keyframes float {
-    0%, 100% {
+    0%,
+    100% {
       transform: translateY(0);
     }
     50% {
@@ -88,7 +89,7 @@
   .scroll-down-indicator {
     animation: scroll-down 2s ease-in-out infinite;
   }
-  
+
   .cursor-click {
     animation: cursor-click-animation 0.3s ease-in-out forwards;
   }
