@@ -8,27 +8,10 @@ export default function CustomCursor() {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isClicked, setIsClicked] = useState(false);
   const [isHovering, setIsHovering] = useState(false);
-  const [angle, setAngle] = useState(0);
-
-  const prevPositionRef = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const onMouseMove = (e: MouseEvent) => {
-      const newPos = { x: e.clientX, y: e.clientY };
-      setPosition(newPos);
-
-      const prevPos = prevPositionRef.current;
-      const dx = newPos.x - prevPos.x;
-      const dy = newPos.y - prevPos.y;
-
-      if (dx !== 0 || dy !== 0) {
-        // Corrected angle calculation: atan2 gives the angle relative to the positive x-axis.
-        // We add 90 degrees because the swallow image is pointing upwards by default.
-        const newAngle = Math.atan2(dy, dx) * (180 / Math.PI) + 90;
-        setAngle(newAngle);
-      }
-
-      prevPositionRef.current = newPos;
+      setPosition({ x: e.clientX, y: e.clientY });
     };
 
     const onMouseDown = () => {
@@ -76,13 +59,13 @@ export default function CustomCursor() {
         width={40}
         height={40}
         className={cn(
-          'transition-transform duration-300',
+          'transition-transform duration-300 float',
           isClicked && 'cursor-click'
         )}
         style={{
           transform: `
             translate(-50%, -50%)
-            rotate(${isHovering ? angle - 15 : angle}deg) 
+            rotate(${isHovering ? -15 : 0}deg) 
             scale(${isHovering ? 1.25 : 1})
           `,
           filter: 'invert(1)'
