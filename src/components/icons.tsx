@@ -132,3 +132,64 @@ export const GooglePlayIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M21.5 2.5v11" />
   </svg>
 );
+
+export const SpainFlag = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" {...props}>
+    <path fill="#C60B1E" d="M0 0h3v2H0z"/>
+    <path fill="#FFC400" d="M0 .5h3v1H0z"/>
+  </svg>
+);
+
+export const UKFlag = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" {...props}>
+    <clipPath id="a"><path d="M0 0v30h60V0z"/></clipPath>
+    <path d="M0 0v30h60V0z" fill="#012169"/>
+    <path d="M0 0L60 30m0-30L0 30" stroke="#fff" strokeWidth="6" clipPath="url(#a)"/>
+    <path d="M0 0L60 30m0-30L0 30" stroke="#C8102E" strokeWidth="4" clipPath="url(#a)"/>
+    <path d="M30 0v30M0 15h60" stroke="#fff" strokeWidth="10"/>
+    <path d="M30 0v30M0 15h60" stroke="#C8102E" strokeWidth="6"/>
+  </svg>
+);
+
+export const ChinaFlag = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" {...props}>
+    <path fill="#ee1c25" d="M0 0h30v20H0z"/>
+    <path fill="#ff0" d="M5 4l-1.545.472L5 4.944l1.545-.472L5 4zm5 .8L8.82 4.4l-1.18 1.18L9.2 6.8l1.18-1.18L8.82 4.4 10 3.2zm2.3 2.3l-1.18 1.18L12.8 9.2l1.18-1.18-1.545-.472L11.2 6.8zm-.8 5l-1.18 1.18L12 14.8l1.18-1.18-1.545-.472-1.18 1.18zm-5-2.3L4.2 8.8l-1.18 1.18L4.8 11.2l1.18-1.18L4.2 8.8z"/>
+  </svg>
+);
+
+export const PortugalFlag = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120" {...props}>
+    <path fill="#006600" d="M0 0h180v120H0z"/>
+    <path fill="#ff0000" d="M0 0h60v120H0z"/>
+    <path d="M60 60a20 20 0 100-40 20 20 0 000 40z" fill="#ffff00"/>
+  </svg>
+);
+
+export const IndiaFlag = (props: SVGProps<SVGSVGElement>) => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" {...props}>
+    <path fill="#f93" d="M0 0h900v200H0z"/>
+    <path fill="#fff" d="M0 200h900v200H0z"/>
+    <path fill="#128807" d="M0 400h900v200H0z"/>
+    <g transform="translate(450 300)">
+      <circle r="90" fill="#000080"/>
+      <circle r="80" fill="#fff"/>
+      <circle r="3.5" fill="#000080"/>
+      <g id="d">
+        <g id="c">
+          <g id="b">
+            <g id="a" fill="#000080">
+              <circle r="9" transform="rotate(7.5 -8.6 198.5)"/>
+              <path d="M0 17.5L.5 20l-.5-2.5-1.5-1.5.5 1.5L0 17.5z"/>
+            </g>
+            <use href="#a" transform="rotate(15)"/>
+          </g>
+          <use href="#b" transform="rotate(30)"/>
+        </g>
+        <use href="#c" transform="rotate(60)"/>
+      </g>
+      <use href="#d" transform="rotate(120)"/>
+      <use href="#d" transform="rotate(240)"/>
+    </g>
+  </svg>
+);

@@ -4,14 +4,16 @@ import { createContext, useContext, useState, useEffect, type ReactNode } from '
 import es from '@/i18n/es.json';
 import en from '@/i18n/en.json';
 import zh from '@/i18n/zh.json';
+import pt from '@/i18n/pt.json';
+import hi from '@/i18n/hi.json';
 
-type Locale = 'es' | 'en' | 'zh';
+type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi';
 
 type Translations = {
   [key: string]: any;
 };
 
-const translations: Record<Locale, Translations> = { es, en, zh };
+const translations: Record<Locale, Translations> = { es, en, zh, pt, hi };
 
 interface LanguageContextType {
   language: Locale;
@@ -26,7 +28,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const browserLang = navigator.language.split('-')[0];
-    if (['es', 'en', 'zh'].includes(browserLang)) {
+    if (['es', 'en', 'zh', 'pt', 'hi'].includes(browserLang)) {
       setLanguage(browserLang as Locale);
     }
   }, []);

@@ -1,0 +1,76 @@
+{
+  "header": {
+    "buy": "Comprar"
+  },
+  "hero": {
+    "phrases": [
+      "Negociar é uma arte.",
+      "Pratique com compaixão.",
+      "Um livro para transformar conversas difíceis em acordos mútuos."
+    ],
+    "buyButton": "Compre agora",
+    "trailerButton": "Ver trailer"
+  },
+  "idea": {
+    "paragraphs": [
+      "Não se trata de vencer a todo custo. Trata-se de construir pontes, entender o outro e encontrar um terreno comum. Negociar bonito é, em essência, um ato de empatia e estratégia."
+    ]
+  },
+  "principles": {
+    "title": "Os 3 pilares da negociação.",
+    "clarity": {
+      "title": "Clareza",
+      "description": "Comunique sua intenção com simplicidade e honestidade. A transparência é o caminho mais curto para a confiança."
+    },
+    "activeListening": {
+      "title": "Escuta Ativa",
+      "description": "Ouça para compreender, não apenas para responder. Entenda as necessidades e motivações da outra parte."
+    },
+    "mutualRespect": {
+      "title": "Respeito Mútuo",
+      "description": "Mantenha sua posição sem quebrar o relacionamento. O respeito é a base de qualquer acordo duradouro e benéfico."
+    }
+  },
+  "author": {
+    "title": "Conheça o autor",
+    "shortBio": "Roberto Luna é um empresário e pensador que transformou a negociação em um ato profundamente humano: menos guerra, mais compaixão, palavras que constroem e não quebram.",
+    "readMore": "Saber mais",
+    "showLess": "Mostrar menos",
+    "fullBioTitle": "Sobre Roberto Luna",
+    "fullBio": [
+      "Roberto Luna é um empresário, líder e pensador contemporâneo que fez da negociação uma prática profundamente humana. Além de contratos e números, seu trabalho se concentra em uma ideia radical para o mundo dos negócios: negociar é, antes de tudo, um ato de consciência, linguagem e compaixão.",
+      "Com uma visão que mistura filosofia, experiência em negócios e sensibilidade emocional, Roberto propõe uma nova maneira de dialogar com os outros e consigo mesmo. Em 'Negociando Bonito', ele compartilha reflexões que nascem tanto da liderança quanto de sua jornada pessoal: a importância de ouvir, escolher bem as palavras, entender o outro e cultivar relacionamentos baseados no respeito e na empatia.",
+      "Ao longo do livro, Roberto nos convida a ver a negociação não como uma batalha a ser vencida, mas como um espaço a ser cuidado. Ele fala sobre liderança compassiva, o poder da linguagem, a capacidade de se adaptar como a água e a necessidade urgente de humanizar ambientes profissionais sem perder eficácia ou resultados.",
+      "Sua filosofia sustenta que os melhores acordos não nascem da imposição, mas da compreensão; não do medo, mas da clareza; não do ego, mas da presença. Para ele, negociar bem é também viver melhor.",
+      "'Negociando Bonito' é uma extensão de sua maneira de habitar o mundo: com atenção, com intenção e com uma profunda fé de que as conversas podem transformar vidas."
+    ]
+  },
+  "extracts": [
+    "A clareza não é um ponto de partida, é um resultado. Ela se constrói.",
+    "Ouça para entender, não para responder. Essa é a chave.",
+    "Negociar bonito é cuidar do relacionamento sem trair sua intenção."
+  ],
+  "audioPlayer": {
+    "title": "Ouça o livro completo",
+    "subtitle": "Aproveite a experiência completa do audiolivro, capítulo por capítulo.",
+    "chapterLabel": "CAPÍTULO",
+    "chaptersTitle": "Capítulos"
+  },
+  "cta": {
+    "title": "Comece a negociar bonito.",
+    "subtitle": "Disponível no seu formato preferido. Adquira sua cópia e transforme suas conversas.",
+    "channels": {
+      "amazon": "Amazon",
+      "gandhi": "Gandhi",
+      "audible": "Audible",
+      "appleBooks": "Apple Books",
+      "googlePlay": "Google Play",
+      "international": "Internacional"
+    },
+    "more": "e mais...",
+    "allStores": "Disponível nestas lojas"
+  },
+  "footer": {
+    "copyright": "Roberto. Todos os direitos reservados."
+  }
+}

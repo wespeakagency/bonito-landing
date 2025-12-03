@@ -11,6 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Globe } from 'lucide-react';
+import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag } from './icons';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -23,6 +24,14 @@ export default function Header() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const languageOptions = [
+    { lang: 'es', flag: SpainFlag, name: 'Español' },
+    { lang: 'en', flag: UKFlag, name: 'English' },
+    { lang: 'zh', flag: ChinaFlag, name: '中文' },
+    { lang: 'pt', flag: PortugalFlag, name: 'Português' },
+    { lang: 'hi', flag: IndiaFlag, name: 'हिन्दी' },
+  ];
 
   return (
     <header
@@ -44,24 +53,17 @@ export default function Header() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem
-                  onClick={() => setLanguage('es')}
-                  disabled={language === 'es'}
-                >
-                  Español
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => setLanguage('en')}
-                  disabled={language === 'en'}
-                >
-                  English
-                </DropdownMenuItem>
-                <DropdownMenuItem
-                  onClick={() => setLanguage('zh')}
-                  disabled={language === 'zh'}
-                >
-                  中文
-                </DropdownMenuItem>
+                {languageOptions.map(({ lang, flag: Flag, name }) => (
+                  <DropdownMenuItem
+                    key={lang}
+                    onClick={() => setLanguage(lang as any)}
+                    disabled={language === lang}
+                    className="flex items-center gap-2"
+                  >
+                    <Flag className="h-4 w-6 rounded-sm" />
+                    <span>{name}</span>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
             <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full">
