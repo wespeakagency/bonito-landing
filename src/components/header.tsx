@@ -25,14 +25,13 @@ export default function Header() {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-
+    
+    // Show the hint after a short delay
     const hintTimer = setTimeout(() => setShowHint(true), 1500);
-    const hideHintTimer = setTimeout(() => setShowHint(false), 12000);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
       clearTimeout(hintTimer);
-      clearTimeout(hideHintTimer);
     };
   }, []);
 
@@ -46,6 +45,7 @@ export default function Header() {
 
   const handleMenuOpenChange = (open: boolean) => {
     setIsMenuOpen(open);
+    // When the menu is opened, permanently hide the hint
     if (open) {
       setShowHint(false);
     }

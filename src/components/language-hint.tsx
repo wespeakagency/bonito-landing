@@ -30,7 +30,7 @@ export function LanguageHint({ isVisible }: { isVisible: boolean }) {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 10 }}
           transition={{ duration: 0.3 }}
-          className="absolute -top-1 right-full mr-3 w-max"
+          className="absolute top-1/2 -translate-y-1/2 right-full mr-3 w-max"
         >
           <div className="relative bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-sm shadow-lg shadow-primary/20">
             <AnimatePresence mode="wait">
