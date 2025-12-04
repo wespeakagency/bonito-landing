@@ -111,9 +111,16 @@ type Chapter = (typeof bookChapters)[0];
 interface AudioPlayerSectionProps {
   isPlaying: boolean;
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
+  isPlayerInView: boolean;
+  setPlayerInView: Dispatch<SetStateAction<boolean>>;
 }
 
-export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPlayerSectionProps) {
+export default function AudioPlayerSection({ 
+  isPlaying, 
+  setIsPlaying,
+  isPlayerInView,
+  setPlayerInView
+}: AudioPlayerSectionProps) {
   const { t, language } = useTranslation();
   const audioRef = useRef<HTMLAudioElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -121,18 +128,18 @@ export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPla
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [chapters, setChapters] = useState<Chapter[]>(bookChapters);
-  const [isMiniPlayerVisible, setIsMiniPlayerVisible] = useState(false);
   const [isDonationDialogOpen, setIsDonationDialogOpen] = useState(false);
   const [hasInteractedWithDonation, setHasInteractedWithDonation] = useState(false);
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
 
   const currentChapter = chapters[currentChapterIndex];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        setIsMiniPlayerVisible(!entry.isIntersecting && isPlaying);
+        setPlayerInView(entry.isIntersecting);
       },
-      { threshold: 0.1 } // Adjust threshold as needed
+      { threshold: 0.1 }
     );
 
     const currentSectionRef = sectionRef.current;
@@ -145,7 +152,7 @@ export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPla
         observer.unobserve(currentSectionRef);
       }
     };
-  }, [isPlaying]);
+  }, [setPlayerInView]);
 
   useEffect(() => {
     if (language !== 'es') return;
@@ -207,6 +214,7 @@ export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPla
   
   const proceedToPlay = () => {
     setHasInteractedWithDonation(true);
+    setHasPlayedOnce(true);
     setIsPlaying(true);
   }
 
@@ -255,7 +263,13 @@ export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPla
     <>
       <DonationDialog
         isOpen={isDonationDialogOpen}
-        onClose={() => setIsDonationDialogOpen(false)}
+        onClose={() => {
+            setIsDonationDialogOpen(false)
+            if (!hasInteractedWithDonation) {
+                setHasPlayedOnce(true);
+                setIsPlaying(true);
+            }
+        }}
         onConfirm={proceedToPlay}
       />
       <section ref={sectionRef} className="py-24 sm:py-32 bg-secondary text-foreground">
@@ -403,9 +417,9 @@ export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPla
 
         </div>
       </section>
-      {language === 'es' && isPlaying && (
+      {language === 'es' && hasPlayedOnce && (
           <MiniPlayer 
-            isVisible={isMiniPlayerVisible}
+            isVisible={!isPlayerInView}
             chapter={currentChapter}
             isPlaying={isPlaying}
             progress={(currentTime / duration) * 100}
