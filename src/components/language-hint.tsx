@@ -28,9 +28,9 @@ export function LanguageHint({ isVisible }: { isVisible: boolean }) {
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: 10 }}
+          exit={{ opacity: 0, x: -10 }}
           transition={{ duration: 0.5 }}
-          className="absolute right-full mr-3 w-max pointer-events-none"
+          className="w-max pointer-events-none"
         >
           <div className="rounded-full bg-primary/10 border-primary/20 text-primary backdrop-blur-sm shadow-lg shadow-primary/20 border px-4 py-1.5 text-sm">
             <AnimatePresence mode="wait">

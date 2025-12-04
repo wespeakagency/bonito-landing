@@ -63,6 +63,7 @@ export default function Header() {
       <div className="container mx-auto px-4">
         <div className="flex justify-end items-center h-24">
           <div className="flex items-center gap-2">
+            <LanguageHint isVisible={showHint && !isMenuOpen} />
             <div className="relative">
               <DropdownMenu onOpenChange={handleMenuOpenChange}>
                 <DropdownMenuTrigger asChild>
@@ -85,7 +86,6 @@ export default function Header() {
                   ))}
                 </DropdownMenuContent>
               </DropdownMenu>
-              <LanguageHint isVisible={showHint && !isMenuOpen} />
             </div>
             <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full">
               <a href="#comprar">{t('header.buy')}</a>
