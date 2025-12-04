@@ -26,13 +26,13 @@ export function LanguageHint({ isVisible }: { isVisible: boolean }) {
     <AnimatePresence>
       {isVisible && (
         <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 10 }}
-          transition={{ duration: 0.3 }}
-          className="absolute top-1/2 -translate-y-1/2 right-full mr-3 w-max"
+          initial={{ opacity: 0, x: 10 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: 10 }}
+          transition={{ duration: 0.5 }}
+          className="absolute top-1/2 -translate-y-1/2 right-full mr-3 w-max pointer-events-none"
         >
-          <div className="relative bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-sm shadow-lg shadow-primary/20">
+          <div className="rounded-full bg-primary/10 border-primary/20 text-primary backdrop-blur-sm shadow-lg shadow-primary/20 border px-4 py-1.5 text-sm">
             <AnimatePresence mode="wait">
               <motion.span
                 key={hintIndex}
@@ -44,7 +44,6 @@ export function LanguageHint({ isVisible }: { isVisible: boolean }) {
                 {languageHints[hintIndex]}
               </motion.span>
             </AnimatePresence>
-            <div className="absolute top-1/2 -right-1 w-2 h-2 bg-primary/10 border-r border-t border-primary/20 transform -translate-y-1/2 rotate-45" />
           </div>
         </motion.div>
       )}
