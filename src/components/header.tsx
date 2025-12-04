@@ -12,17 +12,28 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { Globe } from 'lucide-react';
 import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag } from './icons';
+import { LanguageHint } from './language-hint';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { t, setLanguage, language } = useTranslation();
+  const [showHint, setShowHint] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+
+    const hintTimer = setTimeout(() => setShowHint(true), 1500);
+    const hideHintTimer = setTimeout(() => setShowHint(false), 12000);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      clearTimeout(hintTimer);
+      clearTimeout(hideHintTimer);
+    };
   }, []);
 
   const languageOptions = [
@@ -32,6 +43,13 @@ export default function Header() {
     { lang: 'pt', flag: PortugalFlag, name: 'Português' },
     { lang: 'hi', flag: IndiaFlag, name: 'हिन्दी' },
   ];
+
+  const handleMenuOpenChange = (open: boolean) => {
+    setIsMenuOpen(open);
+    if (open) {
+      setShowHint(false);
+    }
+  };
 
   return (
     <header
@@ -44,28 +62,31 @@ export default function Header() {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-end items-center h-24">
-          <div className="flex items-center gap-4">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Globe />
-                  <span className="sr-only">Change language</span>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {languageOptions.map(({ lang, flag: Flag, name }) => (
-                  <DropdownMenuItem
-                    key={lang}
-                    onClick={() => setLanguage(lang as any)}
-                    disabled={language === lang}
-                    className="flex items-center gap-2"
-                  >
-                    <Flag className="h-4 w-6 rounded-sm" />
-                    <span>{name}</span>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+          <div className="flex items-center gap-2">
+            <div className="relative">
+              <DropdownMenu onOpenChange={handleMenuOpenChange}>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon">
+                    <Globe />
+                    <span className="sr-only">Change language</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {languageOptions.map(({ lang, flag: Flag, name }) => (
+                    <DropdownMenuItem
+                      key={lang}
+                      onClick={() => setLanguage(lang as any)}
+                      disabled={language === lang}
+                      className="flex items-center gap-2"
+                    >
+                      <Flag className="h-4 w-6 rounded-sm" />
+                      <span>{name}</span>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+              <LanguageHint isVisible={showHint && !isMenuOpen} />
+            </div>
             <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full">
               <a href="#comprar">{t('header.buy')}</a>
             </Button>
