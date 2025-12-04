@@ -72,6 +72,17 @@
     "more": "y más...",
     "allStores": "Disponible en estas tiendas"
   },
+  "donation": {
+    "title": "Tu apoyo hace la diferencia",
+    "subtitle": "La creación de este audiolibro fue un acto de amor y dedicación. Si valoras este trabajo, considera apoyar al autor. Tu contribución, por pequeña que sea, nos inspira a seguir creando.",
+    "supportButton": "Apoyar con una donación",
+    "listenButton": "Escuchar ahora",
+    "paymentTitle": "Elige un método de pago",
+    "creditCard": "Tarjeta de crédito",
+    "backButton": "Volver",
+    "successTitle": "¡Gracias por tu apoyo!",
+    "successSubtitle": "Tu donación nos ayuda a continuar nuestra misión. El audiolibro comenzará en un instante."
+  },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
   }

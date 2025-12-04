@@ -17,6 +17,7 @@ import { useTranslation } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from './ui/scroll-area';
 import MiniPlayer from './mini-player';
+import { DonationDialog } from './donation-dialog';
 
 const bookChapters = [
   {
@@ -117,6 +118,8 @@ export default function AudioPlayerSection() {
   const [duration, setDuration] = useState(0);
   const [chapters, setChapters] = useState<Chapter[]>(bookChapters);
   const [isMiniPlayerVisible, setIsMiniPlayerVisible] = useState(false);
+  const [isDonationDialogOpen, setIsDonationDialogOpen] = useState(false);
+  const [hasInteractedWithDonation, setHasInteractedWithDonation] = useState(false);
 
   const currentChapter = chapters[currentChapterIndex];
 
@@ -186,12 +189,30 @@ export default function AudioPlayerSection() {
 
   const handlePlayPause = () => {
     if (!currentChapter.audioSrc) return;
-    setIsPlaying(!isPlaying);
+
+    if (isPlaying) {
+      setIsPlaying(false);
+    } else {
+      if (!hasInteractedWithDonation) {
+        setIsDonationDialogOpen(true);
+      } else {
+        setIsPlaying(true);
+      }
+    }
   };
+  
+  const proceedToPlay = () => {
+    setHasInteractedWithDonation(true);
+    setIsPlaying(true);
+  }
 
   const selectChapter = (index: number) => {
     setCurrentChapterIndex(index);
-    setIsPlaying(true);
+    if (!hasInteractedWithDonation) {
+        setIsDonationDialogOpen(true);
+    } else {
+        setIsPlaying(true);
+    }
   };
 
   const handleNext = () => {
@@ -199,7 +220,8 @@ export default function AudioPlayerSection() {
     while (!chapters[nextIndex].audioSrc && nextIndex !== currentChapterIndex) {
       nextIndex = (nextIndex + 1) % chapters.length;
     }
-    selectChapter(nextIndex);
+    setCurrentChapterIndex(nextIndex);
+    setIsPlaying(true);
   };
 
   const handlePrevious = () => {
@@ -207,7 +229,8 @@ export default function AudioPlayerSection() {
     while (!chapters[prevIndex].audioSrc && prevIndex !== currentChapterIndex) {
       prevIndex = (prevIndex - 1 + chapters.length) % chapters.length;
     }
-    selectChapter(prevIndex);
+    setCurrentChapterIndex(prevIndex);
+    setIsPlaying(true);
   };
 
   const handleProgressChange = (value: number[]) => {
@@ -226,6 +249,11 @@ export default function AudioPlayerSection() {
 
   return (
     <>
+      <DonationDialog
+        isOpen={isDonationDialogOpen}
+        onClose={() => setIsDonationDialogOpen(false)}
+        onConfirm={proceedToPlay}
+      />
       <section ref={sectionRef} className="py-24 sm:py-32 bg-secondary text-foreground">
         <div className="container mx-auto px-4">
           <AnimatedBlock animationType="slide-in-up">
