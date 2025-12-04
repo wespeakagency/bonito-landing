@@ -4,7 +4,6 @@ import { useState } from 'react';
 import {
   Dialog,
   DialogContent,
-  DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Button } from './ui/button';
@@ -58,7 +57,7 @@ export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogPro
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
-            className="flex flex-col items-center text-center"
+            className="flex flex-col items-center text-center p-4"
           >
             <div className="bg-primary/10 p-4 rounded-full mb-6">
                 <Heart className="w-10 h-10 text-primary" />
@@ -66,10 +65,10 @@ export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogPro
             <DialogTitle className="text-2xl font-headline font-bold text-foreground mb-4">
               {t('donation.title')}
             </DialogTitle>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-muted-foreground mb-8 max-w-sm">
               {t('donation.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 w-full">
+            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
               <Button onClick={handleSupport} size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 {t('donation.supportButton')}
               </Button>
@@ -87,7 +86,7 @@ export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogPro
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: -50 }}
             transition={{ duration: 0.4 }}
-            className="w-full"
+            className="w-full p-4"
           >
             <DialogTitle className="text-2xl font-headline font-bold text-foreground mb-6 text-center">
               {t('donation.paymentTitle')}
@@ -118,7 +117,7 @@ export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogPro
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-                className="flex flex-col items-center text-center"
+                className="flex flex-col items-center text-center p-4"
               >
                 <CheckCircle className="w-20 h-20 text-green-500 mb-6" />
                 <DialogTitle className="text-2xl font-headline font-bold text-foreground mb-2">
@@ -136,17 +135,10 @@ export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogPro
 
   return (
     <Dialog open={isOpen} onOpenChange={handleClose}>
-      <DialogContent className="bg-background/80 backdrop-blur-xl border-white/10 sm:max-w-md p-8 sm:p-12 shadow-2xl">
+       <DialogContent className="bg-background/80 backdrop-blur-xl border-white/10 sm:max-w-md p-6 shadow-2xl overflow-hidden">
         <AnimatePresence mode="wait">
             {renderContent()}
         </AnimatePresence>
-        <button
-            onClick={handleClose}
-            className="absolute right-4 top-4 rounded-full p-2 text-white/50 hover:text-white hover:bg-white/10 transition-colors duration-300"
-        >
-          <X className="h-5 w-5" />
-          <span className="sr-only">Close</span>
-        </button>
       </DialogContent>
     </Dialog>
   );
