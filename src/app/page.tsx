@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import Header from '@/components/header';
 import HeroSection from '@/components/hero-section';
 import IdeaSection from '@/components/idea-section';
@@ -10,6 +13,8 @@ import AuthorSection from '@/components/author-section';
 import FloatingPlayerButton from '@/components/floating-player-button';
 
 export default function Home() {
+  const [isPlaying, setIsPlaying] = useState(false);
+
   return (
     <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
       <Header />
@@ -20,13 +25,13 @@ export default function Home() {
         <ExtractsSection />
         <AuthorSection />
         <div id="audiolibro">
-          <AudioPlayerSection />
+          <AudioPlayerSection isPlaying={isPlaying} setIsPlaying={setIsPlaying} />
         </div>
         <div id="comprar">
           <CtaSection />
         </div>
       </main>
-      <FloatingPlayerButton />
+      <FloatingPlayerButton isVisible={!isPlaying} />
       <Footer />
     </div>
   );

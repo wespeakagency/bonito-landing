@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, Dispatch, SetStateAction } from 'react';
 import {
   Play,
   Pause,
@@ -108,11 +108,15 @@ const bookChapters = [
 
 type Chapter = (typeof bookChapters)[0];
 
-export default function AudioPlayerSection() {
+interface AudioPlayerSectionProps {
+  isPlaying: boolean;
+  setIsPlaying: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function AudioPlayerSection({ isPlaying, setIsPlaying }: AudioPlayerSectionProps) {
   const { t, language } = useTranslation();
   const audioRef = useRef<HTMLAudioElement>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -173,7 +177,7 @@ export default function AudioPlayerSection() {
       audio.removeEventListener('loadeddata', setAudioData);
       audio.removeEventListener('timeupdate', setAudioTime);
     };
-  }, [currentChapterIndex, currentChapter.audioSrc, language]);
+  }, [currentChapterIndex, currentChapter.audioSrc, language, isPlaying]);
   
   useEffect(() => {
     if (language !== 'es') return;

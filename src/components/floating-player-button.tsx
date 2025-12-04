@@ -4,8 +4,12 @@ import { Headphones } from 'lucide-react';
 import { Button } from './ui/button';
 import { useTranslation } from '@/context/language-context';
 
-export default function FloatingPlayerButton() {
+export default function FloatingPlayerButton({ isVisible }: { isVisible: boolean }) {
   const { t } = useTranslation();
+
+  if (!isVisible) {
+    return null;
+  }
 
   return (
     <a
