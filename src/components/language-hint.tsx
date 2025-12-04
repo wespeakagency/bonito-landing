@@ -32,7 +32,7 @@ export function LanguageHint({ isVisible }: { isVisible: boolean }) {
           transition={{ duration: 0.3 }}
           className="absolute -top-1 right-full mr-3 w-max"
         >
-          <div className="relative bg-popover text-popover-foreground rounded-lg px-3 py-1.5 text-sm shadow-lg">
+          <div className="relative bg-primary/10 text-primary border border-primary/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-sm shadow-lg shadow-primary/20">
             <AnimatePresence mode="wait">
               <motion.span
                 key={hintIndex}
@@ -44,7 +44,7 @@ export function LanguageHint({ isVisible }: { isVisible: boolean }) {
                 {languageHints[hintIndex]}
               </motion.span>
             </AnimatePresence>
-            <div className="absolute top-1/2 -right-1 w-2 h-2 bg-popover transform -translate-y-1/2 rotate-45" />
+            <div className="absolute top-1/2 -right-1 w-2 h-2 bg-primary/10 border-r border-t border-primary/20 transform -translate-y-1/2 rotate-45" />
           </div>
         </motion.div>
       )}
