@@ -68,7 +68,7 @@ export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogPro
             <p className="text-muted-foreground mb-8 max-w-sm">
               {t('donation.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 w-full max-w-sm">
+            <div className="flex flex-col gap-4 w-full max-w-sm">
               <Button onClick={handleSupport} size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 {t('donation.supportButton')}
               </Button>
