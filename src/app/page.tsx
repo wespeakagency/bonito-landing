@@ -15,6 +15,7 @@ import FloatingPlayerButton from '@/components/floating-player-button';
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [isPlayerInView, setPlayerInView] = useState(true);
+  const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen bg-background overflow-x-hidden">
@@ -31,13 +32,15 @@ export default function Home() {
             setIsPlaying={setIsPlaying}
             isPlayerInView={isPlayerInView}
             setPlayerInView={setPlayerInView}
+            hasPlayedOnce={hasPlayedOnce}
+            setHasPlayedOnce={setHasPlayedOnce}
           />
         </div>
         <div id="comprar">
           <CtaSection />
         </div>
       </main>
-      <FloatingPlayerButton isVisible={!isPlayerInView && !isPlaying} />
+      <FloatingPlayerButton isVisible={!isPlayerInView && !hasPlayedOnce} />
       <Footer />
     </div>
   );

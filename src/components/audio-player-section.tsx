@@ -113,13 +113,17 @@ interface AudioPlayerSectionProps {
   setIsPlaying: Dispatch<SetStateAction<boolean>>;
   isPlayerInView: boolean;
   setPlayerInView: Dispatch<SetStateAction<boolean>>;
+  hasPlayedOnce: boolean;
+  setHasPlayedOnce: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function AudioPlayerSection({ 
   isPlaying, 
   setIsPlaying,
   isPlayerInView,
-  setPlayerInView
+  setPlayerInView,
+  hasPlayedOnce,
+  setHasPlayedOnce,
 }: AudioPlayerSectionProps) {
   const { t, language } = useTranslation();
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -130,7 +134,6 @@ export default function AudioPlayerSection({
   const [chapters, setChapters] = useState<Chapter[]>(bookChapters);
   const [isDonationDialogOpen, setIsDonationDialogOpen] = useState(false);
   const [hasInteractedWithDonation, setHasInteractedWithDonation] = useState(false);
-  const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
 
   const currentChapter = chapters[currentChapterIndex];
 
