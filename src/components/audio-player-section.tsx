@@ -18,6 +18,7 @@ import { cn } from '@/lib/utils';
 import { ScrollArea } from './ui/scroll-area';
 import MiniPlayer from './mini-player';
 import { DonationDialog } from './donation-dialog';
+import { Progress } from './ui/progress';
 
 const bookChapters = [
   {
@@ -211,6 +212,7 @@ export default function AudioPlayerSection({
         setIsDonationDialogOpen(true);
       } else {
         setIsPlaying(true);
+        setHasPlayedOnce(true);
       }
     }
   };
@@ -227,6 +229,7 @@ export default function AudioPlayerSection({
         setIsDonationDialogOpen(true);
     } else {
         setIsPlaying(true);
+        setHasPlayedOnce(true);
     }
   };
 
