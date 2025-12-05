@@ -79,27 +79,20 @@ const bookChapters = [
   },
   {
     id: 9,
-    title: 'C8 - Negociar para ayudar',
-    duration: '7:36',
-    audioSrc:
-      'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C8%20-%20Negociar%20para%20ayudar.mp3',
-  },
-  {
-    id: 10,
     title: 'C9 - Un secuestro',
     duration: '9:48',
     audioSrc:
       'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C9%20-%20Un%20secuestro.mp3',
   },
   {
-    id: 11,
+    id: 10,
     title: 'C10 - Negociando con el espejo',
     duration: '5:41',
     audioSrc:
       'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C10%20-%20Negociando%20con%20el%20espejo.mp3',
   },
   {
-    id: 12,
+    id: 11,
     title: 'C11 - Gracias por negociar bonito',
     duration: '4:23',
     audioSrc:
@@ -158,6 +151,23 @@ export default function AudioPlayerSection({
     };
   }, [setPlayerInView]);
 
+  const updateMediaSession = () => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: currentChapter.title,
+        artist: 'Roberto Luna',
+        album: 'Negociando Bonito',
+        artwork: [
+          { 
+            src: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/WhatsApp%20Image%202025-11-27%20at%2018.21.40.jpeg', 
+            sizes: '512x512', 
+            type: 'image/jpeg' 
+          },
+        ]
+      });
+    }
+  };
+
   useEffect(() => {
     if (language !== 'es') return;
     
@@ -180,6 +190,7 @@ export default function AudioPlayerSection({
     
     if (isPlaying) {
       audio.play().catch(error => console.error("Audio play failed:", error));
+      updateMediaSession();
     } else {
         audio.pause();
     }
@@ -197,6 +208,7 @@ export default function AudioPlayerSection({
     
     if (isPlaying) {
       audio.play().catch(error => console.error('Audio play failed:', error));
+      updateMediaSession();
     } else {
       audio.pause();
     }
@@ -264,6 +276,16 @@ export default function AudioPlayerSection({
     const seconds = Math.floor(time % 60);
     return `${minutes}:${seconds.toString().padStart(2, '0')}`;
   };
+  
+  useEffect(() => {
+    if ('mediaSession' in navigator) {
+      navigator.mediaSession.setActionHandler('play', () => setIsPlaying(true));
+      navigator.mediaSession.setActionHandler('pause', () => setIsPlaying(false));
+      navigator.mediaSession.setActionHandler('previoustrack', handlePrevious);
+      navigator.mediaSession.setActionHandler('nexttrack', handleNext);
+    }
+  }, [handlePrevious, handleNext, setIsPlaying]);
+
 
   return (
     <>
