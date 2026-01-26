@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, type Dispatch, type SetStateAction } from 'react';
+import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from '@/context/language-context';
@@ -14,11 +14,7 @@ import { Globe } from 'lucide-react';
 import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag } from './icons';
 import { LanguageHint } from './language-hint';
 
-interface HeaderProps {
-  setShowLanguageOverlay: Dispatch<SetStateAction<boolean>>;
-}
-
-export default function Header({ setShowLanguageOverlay }: HeaderProps) {
+export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { t, setLanguage, language } = useTranslation();
   const [showHint, setShowHint] = useState(false);
@@ -49,10 +45,9 @@ export default function Header({ setShowLanguageOverlay }: HeaderProps) {
 
   const handleMenuOpenChange = (open: boolean) => {
     setIsMenuOpen(open);
-    // When the menu is opened, permanently hide the hint and overlay
+    // When the menu is opened, permanently hide the hint
     if (open) {
       setShowHint(false);
-      setShowLanguageOverlay(false);
     }
   };
 
