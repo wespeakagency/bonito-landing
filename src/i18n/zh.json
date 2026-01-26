@@ -60,28 +60,13 @@
   },
   "cta": {
     "title": "开始优雅地谈判。",
-    "subtitle": "提供您喜欢的格式。获取您的副本并改变您的对话。",
-    "channels": {
-      "amazon": "亚马逊",
-      "gandhi": "Gandhi",
-      "audible": "Audible",
-      "appleBooks": "Apple Books",
-      "googlePlay": "Google Play",
-      "international": "国际版"
-    },
-    "more": "更多...",
-    "allStores": "可在这些商店购买"
+    "subtitle": "提供您喜欢的格式。获取您的副本并改变您的对话。"
   },
   "donation": {
     "title": "您的支持有所作为",
     "subtitle": "创作这本有声书是爱与奉献的行为。如果您珍视这项工作，请考虑支持作者。您的贡献，无论大小，都激励着我们继续创作。",
     "supportButton": "捐款支持",
-    "listenButton": "立即收听",
-    "paymentTitle": "选择付款方式",
-    "creditCard": "信用卡",
-    "backButton": "返回",
-    "successTitle": "感谢您的支持！",
-    "successSubtitle": "您的捐款帮助我们继续我们的使命。有声书将稍后开始。"
+    "listenButton": "立即收听"
   },
   "footer": {
     "copyright": "罗伯托。版权所有。"

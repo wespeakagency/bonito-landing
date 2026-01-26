@@ -60,28 +60,13 @@
   },
   "cta": {
     "title": "Comece a negociar bonito.",
-    "subtitle": "Disponível no seu formato preferido. Adquira sua cópia e transforme suas conversas.",
-    "channels": {
-      "amazon": "Amazon",
-      "gandhi": "Gandhi",
-      "audible": "Audible",
-      "appleBooks": "Apple Books",
-      "googlePlay": "Google Play",
-      "international": "Internacional"
-    },
-    "more": "e mais...",
-    "allStores": "Disponível nestas lojas"
+    "subtitle": "Disponível no seu formato preferido. Adquira sua cópia e transforme suas conversas."
   },
   "donation": {
     "title": "Seu apoio faz a diferença",
     "subtitle": "A criação deste audiolivro foi um ato de amor e dedicação. Se você valoriza este trabalho, considere apoiar o autor. Sua contribuição, por menor que seja, nos inspira a continuar criando.",
     "supportButton": "Apoiar com uma doação",
-    "listenButton": "Ouvir agora",
-    "paymentTitle": "Escolha um método de pagamento",
-    "creditCard": "Cartão de Crédito",
-    "backButton": "Voltar",
-    "successTitle": "Obrigado pelo seu apoio!",
-    "successSubtitle": "Sua doação nos ajuda a continuar nossa missão. O audiolivro começará em breve."
+    "listenButton": "Ouvir agora"
   },
   "footer": {
     "copyright": "Roberto. Todos os direitos reservados."

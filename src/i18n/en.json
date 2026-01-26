@@ -60,28 +60,13 @@
   },
   "cta": {
     "title": "Start negotiating beautifully.",
-    "subtitle": "Available in your preferred format. Get your copy and transform your conversations.",
-    "channels": {
-      "amazon": "Amazon",
-      "gandhi": "Gandhi",
-      "audible": "Audible",
-      "appleBooks": "Apple Books",
-      "googlePlay": "Google Play",
-      "international": "International"
-    },
-    "more": "and more...",
-    "allStores": "Available in these stores"
+    "subtitle": "Available in your preferred format. Get your copy and transform your conversations."
   },
   "donation": {
     "title": "Your support makes a difference",
     "subtitle": "Creating this audiobook was an act of love and dedication. If you value this work, consider supporting the author. Your contribution, no matter how small, inspires us to keep creating.",
     "supportButton": "Support with a donation",
-    "listenButton": "Listen now",
-    "paymentTitle": "Choose a payment method",
-    "creditCard": "Credit Card",
-    "backButton": "Go back",
-    "successTitle": "Thank you for your support!",
-    "successSubtitle": "Your donation helps us continue our mission. The audiobook will begin shortly."
+    "listenButton": "Listen now"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
