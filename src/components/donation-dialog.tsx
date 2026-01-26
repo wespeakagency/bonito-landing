@@ -12,26 +12,24 @@ import { PayPalIcon } from './icons';
 
 interface DonationDialogProps {
   isOpen: boolean;
-  onClose: () => void;
-  onConfirm: () => void;
+  onAction: (action: 'listen' | 'support' | 'close') => void;
 }
 
-export function DonationDialog({ isOpen, onClose, onConfirm }: DonationDialogProps) {
+export function DonationDialog({ isOpen, onAction }: DonationDialogProps) {
   const { t } = useTranslation();
 
   const handleListen = () => {
-    onClose();
+    onAction('listen');
   };
 
   const handleSupport = () => {
     // IMPORTANT: Replace this with Roberto's actual PayPal.me link
     window.open('https://www.paypal.me/your-paypal-username', '_blank');
-    onConfirm();
-    onClose();
+    onAction('support');
   };
 
   return (
-    <Dialog open={isOpen} onOpenChange={onClose}>
+    <Dialog open={isOpen} onOpenChange={(open) => !open && onAction('close')}>
        <DialogContent className="bg-background/80 backdrop-blur-xl border-white/10 sm:max-w-md p-6 shadow-2xl">
         <div className="flex flex-col items-center text-center p-4">
             <div className="bg-primary/10 p-4 rounded-full mb-6">

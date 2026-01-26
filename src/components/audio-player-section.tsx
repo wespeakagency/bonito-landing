@@ -229,12 +229,6 @@ export default function AudioPlayerSection({
     }
   };
   
-  const proceedToPlay = () => {
-    setHasInteractedWithDonation(true);
-    setHasPlayedOnce(true);
-    setIsPlaying(true);
-  }
-
   const selectChapter = (index: number) => {
     setCurrentChapterIndex(index);
     if (!hasInteractedWithDonation) {
@@ -242,6 +236,17 @@ export default function AudioPlayerSection({
     } else {
         setIsPlaying(true);
         setHasPlayedOnce(true);
+    }
+  };
+
+  const handleDialogAction = (action: 'listen' | 'support' | 'close') => {
+    setIsDonationDialogOpen(false);
+    if (action === 'listen') {
+      setHasInteractedWithDonation(true);
+      setHasPlayedOnce(true);
+      setIsPlaying(true);
+    } else if (action === 'support') {
+      setHasInteractedWithDonation(true);
     }
   };
 
@@ -291,14 +296,7 @@ export default function AudioPlayerSection({
     <>
       <DonationDialog
         isOpen={isDonationDialogOpen}
-        onClose={() => {
-            setIsDonationDialogOpen(false)
-            if (!hasInteractedWithDonation) {
-                setHasPlayedOnce(true);
-                setIsPlaying(true);
-            }
-        }}
-        onConfirm={proceedToPlay}
+        onAction={handleDialogAction}
       />
       <section ref={sectionRef} className="py-24 sm:py-32 bg-secondary text-foreground">
         <div className="container mx-auto px-4">
