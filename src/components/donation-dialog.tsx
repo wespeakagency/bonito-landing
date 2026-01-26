@@ -23,8 +23,7 @@ export function DonationDialog({ isOpen, onAction }: DonationDialogProps) {
   };
 
   const handleSupport = () => {
-    // IMPORTANT: Replace this with Roberto's actual PayPal.me link
-    window.open('https://www.paypal.me/your-paypal-username', '_blank');
+    window.open('https://paypal.me/negociandobonito', '_blank');
     onAction('support');
   };
 
