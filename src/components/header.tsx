@@ -88,7 +88,7 @@ export default function Header() {
               </DropdownMenu>
             </div>
             <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full">
-              <a href="#comprar">{t('header.buy')}</a>
+              <a href="https://thyrsoeditorial.com/producto/negociando-bonito-de-roberto-luna/">{t('header.buy')}</a>
             </Button>
           </div>
         </div>
