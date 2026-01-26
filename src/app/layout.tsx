@@ -1,8 +1,14 @@
-'use client';
-
 import './globals.css';
-import { Toaster } from '@/components/ui/toaster';
-import { LanguageProvider } from '@/context/language-context';
+import { Providers } from './providers';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Negociando Bonito',
+  description: 'Un libro para transformar conversaciones difíciles en acuerdos mutuos.',
+  icons: {
+    icon: '/icon.ico',
+  },
+};
 
 export default function RootLayout({
   children,
@@ -17,10 +23,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <LanguageProvider>
+        <Providers>
           {children}
-          <Toaster />
-        </LanguageProvider>
+        </Providers>
       </body>
     </html>
   );
