@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: 'Negociando Bonito',
   description: 'Un libro para transformar conversaciones difíciles en acuerdos mutuos.',
   icons: {
-    icon: '/icon.ico',
+    icon: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/golondrina.png',
   },
 };
 
