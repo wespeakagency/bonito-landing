@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, PlayCircle } from 'lucide-react';
+import { ArrowRight, Headphones } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useTranslation } from '@/context/language-context';
 import { cn } from '@/lib/utils';
@@ -52,9 +52,9 @@ export default function HeroSection() {
                   </a>
                 </Button>
                 <Button size="lg" variant="ghost" className="font-semibold rounded-full px-8 py-6 text-lg text-white hover:bg-white/10" asChild>
-                  <a href="#">
-                    <PlayCircle className="mr-2 h-5 w-5" />
-                    {t('hero.trailerButton')}
+                  <a href="#audiolibro">
+                    <Headphones className="mr-2 h-5 w-5" />
+                    {t('audioPlayer.listenButton')}
                   </a>
                 </Button>
               </div>
