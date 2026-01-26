@@ -3,7 +3,6 @@
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { LanguageProvider } from '@/context/language-context';
-import SocialLinks from '@/components/social-links';
 
 export default function RootLayout({
   children,
@@ -19,7 +18,6 @@ export default function RootLayout({
       </head>
       <body className="font-body antialiased">
         <LanguageProvider>
-          <SocialLinks />
           {children}
           <Toaster />
         </LanguageProvider>
