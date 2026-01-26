@@ -26,13 +26,6 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguage] = useState<Locale>('es');
 
-  useEffect(() => {
-    const browserLang = navigator.language.split('-')[0];
-    if (['es', 'en', 'zh', 'pt', 'hi'].includes(browserLang)) {
-      setLanguage(browserLang as Locale);
-    }
-  }, []);
-
   const t = (key: string, options?: { returnObjects: boolean }) => {
     const keys = key.split('.');
     let result = translations[language];
