@@ -3,7 +3,6 @@
 import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
 import { useTranslation } from '@/context/language-context';
-import { SpotifyIcon } from './icons';
 
 type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi';
 
@@ -44,7 +43,6 @@ export default function SpotifySection() {
             asChild
           >
             <a href={spotifyLink} target="_blank" rel="noopener noreferrer">
-              <SpotifyIcon className="mr-2 h-6 w-6" />
               {t('spotify.button')}
             </a>
           </Button>
