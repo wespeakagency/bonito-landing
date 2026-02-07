@@ -305,5 +305,72 @@ export const chapters: ChaptersByLanguage = {
     },
   ],
   pt: [],
-  hi: [],
+  hi: [
+    {
+      id: 1,
+      title: 'अध्याय 1 - खूबसूरती से संवाद करें',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%201%20-%20%E0%A4%96%E0%A5%82%E0%A4%AC%E0%A4%B8%E0%A5%82%E0%A4%B0%E0%A4%A4%E0%A5%80%20%E0%A4%B8%E0%A5%87%20%E0%A4%B8%E0%A4%82%E0%A4%B5%E0%A4%BE%E0%A4%A6%20%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82_1.mp3',
+    },
+    {
+      id: 2,
+      title: 'अध्याय 2 - करुणा प्रतिस्पर्धी लाभ पैदा करती है',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%202%20-%20%E0%A4%95%E0%A4%B0%E0%A5%81%E0%A4%A3%E0%A4%BE%20%E0%A4%AA%E0%A5%8D%E0%A4%B0%E0%A4%A4%E0%A4%BF%E0%A4%B8%E0%A5%8D%E0%A4%AA%E0%A4%B0%E0%A5%8D%E0%A4%A7%E0%A4%BE%E0%A4%A4%E0%A5%8D%E0%A4%AE%E0%A4%95%20%E0%A4%B2%E0%A4%BE%E0%A4%AD%20%E0%A4%AA%E0%A5%88%E0%A4%A6%E0%A4%BE%20%E0%A4%95%E0%A4%B0%E0%A4%A4%E0%A5%80%20%E0%A4%B9%E0%A5%88_1.mp3',
+    },
+    {
+      id: 3,
+      title: 'अध्याय 3 - चलो एक व्यापार करते हैं',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%203%20-%20%E0%A4%9A%E0%A4%B2%E0%A5%8B%20%E0%A4%8F%E0%A4%95%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20%E0%A4%95%E0%A4%B0%E0%A4%A4%E0%A5%87%20%E0%A4%B9%E0%A5%88%E0%A4%82_1.mp3',
+    },
+    {
+      id: 4,
+      title: 'अध्याय 4',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%204-.mp3',
+    },
+    {
+      id: 5,
+      title: 'अध्याय 5 - छह पारमिता (पुण्य से व्यापार)',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%205%20-%E0%A4%9B%E0%A4%B9%20%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%20(%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%8D%E0%A4%AF%20%E0%A4%B8%E0%A5%87%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20)-.mp3',
+    },
+    {
+      id: 6,
+      title: 'अध्याय 6 - अनलर्निंग',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%206%20-%20%E0%A4%85%E0%A4%A8%E0%A4%B2%E0%A4%B0%E0%A5%8D%E0%A4%A8%E0%A4%BF%E0%A4%82%E0%A4%97-.mp3',
+    },
+    {
+      id: 7,
+      title: 'अध्याय 7 - जीतने के लिए हारना',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%207%20-%20%E0%A4%9C%E0%A5%80%E0%A4%A4%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%20%E0%A4%B9%E0%A4%BE%E0%A4%B0%E0%A4%A8%E0%A4%BE-.mp3',
+    },
+    {
+      id: 8,
+      title: 'अध्याय 8 - मदद के लिए बातचीत',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%208%20-%20%E0%A4%AE%E0%A4%A6%E0%A4%A6%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%20%E0%A4%AC%E0%A4%BE%E0%A4%A4%E0%A4%9A%E0%A5%80%E0%A4%A4_1.mp3',
+    },
+    {
+      id: 9,
+      title: 'अध्याय 9 - एक अपहरण',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%209%20-%20%E0%A4%8F%E0%A4%95%20%E0%A4%85%E0%A4%AA%E0%A4%B9%E0%A4%B0%E0%A4%A3-.mp3',
+    },
+    {
+      id: 10,
+      title: 'अध्याय 10 - दर्पण के साथ बातचीत करें',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%2010%20-%20%E0%A4%A6%E0%A4%B0%E0%A5%8D%E0%A4%AA%E0%A4%A3%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%20%E0%A4%AC%E0%A4%BE%E0%A4%A4%E0%A4%9A%E0%A5%80%E0%A4%A4%20%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82_1.mp3',
+    },
+    {
+      id: 11,
+      title: 'अध्याय 11 - धन्यवाद',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%2011%20-%20%E0%A4%A7%E0%A4%A8%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%BE%E0%A4%A6_1.mp3',
+    },
+  ],
 };
