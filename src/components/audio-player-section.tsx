@@ -374,7 +374,7 @@ export default function AudioPlayerSection({
       </section>
       {activeChapters.length > 0 && hasPlayedOnce && currentChapter && (
           <MiniPlayer 
-            isVisible={!isPlayerInView}
+            isVisible={!isPlayerInView && isPlaying}
             chapter={currentChapter}
             isPlaying={isPlaying}
             progress={(currentTime / duration) * 100}

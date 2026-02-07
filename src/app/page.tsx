@@ -42,7 +42,7 @@ export default function Home() {
           <CtaSection />
         </div>
       </main>
-      <FloatingPlayerButton isVisible={!isPlayerInView && hasPlayedOnce} />
+      <FloatingPlayerButton isVisible={!isPlayerInView && hasPlayedOnce && !isPlaying} />
       <Footer />
     </div>
   );
