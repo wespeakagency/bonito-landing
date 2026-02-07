@@ -225,7 +225,85 @@ export const chapters: ChaptersByLanguage = {
       audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C11%20%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0_2.mp3',
     },
   ],
-  en: [],
+  en: [
+    {
+      id: 1,
+      title: 'Chapter 1 - Negotiating beautifully',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C1%20-%20Negotiating%20beautifully_1.mp3',
+    },
+    {
+      id: 2,
+      title: 'Chapter 2 - Compassion creates a competitive advantage',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C2%20-%20Compassion%20creates%20a%20competitive%20advantaje_1.mp3',
+    },
+    {
+      id: 3,
+      title: "Chapter 3 - Let's make a trade",
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C3%20-%20%20Lets%20make%20a%20trade_1.mp3',
+    },
+    {
+      id: 4,
+      title: "Chapter 4 - Speak beautifully (a lesson from the Q'ero people)",
+      duration: '',
+      audioSrc:
+        "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C4%20Speak%20beautifully%20(a%20lesson%20from%20the%20Q'ero%20people)-.mp3",
+    },
+    {
+      id: 5,
+      title: 'Chapter 5 - The Six Paramitas (Negotiating from Virtue)',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C5%20The%20Six%20Paramitas%20(%20Negotiating%20from%20Virtue%20)_1.mp3',
+    },
+    {
+      id: 6,
+      title: 'Chapter 6 - Unlearn',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C6%20Unlearn-.mp3',
+    },
+    {
+      id: 7,
+      title: 'Chapter 7 - Losing to win',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C7%20Losing%20to%20win-.mp3',
+    },
+    {
+      id: 8,
+      title: 'Chapter 8 - Negotiate to help',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C8%20-%20Negotiate%20to%20help_1.mp3',
+    },
+    {
+      id: 9,
+      title: 'Chapter 9 - A kidnapping',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C9%20A%20kidnapping-.mp3',
+    },
+    {
+      id: 10,
+      title: 'Chapter 10 - Negotiating with the mirror',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C10%20Negotiating%20with%20the%20mirror-.mp3',
+    },
+    {
+      id: 11,
+      title: 'Chapter 11 - Endnotes',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C11%20Endnotes_1.mp3',
+    },
+  ],
   pt: [],
   hi: [],
 };
