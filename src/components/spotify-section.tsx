@@ -8,6 +8,7 @@ import { SpotifyIcon } from './icons';
 type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi';
 
 const spotifyLinks: Partial<Record<Locale, string>> = {
+  es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
   en: 'https://open.spotify.com/show/24V2w0YX10O9c5opUWLIDz',
   fr: 'https://open.spotify.com/show/5i7nLg3STMY7DaURuCFV7z',
   zh: 'https://open.spotify.com/show/1GDPg4qyzrwfrRtKsOlGWH',
