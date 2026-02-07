@@ -304,7 +304,85 @@ export const chapters: ChaptersByLanguage = {
         'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C11%20Endnotes_1.mp3',
     },
   ],
-  pt: [],
+  pt: [
+    {
+      id: 1,
+      title: 'Capítulo 1 - Negociar lindamente',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C1P%20-%20Negociar%20lindamente_1.mp3',
+    },
+    {
+      id: 2,
+      title: 'Capítulo 2 - Compaixão cria uma vantagem competitiva',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C2P%20-%20Compassion%20creates%20a%20competitive%20advantaje_1.mp3',
+    },
+    {
+      id: 3,
+      title: 'Capítulo 3 - Vamos fazer uma troca',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C3P%20-%20Vamos%20fazer%20uma%20troca-.mp3',
+    },
+    {
+      id: 4,
+      title: "Capítulo 4 - Fala lindamente (uma lição do povo Q'ero)",
+      duration: '',
+      audioSrc:
+        "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C4P%20-Fala%20lindamente%20(uma%20lic%CC%A7a%CC%83o%20do%20povo%20Q'ero)_1.mp3",
+    },
+    {
+      id: 5,
+      title: 'Capítulo 5 - As Seis Paramitas (Negociando a partir da Virtude)',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C5P%20As%20Seis%20Paramitas%20(%20Negociando%20a%20partir%20da%20Virtude)-.mp3',
+    },
+    {
+      id: 6,
+      title: 'Capítulo 6 - Desaprender',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C6P%20Desaprender_1.mp3',
+    },
+    {
+      id: 7,
+      title: 'Capítulo 7 - Perder para ganhar',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C7P%20Perder%20para%20ganhar-.mp3',
+    },
+    {
+      id: 8,
+      title: 'Capítulo 8 - Negociar para ajudar',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C8P%20-%20Negociar%20para%20ajudar_1.mp3',
+    },
+    {
+      id: 9,
+      title: 'Capítulo 9 - Um rapto',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C9P%20Um%20rapto_1.mp3',
+    },
+    {
+      id: 10,
+      title: 'Capítulo 10 - Negociando com o espelho',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C10P%20Negotiating%20with%20the%20mirror-.mp3',
+    },
+    {
+      id: 11,
+      title: 'Capítulo 11 - Obrigado',
+      duration: '',
+      audioSrc:
+        'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/C11P%20-%20Obrigado_1.mp3',
+    },
+  ],
   hi: [
     {
       id: 1,
