@@ -11,6 +11,7 @@ import Footer from '@/components/footer';
 import AudioPlayerSection from '@/components/audio-player-section';
 import AuthorSection from '@/components/author-section';
 import FloatingPlayerButton from '@/components/floating-player-button';
+import SpotifySection from '@/components/spotify-section';
 
 export default function Home() {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -36,11 +37,12 @@ export default function Home() {
             setHasPlayedOnce={setHasPlayedOnce}
           />
         </div>
+        <SpotifySection />
         <div id="comprar">
           <CtaSection />
         </div>
       </main>
-      <FloatingPlayerButton isVisible={!isPlayerInView && !hasPlayedOnce} />
+      <FloatingPlayerButton isVisible={!isPlayerInView && hasPlayedOnce} />
       <Footer />
     </div>
   );

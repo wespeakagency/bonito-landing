@@ -57,6 +57,11 @@
     "listenButton": "收听有声书",
     "comingSoon": "即将推出您的语言版本"
   },
+  "spotify": {
+    "title": "也可在 Spotify 上收听",
+    "subtitle": "在您最喜爱的流媒体平台上收听有声读物。",
+    "button": "在 Spotify 上收听"
+  },
   "cta": {
     "title": "开始优雅地谈判。",
     "subtitle": "提供您喜欢的格式。获取您的副本并改变您的对话。"
@@ -64,8 +69,8 @@
   "donation": {
     "title": "您的支持有所作为",
     "subtitle": "创作这本有声书是爱与奉献的行为。如果您珍视这项工作，请考虑支持作者。您的贡献，无论大小，都激励着我们继续创作。",
-    "supportButton": "捐款支持",
-    "listenButton": "立即收听"
+    "supportButton": "用 PayPal 支持",
+    "listenButton": "继续收听"
   },
   "footer": {
     "copyright": "罗伯托。版权所有。"

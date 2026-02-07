@@ -57,6 +57,11 @@
     "listenButton": "Listen to the audiobook",
     "comingSoon": "Coming soon in your language"
   },
+  "spotify": {
+    "title": "Also available on Spotify",
+    "subtitle": "Listen to the audiobook on your favorite streaming platform.",
+    "button": "Listen on Spotify"
+  },
   "cta": {
     "title": "Start negotiating beautifully.",
     "subtitle": "Available in your preferred format. Get your copy and transform your conversations."
@@ -64,8 +69,8 @@
   "donation": {
     "title": "Your support makes a difference",
     "subtitle": "Creating this audiobook was an act of love and dedication. If you value this work, consider supporting the author. Your contribution, no matter how small, inspires us to keep creating.",
-    "supportButton": "Support with a donation",
-    "listenButton": "Listen now"
+    "supportButton": "Support with PayPal",
+    "listenButton": "Continue to listen"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."

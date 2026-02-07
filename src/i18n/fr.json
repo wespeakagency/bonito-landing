@@ -57,6 +57,11 @@
     "listenButton": "Écouter le livre audio",
     "comingSoon": "Bientôt dans votre langue"
   },
+  "spotify": {
+    "title": "Aussi disponible sur Spotify",
+    "subtitle": "Écoutez le livre audio sur votre plateforme de streaming préférée.",
+    "button": "Écouter sur Spotify"
+  },
   "cta": {
     "title": "Commencez à négocier avec élégance.",
     "subtitle": "Disponible dans votre format préféré. Obtenez votre copie et transformez vos conversations."
@@ -64,8 +69,8 @@
   "donation": {
     "title": "Votre soutien fait la différence",
     "subtitle": "La création de ce livre audio a été un acte d'amour et de dévouement. Si vous appréciez ce travail, envisagez de soutenir l'auteur. Votre contribution, aussi petite soit-elle, nous inspire à continuer à créer.",
-    "supportButton": "Soutenir avec un don",
-    "listenButton": "Écouter maintenant"
+    "supportButton": "Soutenir avec PayPal",
+    "listenButton": "Continuer à écouter"
   },
   "footer": {
     "copyright": "Roberto. Tous droits réservés."

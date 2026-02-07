@@ -57,6 +57,11 @@
     "listenButton": "Escucha el audiolibro",
     "comingSoon": "Próximamente en tu idioma"
   },
+  "spotify": {
+    "title": "También disponible en Spotify",
+    "subtitle": "Escucha el audiolibro en tu plataforma de streaming favorita.",
+    "button": "Escuchar en Spotify"
+  },
   "cta": {
     "title": "Comienza a negociar bonito.",
     "subtitle": "Disponible en tu formato preferido. Adquiere tu copia y transforma tus conversaciones."
@@ -64,8 +69,8 @@
   "donation": {
     "title": "Tu apoyo hace la diferencia",
     "subtitle": "La creación de este audiolibro fue un acto de amor y dedicación. Si valoras este trabajo, considera apoyar al autor. Tu contribución, por pequeña que sea, nos inspira a seguir creando.",
-    "supportButton": "Apoyar con una donación",
-    "listenButton": "Escuchar ahora"
+    "supportButton": "Apoyar con PayPal",
+    "listenButton": "Continuar a la escucha"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
