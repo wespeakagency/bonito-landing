@@ -7,8 +7,7 @@ import { SpotifyIcon } from './icons';
 
 type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi';
 
-const spotifyLinks: Record<Locale, string> = {
-  es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
+const spotifyLinks: Partial<Record<Locale, string>> = {
   en: 'https://open.spotify.com/show/24V2w0YX10O9c5opUWLIDz',
   fr: 'https://open.spotify.com/show/5i7nLg3STMY7DaURuCFV7z',
   zh: 'https://open.spotify.com/show/1GDPg4qyzrwfrRtKsOlGWH',
@@ -19,6 +18,10 @@ const spotifyLinks: Record<Locale, string> = {
 export default function SpotifySection() {
   const { t, language } = useTranslation();
   const spotifyLink = spotifyLinks[language as Locale];
+
+  if (!spotifyLink) {
+    return null;
+  }
 
   return (
     <section className="bg-secondary text-foreground py-24 sm:py-32">
