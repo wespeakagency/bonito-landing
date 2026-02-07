@@ -404,7 +404,7 @@ export const chapters: ChaptersByLanguage = {
     },
     {
       id: 4,
-      title: 'अध्याय 4',
+      title: 'अध्याय 4 - खूबसूरती से बोलें (क्यूरो लोगों से एक सबक)',
       duration: '',
       audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%204-.mp3',
     },
