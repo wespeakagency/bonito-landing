@@ -74,7 +74,9 @@
   },
   "purchaseDialog": {
     "title": "Elige dónde comprar",
-    "subtitle": "Compra el audiolibro en tu plataforma preferida."
+    "subtitle": "Elige tu formato y tienda preferidos.",
+    "audiobookTitle": "Audiolibro",
+    "physicalBookTitle": "Libro Físico"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."

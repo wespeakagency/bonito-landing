@@ -9,21 +9,23 @@ import {
 } from '@/components/ui/dialog';
 import { Button } from './ui/button';
 import { useTranslation } from '@/context/language-context';
-import { AppleBooksIcon, GooglePlayIcon } from './icons';
-import { BookOpen } from 'lucide-react';
 
 interface PurchaseDialogProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
 }
 
-const stores = [
-  { name: 'Odilo', href: 'https://marketplace.odilo.us/opac/?id=08823311#recordCard', icon: BookOpen },
-  { name: 'OverDrive', href: 'https://www.overdrive.com/media/12642146', icon: BookOpen },
-  { name: 'Apple Books', href: 'https://books.apple.com/us/audiobook/negociando-bonito/id1858248569', icon: AppleBooksIcon },
-  { name: 'Kobo', href: 'https://www.kobo.com/mx/en/audiobook/negociando-bonito', icon: BookOpen },
-  { name: 'Google Play', href: 'https://play.google.com/store/audiobooks/details?id=AQAAAEDq2hya5M', icon: GooglePlayIcon },
+const audioStores = [
+  { name: 'Odilo', href: 'https://marketplace.odilo.us/opac/?id=08823311#recordCard' },
+  { name: 'OverDrive', href: 'https://www.overdrive.com/media/12642146' },
+  { name: 'Apple Books', href: 'https://books.apple.com/us/audiobook/negociando-bonito/id1858248569' },
+  { name: 'Kobo', href: 'https://www.kobo.com/mx/en/audiobook/negociando-bonito' },
+  { name: 'Google Play', href: 'https://play.google.com/store/audiobooks/details?id=AQAAAEDq2hya5M' },
 ];
+
+const physicalStores = [
+    { name: 'Thyrso Editorial', href: 'https://thyrsoeditorial.com/producto/negociando-bonito-de-roberto-luna/' },
+]
 
 export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
   const { t } = useTranslation();
@@ -39,21 +41,43 @@ export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
             {t('purchaseDialog.subtitle')}
           </DialogDescription>
         </DialogHeader>
-        <div className="flex flex-col gap-4 pt-4">
-          {stores.map((store) => (
-            <Button
-              key={store.name}
-              variant="outline"
-              size="lg"
-              className="w-full justify-start text-base"
-              asChild
-            >
-              <a href={store.href} target="_blank" rel="noopener noreferrer">
-                <store.icon className="mr-3 h-5 w-5" />
-                {store.name}
-              </a>
-            </Button>
-          ))}
+        <div className="flex flex-col gap-6 pt-4">
+          <div>
+            <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.audiobookTitle')}</h3>
+            <div className="flex flex-col gap-2">
+              {audioStores.map((store) => (
+                <Button
+                  key={store.name}
+                  variant="outline"
+                  size="lg"
+                  className="w-full justify-start text-base"
+                  asChild
+                >
+                  <a href={store.href} target="_blank" rel="noopener noreferrer">
+                    {store.name}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div>
+             <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.physicalBookTitle')}</h3>
+            <div className="flex flex-col gap-2">
+              {physicalStores.map((store) => (
+                <Button
+                  key={store.name}
+                  variant="outline"
+                  size="lg"
+                  className="w-full justify-start text-base"
+                  asChild
+                >
+                  <a href={store.href} target="_blank" rel="noopener noreferrer">
+                    {store.name}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
