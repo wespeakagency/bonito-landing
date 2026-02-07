@@ -4,6 +4,8 @@ import { useEffect, useRef } from 'react';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
+  DialogTitle,
 } from '@/components/ui/dialog';
 import { X } from 'lucide-react';
 
@@ -38,6 +40,8 @@ export function VideoPlayerDialog({ isOpen, onOpenChange, videoSrc }: VideoPlaye
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="bg-black/90 backdrop-blur-lg border-none sm:max-w-4xl p-0 w-full h-auto aspect-video shadow-2xl overflow-hidden data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:animate-in data-[state=open]:fade-in-0">
+        <DialogTitle className="sr-only">Video de Introducción</DialogTitle>
+        <DialogDescription className="sr-only">Un video de introducción al libro Negociando Bonito.</DialogDescription>
         <video
           ref={videoRef}
           src={videoSrc}
