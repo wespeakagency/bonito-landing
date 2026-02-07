@@ -36,16 +36,12 @@ export default function Home() {
   useEffect(() => {
     setActiveChapters(chapters[language]);
     // Reset player state on language change
-    if (isPlaying) {
-      setIsPlaying(false);
-    }
+    setIsPlaying(false);
     setCurrentChapterIndex(0);
     setCurrentTime(0);
     setDuration(0);
-    if (audioRef.current) {
-      audioRef.current.src = chapters[language][0]?.audioSrc || '';
-    }
-  }, [language, isPlaying]);
+    // The main audio effect will handle loading the new track because currentChapter will change
+  }, [language]);
 
   const currentChapter = activeChapters[currentChapterIndex];
 
@@ -101,7 +97,15 @@ export default function Home() {
     }
     
     if (isPlaying) {
-      audio.play().catch(error => console.error("Audio play failed:", error));
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          // This error is expected when changing tracks, we can ignore it.
+          if (error.name !== 'AbortError') {
+            console.error("Audio play failed:", error);
+          }
+        });
+      }
       updateMediaSession();
     } else {
       audio.pause();
@@ -218,6 +222,14 @@ export default function Home() {
           if (audioRef.current) {
             setDuration(audioRef.current.duration);
             setCurrentTime(audioRef.current.currentTime);
+            // If we are supposed to be playing, ensure playback starts.
+            if (isPlaying) {
+              audioRef.current.play().catch(error => {
+                if (error.name !== 'AbortError') {
+                  console.error("Audio play on load failed:", error);
+                }
+              });
+            }
           }
         }}
         onTimeUpdate={() => {
