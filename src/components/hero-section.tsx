@@ -2,22 +2,27 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Headphones } from 'lucide-react';
+import { ArrowRight, Headphones, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useTranslation } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { PurchaseDialog } from './purchase-dialog';
+import { VideoPlayerDialog } from './video-player-dialog';
 
 export default function HeroSection() {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const phrases = t('hero.phrases', { returnObjects: true }) as string[];
 
   const [step, setStep] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+
+  const videoSrc = "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Prologo%20v2_espan%CC%83ol_landing.mp4";
 
   return (
     <>
       <PurchaseDialog isOpen={isDialogOpen} onOpenChange={setIsDialogOpen} />
+      <VideoPlayerDialog isOpen={isVideoOpen} onOpenChange={setIsVideoOpen} videoSrc={videoSrc} />
       <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
         <div className="absolute inset-0 opacity-20 float">
           <Image
@@ -60,6 +65,19 @@ export default function HeroSection() {
                     </a>
                   </Button>
                 </div>
+                {language === 'es' && (
+                    <div className="mt-6">
+                        <Button
+                            size="lg"
+                            variant="link"
+                            className="font-semibold rounded-full px-8 py-6 text-lg text-white hover:text-white/80"
+                            onClick={() => setIsVideoOpen(true)}
+                        >
+                            <PlayCircle className="mr-2 h-5 w-5" />
+                            {t('hero.introButton')}
+                        </Button>
+                    </div>
+                )}
               </div>
           </div>
         </div>
