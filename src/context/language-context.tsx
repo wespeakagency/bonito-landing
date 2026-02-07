@@ -1,19 +1,20 @@
 'use client';
 
-import { createContext, useContext, useState, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useState, type ReactNode } from 'react';
 import es from '@/i18n/es.json';
 import en from '@/i18n/en.json';
 import zh from '@/i18n/zh.json';
 import pt from '@/i18n/pt.json';
 import hi from '@/i18n/hi.json';
+import fr from '@/i18n/fr.json';
 
-type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi';
+type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi' | 'fr';
 
 type Translations = {
   [key: string]: any;
 };
 
-const translations: Record<Locale, Translations> = { es, en, zh, pt, hi };
+const translations: Record<Locale, Translations> = { es, en, zh, pt, hi, fr };
 
 interface LanguageContextType {
   language: Locale;
@@ -32,8 +33,16 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     for (const k of keys) {
       result = result?.[k];
       if (result === undefined) {
-        console.warn(`Translation key not found: ${key}`);
-        return key;
+        // Fallback to Spanish if key not found in current language
+        let fallbackResult = translations['es'];
+        for (const fk of keys) {
+          fallbackResult = fallbackResult?.[fk];
+          if (fallbackResult === undefined) {
+            console.warn(`Translation key not found in any language: ${key}`);
+            return key;
+          }
+        }
+        return fallbackResult;
       }
     }
     return result;

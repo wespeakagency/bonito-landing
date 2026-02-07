@@ -1,0 +1,73 @@
+{
+  "header": {
+    "buy": "Acheter"
+  },
+  "hero": {
+    "phrases": [
+      "Négocier est un art.",
+      "Pratiquez-le avec compassion.",
+      "Un livre pour transformer les conversations difficiles en accords mutuels."
+    ],
+    "buyButton": "Acheter maintenant"
+  },
+  "idea": {
+    "paragraphs": [
+      "Il ne s'agit pas de gagner à tout prix. Il s'agit de construire des ponts, de comprendre l'autre et de trouver un terrain d'entente. Négocier avec élégance est, par essence, un acte d'empathie et de stratégie."
+    ]
+  },
+  "principles": {
+    "title": "Les 3 piliers de la négociation.",
+    "clarity": {
+      "title": "Clarté",
+      "description": "Communiquez votre intention avec simplicité et honnêteté. La transparence est le chemin le plus court vers la confiance."
+    },
+    "activeListening": {
+      "title": "Écoute Active",
+      "description": "Écoutez pour comprendre, pas seulement pour répondre. Comprenez les besoins et les motivations de l'autre partie."
+    },
+    "mutualRespect": {
+      "title": "Respect Mutuel",
+      "description": "Maintenez votre position sans rompre la relation. Le respect est la base de tout accord durable et bénéfique."
+    }
+  },
+  "author": {
+    "title": "Rencontrez l'auteur",
+    "shortBio": "Roberto Luna est un entrepreneur et penseur qui a transformé la négociation en un acte profondément humain : moins de guerre, plus de compassion, des mots qui construisent et ne brisent pas.",
+    "readMore": "En savoir plus",
+    "showLess": "Montrer moins",
+    "fullBioTitle": "À propos de Roberto Luna",
+    "fullBio": [
+      "Roberto Luna est un entrepreneur, leader et penseur contemporain qui a fait de la négociation une pratique profondément humaine. Au-delà des contrats et des chiffres, son travail se concentre sur une idée radicale pour le monde des affaires : négocier est, avant tout, un acte de conscience, de langage et de compassion.",
+      "Avec une vision qui mêle philosophie, expérience en affaires et sensibilité émotionnelle, Roberto propose une nouvelle manière de dialoguer avec les autres et avec soi-même. Dans 'Négocier avec élégance', il partage des réflexions nées tant du leadership que de son parcours personnel : l'importance d'écouter, de bien choisir ses mots, de comprendre l'autre et de cultiver des relations basées sur le respect et l'empathie.",
+      "Tout au long du livre, Roberto nous invite à voir la négociation non pas comme une bataille à gagner, mais comme un espace à entretenir. Il parle de leadership compatissant, du pouvoir du langage, de la capacité de s'adapter comme l'eau, et du besoin urgent d'humaniser les environnements professionnels sans perdre en efficacité ou en résultats.",
+      "Sa philosophie soutient que les meilleurs accords ne naissent pas de l'imposition, mais de la compréhension ; pas de la peur, mais de la clarté ; pas de l'ego, mais de la présence. Pour lui, bien négocier, c'est aussi mieux vivre.",
+      "'Négocier avec élégance' est une extension de sa manière d'habiter le monde : avec attention, avec intention, et avec une foi profonde que les conversations peuvent transformer des vies."
+    ]
+  },
+  "extracts": [
+    "La clarté n'est pas un point de départ, c'est un résultat. Elle se construit.",
+    "Écoutez pour comprendre, pas pour répondre. C'est la clé.",
+    "Négocier avec élégance, c'est prendre soin de la relation sans trahir son intention."
+  ],
+  "audioPlayer": {
+    "title": "Écoutez le livre complet",
+    "subtitle": "Profitez de l'expérience complète du livre audio, chapitre par chapitre.",
+    "chapterLabel": "CHAPITRE",
+    "chaptersTitle": "Chapitres",
+    "listenButton": "Écouter le livre audio",
+    "comingSoon": "Bientôt dans votre langue"
+  },
+  "cta": {
+    "title": "Commencez à négocier avec élégance.",
+    "subtitle": "Disponible dans votre format préféré. Obtenez votre copie et transformez vos conversations."
+  },
+  "donation": {
+    "title": "Votre soutien fait la différence",
+    "subtitle": "La création de ce livre audio a été un acte d'amour et de dévouement. Si vous appréciez ce travail, envisagez de soutenir l'auteur. Votre contribution, aussi petite soit-elle, nous inspire à continuer à créer.",
+    "supportButton": "Soutenir avec un don",
+    "listenButton": "Écouter maintenant"
+  },
+  "footer": {
+    "copyright": "Roberto. Tous droits réservés."
+  }
+}

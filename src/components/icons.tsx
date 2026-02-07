@@ -151,6 +151,14 @@ export const UKFlag = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+export const FranceFlag = (props: SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3 2" {...props}>
+      <path fill="#002395" d="M0 0h1v2H0z"/>
+      <path fill="#fff" d="M1 0h1v2H1z"/>
+      <path fill="#ED2939" d="M2 0h1v2H2z"/>
+    </svg>
+);
+
 export const ChinaFlag = (props: SVGProps<SVGSVGElement>) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 20" {...props}>
     <path fill="#ee1c25" d="M0 0h30v20H0z"/>
@@ -227,7 +235,7 @@ export const GooglePayIcon = (props: SVGProps<SVGSVGElement>) => (
     width="24" 
     height="24" 
     viewBox="0 0 24 24" 
-    xmlns="http://wwws.w3.org/2000/svg"
+    xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
     {...props}>
         <path d="M19.38 8.15H4.62a.62.62 0 00-.62.62v6.46a.62.62 0 00.62.62h14.76a.62.62 0 00.62-.62V8.77a.62.62 0 00-.62-.62zM9.64 13.4a1.2 1.2 0 111.2-1.2 1.2 1.2 0 01-1.2 1.2zm6.2-2.39a.53.53 0 01.53-.53h1.84a.53.53 0 110 1.06h-1.84a.53.53 0 01-.53-.53z" fill="#fff"/>

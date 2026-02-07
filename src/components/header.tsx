@@ -11,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { Globe } from 'lucide-react';
-import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag } from './icons';
+import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag, FranceFlag } from './icons';
 import { LanguageHint } from './language-hint';
 
 export default function Header() {
@@ -38,6 +38,7 @@ export default function Header() {
   const languageOptions = [
     { lang: 'es', flag: SpainFlag, name: 'Español' },
     { lang: 'en', flag: UKFlag, name: 'English' },
+    { lang: 'fr', flag: FranceFlag, name: 'Français' },
     { lang: 'zh', flag: ChinaFlag, name: '中文' },
     { lang: 'pt', flag: PortugalFlag, name: 'Português' },
     { lang: 'hi', flag: IndiaFlag, name: 'हिन्दी' },
