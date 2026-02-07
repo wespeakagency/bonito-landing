@@ -13,12 +13,14 @@ import {
 import { Globe } from 'lucide-react';
 import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag, FranceFlag } from './icons';
 import { LanguageHint } from './language-hint';
+import { PurchaseDialog } from './purchase-dialog';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { t, setLanguage, language } = useTranslation();
   const [showHint, setShowHint] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isPurchaseDialogOpen, setPurchaseDialogOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,47 +55,50 @@ export default function Header() {
   };
 
   return (
-    <header
-      className={cn(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
-        scrolled
-          ? 'bg-background/80 backdrop-blur-lg border-b border-white/10'
-          : 'bg-transparent'
-      )}
-    >
-      <div className="container mx-auto px-4">
-        <div className="flex justify-end items-center h-24">
-          <div className="flex items-center gap-2">
-            <LanguageHint isVisible={showHint && !isMenuOpen} />
-            <div className="relative">
-              <DropdownMenu onOpenChange={handleMenuOpenChange}>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="icon">
-                    <Globe />
-                    <span className="sr-only">Change language</span>
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent>
-                  {languageOptions.map(({ lang, flag: Flag, name }) => (
-                    <DropdownMenuItem
-                      key={lang}
-                      onClick={() => setLanguage(lang as any)}
-                      disabled={language === lang}
-                      className="flex items-center gap-2"
-                    >
-                      <Flag className="h-4 w-6 rounded-sm" />
-                      <span>{name}</span>
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+    <>
+      <PurchaseDialog isOpen={isPurchaseDialogOpen} onOpenChange={setPurchaseDialogOpen} />
+      <header
+        className={cn(
+          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          scrolled
+            ? 'bg-background/80 backdrop-blur-lg border-b border-white/10'
+            : 'bg-transparent'
+        )}
+      >
+        <div className="container mx-auto px-4">
+          <div className="flex justify-end items-center h-24">
+            <div className="flex items-center gap-2">
+              <LanguageHint isVisible={showHint && !isMenuOpen} />
+              <div className="relative">
+                <DropdownMenu onOpenChange={handleMenuOpenChange}>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="icon">
+                      <Globe />
+                      <span className="sr-only">Change language</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent>
+                    {languageOptions.map(({ lang, flag: Flag, name }) => (
+                      <DropdownMenuItem
+                        key={lang}
+                        onClick={() => setLanguage(lang as any)}
+                        disabled={language === lang}
+                        className="flex items-center gap-2"
+                      >
+                        <Flag className="h-4 w-6 rounded-sm" />
+                        <span>{name}</span>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+              <Button onClick={() => setPurchaseDialogOpen(true)} className="bg-white text-black hover:bg-white/90 rounded-full">
+                {t('header.buy')}
+              </Button>
             </div>
-            <Button asChild className="bg-white text-black hover:bg-white/90 rounded-full">
-              <a href="https://thyrsoeditorial.com/producto/negociando-bonito-de-roberto-luna/">{t('header.buy')}</a>
-            </Button>
           </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 }

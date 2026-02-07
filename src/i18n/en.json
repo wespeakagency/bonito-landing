@@ -72,6 +72,10 @@
     "supportButton": "Support with PayPal",
     "listenButton": "Continue to listen"
   },
+  "purchaseDialog": {
+    "title": "Choose where to buy",
+    "subtitle": "Get the audiobook on your favorite platform."
+  },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
   }

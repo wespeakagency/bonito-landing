@@ -72,6 +72,10 @@
     "supportButton": "用 PayPal 支持",
     "listenButton": "继续收听"
   },
+  "purchaseDialog": {
+    "title": "选择购买地点",
+    "subtitle": "在您喜欢的平台上获取有声读物。"
+  },
   "footer": {
     "copyright": "罗伯托。版权所有。"
   }
