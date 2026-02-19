@@ -1,6 +1,7 @@
 import './globals.css';
 import { Providers } from './providers';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Negociando Bonito',
@@ -26,6 +27,19 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <Script
+          strategy="afterInteractive"
+          src="https://www.googletagmanager.com/gtag/js?id=G-51XL9MEXDK"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-51XL9MEXDK');
+          `}
+        </Script>
       </body>
     </html>
   );
