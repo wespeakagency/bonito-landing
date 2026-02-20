@@ -2,13 +2,12 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Headphones, PlayCircle, ShoppingCart } from 'lucide-react';
+import { ArrowRight, Headphones, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useTranslation } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { PurchaseDialog } from './purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
-import { SpotifyIcon } from './icons';
 
 type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el';
 
@@ -48,26 +47,28 @@ export default function HeroSection() {
         </div>
 
         {/* Floating Bubbles */}
-        {spotifyLink && (
-            <a 
-                href={spotifyLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hidden md:flex absolute top-24 left-10 lg:left-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
-            >
-                <SpotifyIcon className="h-6 w-6 text-[#1DB954]" />
-                <span className="font-medium text-sm text-white">Escucha en Spotify</span>
-            </a>
-        )}
+        <div className="absolute top-36 inset-x-0 z-30 hidden md:flex justify-between items-center max-w-5xl mx-auto px-10">
+          {spotifyLink && (
+              <a
+                  href={spotifyLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
+              >
+                  <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt="Spotify" width={24} height={24} className="h-6 w-6" />
+                  <span className="font-medium text-sm text-white">Escucha en Spotify</span>
+              </a>
+          )}
 
-        <button 
-            onClick={() => setIsDialogOpen(true)}
-            className="hidden md:flex absolute top-24 right-10 lg:right-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
-            style={{ animationDelay: '2s' }}
-        >
-            <ShoppingCart className="h-6 w-6 text-primary" />
-            <span className="font-medium text-sm text-white">Compra en línea</span>
-        </button>
+          <button
+              onClick={() => setIsDialogOpen(true)}
+              className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
+              style={{ animationDelay: '2s' }}
+          >
+              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt="Comprar en Amazon" width={24} height={24} className="h-6 w-6 invert" />
+              <span className="font-medium text-sm text-white">Compra en línea</span>
+          </button>
+        </div>
         
         <div className="container mx-auto px-4 text-center z-20 relative">
           <div className="min-h-[300px] md:min-h-[350px] flex flex-col items-center justify-center">
