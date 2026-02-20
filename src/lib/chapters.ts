@@ -6,7 +6,7 @@ export type Chapter = {
 };
 
 type ChaptersByLanguage = {
-  [key in 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi']: Chapter[];
+  [key in 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el']: Chapter[];
 };
 
 export const chapters: ChaptersByLanguage = {
@@ -404,7 +404,7 @@ export const chapters: ChaptersByLanguage = {
     },
     {
       id: 4,
-      title: 'अध्याय 4 - खूबसूरती से बोलें (क्यूरो लोगों से एक सबक)',
+      title: "अध्याय 4 - खूबसूरती से बोलें (क्यूरो लोगों से एक सबक)",
       duration: '',
       audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%204-.mp3',
     },
@@ -412,7 +412,7 @@ export const chapters: ChaptersByLanguage = {
       id: 5,
       title: 'अध्याय 5 - छह पारमिता (पुण्य से व्यापार)',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%205%20-%E0%A4%9B%E0%A4%B9%20%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%20(%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%8D%E0%A4%AF%20%E0%A4%B8%E0%A5%87%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20)-.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%205%20-%E0%A4%9B%E0%A4%B9%20%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%20(%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%8D%E0%A4%AF%20%E0%A4%B8%E0%A5%87%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20)-.mp3',
     },
     {
       id: 6,
@@ -424,7 +424,7 @@ export const chapters: ChaptersByLanguage = {
       id: 7,
       title: 'अध्याय 7 - जीतने के लिए हारना',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%207%20-%20%E0%A4%9C%E0%A5%80%E0%A4%A4%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%20%E0%A4%B9%E0%A4%BE%E0%A4%B0%E0%A4%A8%E0%A4%BE-.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%207%20-%20%E0%A4%9C%E0%A5%80%E0%A4%A4%E0%A4%A8%E0%A5%87%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%20%E0%A4%B9%E0%A4%BE%E0%A4%B0%E0%A4%A8%E0%A4%BE-.mp3',
     },
     {
       id: 8,
@@ -436,7 +436,7 @@ export const chapters: ChaptersByLanguage = {
       id: 9,
       title: 'अध्याय 9 - एक अपहरण',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%209%20-%20%E0%A4%8F%E0%A4%95%20%E0%A4%85%E0%A4%AA%E0%A4%B9%E0%A4%B0%E0%A4%A3-.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%209%20-%20%E0%A4%8F%E0%A4%95%20%E0%A4%85%E0%A4%AA%E0%A4%B9%E0%A4%B0%E0%A4%A3-.mp3',
     },
     {
       id: 10,
@@ -450,5 +450,79 @@ export const chapters: ChaptersByLanguage = {
       duration: '',
       audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%2011%20-%20%E0%A4%A7%E0%A4%A8%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%BE%E0%A4%A6_1.mp3',
     },
+  ],
+  el: [
+    {
+      id: 1,
+      title: 'Πρόλογος',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CF%80%CF%81%CE%BF%CC%81%CE%BB%CE%BF%CE%B3%CE%BF%CF%82_1.mp3',
+    },
+    {
+      id: 2,
+      title: 'Κεφάλαιο 1 - Διαπραγματευτείτε με συμπόνια',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%201%20-%20%CE%94%CE%B9%CE%B1%CF%80%CF%81%CE%B1%CE%B3%CE%BC%CE%B1%CF%84%CE%B5%CF%85%CF%84%CE%B5%CE%B9%CC%81%CF%84%CE%B5%20%CE%BC%CE%B5%20%CF%83%CF%85%CE%BC%CF%80%CE%BF%CC%81%CE%BD%CE%B9%CE%B1_1.mp3",
+    },
+    {
+      id: 3,
+      title: 'Κεφάλαιο 2 - Η συμπόνια δημιουργεί ανταγωνιστικό πλεονέκτημα',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%202%20-%20%CE%97%20%CF%83%CF%85%CE%BC%CF%80%CE%BF%CC%81%CE%BD%CE%B9%CE%B1%20%CE%B4%CE%B7%CE%BC%CE%B9%CE%BF%CF%85%CF%81%CE%B3%CE%B5%CE%B9%CC%81%20%CE%B1%CE%BD%CF%84%CE%B1%CE%B3%CF%89%CE%BD%CE%B9%CF%83%CF%84%CE%B9%CE%BA%CE%BF%CC%81%20%CF%80%CE%BB%CE%B5%CE%BF%CE%BD%CE%B5%CC%81%CE%BA%CF%84%CE%B7%CE%BC%CE%B1_1.mp3",
+    },
+    {
+      id: 4,
+      title: 'Κεφάλαιο 3 - Ας κάνουμε μια ανταλλαγή',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%203%20-%20%CE%91%CF%82%20%CE%BA%CE%B1%CC%81%CE%BD%CE%BF%CF%85%CE%BC%CE%B5%20%CE%BC%CE%B9%CE%B1%20%CE%B1%CE%BD%CF%84%CE%B1%CE%BB%CE%BB%CE%B1%CE%B3%CE%B7%CC%81_1.mp3",
+    },
+    {
+      id: 5,
+      title: "Κεφάλαιο 4 - Μίλα όμορφα (ένα μάθημα από τον λαό Q'ero)",
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%204%20-%20%CE%9C%CE%B9%CC%81%CE%BB%CE%B1%20%CE%BF%CC%81%CE%BC%CE%BF%CF%81%CF%86%CE%B1%20(%CE%B5%CC%81%CE%BD%CE%B1%20%CE%BC%CE%B1%CC%81%CE%B8%CE%B7%CE%BC%CE%B1%20%CE%B1%CF%80%CE%BF%CC%81%20%CF%84%CE%BF%CE%BD%20%CE%BB%CE%B1%CE%BF%CC%81%20Q'ero)_1.mp3",
+    },
+    {
+      id: 6,
+      title: 'Κεφάλαιο 5 - Οι Έξι Παραμίτα (Συναλλαγές από την Αρετή)',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%205%20-%20%CE%9F%CE%B9%20%CE%95%CC%81%CE%BE%CE%B9%20%CE%A0%CE%B1%CF%81%CE%B1%CE%BC%CE%B9%CC%81%CF%84%CE%B1%20(%CE%A3%CF%85%CE%BD%CE%B1%CE%BB%CE%BB%CE%B1%CE%B3%CE%B5%CC%81%CF%82%20%CE%B1%CF%80%CE%BF%CC%81%20%CF%84%CE%B7%CE%BD%20%CE%91%CF%81%CE%B5%CF%84%CE%B7%CC%81)_1.mp3",
+    },
+    {
+      id: 7,
+      title: 'Κεφάλαιο 6 - Ξεμαθαίνοντας',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%206%20-%20%CE%9E%CE%B5%CE%BC%CE%B1%CE%B8%CE%B1%CE%B9%CC%81%CE%BD%CE%BF%CE%BD%CF%84%CE%B1%CF%82_1.mp3",
+    },
+    {
+      id: 8,
+      title: 'Κεφάλαιο 7 - Χάστε για να κερδίσετε',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%207%20-%20%CE%A7%CE%B1%CC%81%CF%83%CF%84%CE%B5%20%CE%B3%CE%B9%CE%B1%20%CE%BD%CE%B1%20%CE%BA%CE%B5%CF%81%CE%B4%CE%B9%CC%81%CF%83%CE%B5%CF%84%CE%B5_1.mp3",
+    },
+    {
+      id: 9,
+      title: 'Κεφάλαιο 8 - Διαπραγμάτευση για βοήθεια',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%208%20-%20%CE%94%CE%B9%CE%B1%CF%80%CF%81%CE%B1%CE%B3%CE%BC%CE%AC%CF%84%CE%B5%CF%85%CF%83%CE%B7%20%CE%B3%CE%B9%CE%B1%20%CE%B2%CE%BF%CE%B7%CC%81%CE%B8%CE%B5%CE%B9%CE%B1_1.mp3",
+    },
+    {
+      id: 10,
+      title: 'Κεφάλαιο 9 - Μια απαγωγή',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%209%20-%20%CE%9C%CE%B9%CE%B1%20%CE%B1%CF%80%CE%B1%CE%B3%CF%89%CE%B3%CE%B7%CC%81_1.mp3",
+    },
+    {
+      id: 11,
+      title: 'Κεφάλαιο 10 - Διαπραγματευτείτε με τον καθρέφτη',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%2010%20-%20%CE%94%CE%B9%CE%B1%CF%80%CF%81%CE%B1%CE%B3%CE%BC%CE%B1%CF%84%CE%B5%CF%85%CF%84%CE%B5%CE%B9%CC%81%CF%84%CE%B5%20%CE%BC%CE%B5%20%CF%84%CE%BF%CE%BD%20%CE%BA%CE%B1%CE%B8%CF%81%CE%B5%CC%81%CF%86%CF%84%CE%B7_1.mp3",
+    },
+    {
+      id: 12,
+      title: 'Κεφάλαιο 11 - Τελικές σημειώσεις',
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%2011%20-%20%CE%A4%CE%B5%CE%BB%CE%B9%CE%BA%CE%B5%CC%81%CF%82%20%CF%83%CE%B7%CE%BC%CE%B5%CE%B9%CF%89%CC%81%CF%83%CE%B5%CE%B9%CF%82_1.mp3",
+    }
   ],
 };

@@ -202,6 +202,15 @@ export const IndiaFlag = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
+export const GreeceFlag = (props: SVGProps<SVGSVGElement>) => (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 27 18" {...props}>
+        <path fill="#0D5EAF" d="M0 0h27v18H0z"/>
+        <path stroke="#fff" strokeWidth="3.6" d="M0 9h27M9 0v18"/>
+        <path fill="#0D5EAF" d="M0 0h10v10H0z"/>
+        <path stroke="#fff" strokeWidth="2" d="M4 0v10M0 5h10"/>
+    </svg>
+);
+
 
 export const PayPalIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg

@@ -7,14 +7,15 @@ import zh from '@/i18n/zh.json';
 import pt from '@/i18n/pt.json';
 import hi from '@/i18n/hi.json';
 import fr from '@/i18n/fr.json';
+import el from '@/i18n/el.json';
 
-type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi' | 'fr';
+type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi' | 'fr' | 'el';
 
 type Translations = {
   [key: string]: any;
 };
 
-const translations: Record<Locale, Translations> = { es, en, zh, pt, hi, fr };
+const translations: Record<Locale, Translations> = { es, en, zh, pt, hi, fr, el };
 
 interface LanguageContextType {
   language: Locale;

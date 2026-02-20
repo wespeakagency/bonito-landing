@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
 import { useTranslation } from '@/context/language-context';
 
-type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi';
+type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el';
 
 const spotifyLinks: Partial<Record<Locale, string>> = {
   es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
