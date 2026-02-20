@@ -53,7 +53,7 @@ export default function HeroSection() {
                 href={spotifyLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hidden md:flex absolute top-32 left-10 lg:left-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
+                className="hidden md:flex absolute top-24 left-10 lg:left-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             >
                 <SpotifyIcon className="h-6 w-6 text-[#1DB954]" />
                 <span className="font-medium text-sm text-white">Escucha en Spotify</span>
@@ -62,7 +62,7 @@ export default function HeroSection() {
 
         <button 
             onClick={() => setIsDialogOpen(true)}
-            className="hidden md:flex absolute bottom-32 right-10 lg:right-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
+            className="hidden md:flex absolute top-24 right-10 lg:right-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             style={{ animationDelay: '2s' }}
         >
             <ShoppingCart className="h-6 w-6 text-primary" />
