@@ -9,7 +9,9 @@
       "一本将艰难对话转化为共同协议的书。"
     ],
     "buyButton": "立即购买",
-    "introButton": "观看介绍"
+    "introButton": "观看介绍",
+    "spotifyBubble": "在 Spotify 上收听",
+    "buyBubble": "在线购买"
   },
   "idea": {
     "paragraphs": [

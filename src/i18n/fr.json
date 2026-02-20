@@ -9,7 +9,9 @@
       "Un livre pour transformer les conversations difficiles en accords mutuels."
     ],
     "buyButton": "Acheter maintenant",
-    "introButton": "Voir l'intro"
+    "introButton": "Voir l'intro",
+    "spotifyBubble": "Écouter sur Spotify",
+    "buyBubble": "Acheter en ligne"
   },
   "idea": {
     "paragraphs": [

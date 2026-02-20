@@ -47,7 +47,7 @@ export default function HeroSection() {
         </div>
 
         {/* Floating Bubbles */}
-        <div className="absolute top-36 inset-x-0 z-30 hidden md:flex justify-between items-center max-w-lg mx-auto">
+        <div className="absolute top-24 md:top-36 inset-x-0 z-30 flex flex-col md:flex-row items-center justify-center gap-4 md:justify-between max-w-xs sm:max-w-sm md:max-w-lg mx-auto">
           {spotifyLink && (
               <a
                   href={spotifyLink}
@@ -56,7 +56,7 @@ export default function HeroSection() {
                   className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
               >
                   <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt="Spotify" width={24} height={24} className="h-6 w-6" />
-                  <span className="font-medium text-sm text-white">Escucha en Spotify</span>
+                  <span className="font-medium text-sm text-white">{t('hero.spotifyBubble')}</span>
               </a>
           )}
 
@@ -65,8 +65,8 @@ export default function HeroSection() {
               className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
               style={{ animationDelay: '2s' }}
           >
-              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt="Comprar en Amazon" width={24} height={24} className="h-6 w-6 invert" />
-              <span className="font-medium text-sm text-white">Compra en línea</span>
+              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt={t('hero.buyBubble')} width={24} height={24} className="h-6 w-6 invert" />
+              <span className="font-medium text-sm text-white">{t('hero.buyBubble')}</span>
           </button>
         </div>
         

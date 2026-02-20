@@ -9,7 +9,9 @@
       "A book to transform difficult conversations into mutual agreements."
     ],
     "buyButton": "Buy now",
-    "introButton": "Watch intro"
+    "introButton": "Watch intro",
+    "spotifyBubble": "Listen on Spotify",
+    "buyBubble": "Buy online"
   },
   "idea": {
     "paragraphs": [
