@@ -26,7 +26,11 @@ const audioStores = [
 const physicalStores = [
     { name: 'Amazon', href: 'https://a.co/d/08Njuvns' },
     { name: 'Thyrso Editorial', href: 'https://thyrsoeditorial.com/producto/negociando-bonito-de-roberto-luna/' },
-]
+];
+
+const ebookStores = [
+    { name: 'Amazon Kindle', href: 'https://www.amazon.com.mx/Negociando-bonito-Roberto-Luna-ebook/dp/B0GNJ9T3R7/' }
+];
 
 export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
   const { t } = useTranslation();
@@ -65,6 +69,24 @@ export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
              <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.physicalBookTitle')}</h3>
             <div className="flex flex-col gap-2">
               {physicalStores.map((store) => (
+                <Button
+                  key={store.name}
+                  variant="outline"
+                  size="lg"
+                  className="w-full justify-start text-base"
+                  asChild
+                >
+                  <a href={store.href} target="_blank" rel="noopener noreferrer">
+                    {store.name}
+                  </a>
+                </Button>
+              ))}
+            </div>
+          </div>
+          <div>
+             <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.ebookTitle')}</h3>
+            <div className="flex flex-col gap-2">
+              {ebookStores.map((store) => (
                 <Button
                   key={store.name}
                   variant="outline"

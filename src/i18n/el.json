@@ -79,7 +79,8 @@
     "title": "Επιλέξτε πού θα αγοράσετε",
     "subtitle": "Επιλέξτε τη μορφή και το κατάστημα που προτιμάτε.",
     "audiobookTitle": "Ηχητικό βιβλίο",
-    "physicalBookTitle": "Φυσικό Βιβλίο"
+    "physicalBookTitle": "Φυσικό Βιβλίο",
+    "ebookTitle": "Ηλεκτρονικό Βιβλίο (Kindle)"
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
