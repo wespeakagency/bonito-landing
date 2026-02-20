@@ -2,12 +2,25 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Headphones, PlayCircle } from 'lucide-react';
+import { ArrowRight, Headphones, PlayCircle, ShoppingCart } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useTranslation } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { PurchaseDialog } from './purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
+import { SpotifyIcon } from './icons';
+
+type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el';
+
+const spotifyLinks: Partial<Record<Locale, string>> = {
+  es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
+  en: 'https://open.spotify.com/show/24V2w0YX10O9c5opUWLIDz',
+  fr: 'https://open.spotify.com/show/5i7nLg3STMY7DaURuCFV7z',
+  zh: 'https://open.spotify.com/show/1GDPg4qyzrwfrRtKsOlGWH',
+  pt: 'https://open.spotify.com/show/0I5E2nvtKi6CrmWmsTzZsT',
+  hi: 'https://open.spotify.com/show/3PUZxVNRa2CNFAAqn3PWer',
+};
+
 
 export default function HeroSection() {
   const { t, language } = useTranslation();
@@ -18,6 +31,7 @@ export default function HeroSection() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
   const videoSrc = "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Prologo%20v2_espan%CC%83ol_landing.mp4";
+  const spotifyLink = spotifyLinks[language as Locale];
 
   return (
     <>
@@ -32,6 +46,28 @@ export default function HeroSection() {
             className="object-cover"
           />
         </div>
+
+        {/* Floating Bubbles */}
+        {spotifyLink && (
+            <a 
+                href={spotifyLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden md:flex absolute top-32 left-10 lg:left-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
+            >
+                <SpotifyIcon className="h-6 w-6 text-[#1DB954]" />
+                <span className="font-medium text-sm text-white">Escucha en Spotify</span>
+            </a>
+        )}
+
+        <button 
+            onClick={() => setIsDialogOpen(true)}
+            className="hidden md:flex absolute bottom-32 right-10 lg:right-24 z-30 float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
+            style={{ animationDelay: '2s' }}
+        >
+            <ShoppingCart className="h-6 w-6 text-primary" />
+            <span className="font-medium text-sm text-white">Compra en línea</span>
+        </button>
         
         <div className="container mx-auto px-4 text-center z-20 relative">
           <div className="min-h-[300px] md:min-h-[350px] flex flex-col items-center justify-center">
