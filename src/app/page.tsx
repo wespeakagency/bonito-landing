@@ -202,7 +202,9 @@ export default function Home() {
             formatTime={formatTime}
           />
         </div>
-        <SpotifySection />
+        <div id="spotify">
+          <SpotifySection />
+        </div>
         <div id="comprar">
           <CtaSection />
         </div>

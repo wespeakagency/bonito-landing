@@ -50,9 +50,7 @@ export default function HeroSection() {
         <div className="absolute top-24 md:top-36 inset-x-0 z-30 flex flex-col md:flex-row items-center justify-center gap-4 md:justify-between max-w-xs sm:max-w-sm md:max-w-lg mx-auto">
           {spotifyLink && (
               <a
-                  href={spotifyLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="#spotify"
                   className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
               >
                   <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt="Spotify" width={24} height={24} className="h-6 w-6" />

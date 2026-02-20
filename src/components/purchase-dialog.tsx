@@ -24,6 +24,7 @@ const audioStores = [
 ];
 
 const physicalStores = [
+    { name: 'Amazon', href: 'https://a.co/d/08Njuvns' },
     { name: 'Thyrso Editorial', href: 'https://thyrsoeditorial.com/producto/negociando-bonito-de-roberto-luna/' },
 ]
 
