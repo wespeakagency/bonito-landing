@@ -47,7 +47,7 @@ export default function HeroSection() {
         </div>
 
         {/* Floating Bubbles */}
-        <div className="absolute top-36 inset-x-0 z-30 hidden md:flex justify-between items-center max-w-5xl mx-auto px-10">
+        <div className="absolute top-36 inset-x-0 z-30 hidden md:flex justify-between items-center max-w-lg mx-auto">
           {spotifyLink && (
               <a
                   href={spotifyLink}
