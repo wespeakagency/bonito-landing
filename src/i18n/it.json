@@ -83,7 +83,8 @@
     "ebookTitle": "E-book (Kindle)"
   },
   "footer": {
-    "copyright": "Roberto. Tutti i diritti riservati."
+    "copyright": "Roberto. Tutti i diritti riservati.",
+    "privacyPolicy": "Politica sulla Privacy"
   },
   "contact": {
     "title": "Rimani in Contatto",
@@ -127,5 +128,22 @@
         "sourceNotSpecified": "Non specificata"
       }
     }
+  },
+  "privacyPolicy": {
+    "title": "Informativa sulla Privacy",
+    "lastUpdated": "Ultimo aggiornamento:",
+    "content": [
+      "Benvenuti a Negociando Bonito. La vostra privacy è della massima importanza per noi. Questa Informativa sulla Privacy spiega come raccogliamo, utilizziamo, divulghiamo e proteggiamo le vostre informazioni quando visitate il nostro sito web.",
+      "1. RACCOLTA DELLE INFORMAZIONI. Raccogliamo informazioni su di voi in vari modi. Le informazioni che possiamo raccogliere sul Sito includono: a) Dati Personali: Informazioni di identificazione personale, come il vostro nome e indirizzo email, che ci fornite volontariamente quando vi registrate al nostro modulo di contatto. Non siete obbligati a fornirci informazioni personali di alcun tipo, tuttavia, il vostro rifiuto potrebbe impedirvi di utilizzare alcune funzionalità del Sito. b) Dati Derivati: Informazioni che i nostri server raccolgono automaticamente quando accedete al Sito, come il vostro indirizzo IP, tipo di browser, sistema operativo, orari di accesso e le pagine che avete visualizzato subito prima e dopo l'accesso al Sito. Questo sito utilizza Google Analytics per raccogliere questi dati in forma anonima.",
+      "2. USO DELLE VOSTRE INFORMAZIONI. Avere informazioni accurate su di voi ci permette di fornirvi un'esperienza fluida, efficiente e personalizzata. Nello specifico, possiamo utilizzare le informazioni raccolte su di voi tramite il Sito per: a) Rispondere alle vostre richieste di contatto. b) Compilare dati statistici anonimi e analisi per uso interno o con terze parti. c) Aumentare l'efficienza e il funzionamento del Sito.",
+      "3. DIVULGAZIONE DELLE VOSTRE INFORMAZIONI. Non venderemo, distribuiremo o affitteremo le vostre informazioni personali a terzi. Potremmo divulgare le vostre informazioni se richiesto dalla legge, per proteggere i nostri diritti o in caso di trasferimento aziendale.",
+      "4. TECNOLOGIE DI TRACCIAMENTO. a) Cookie e Web Beacon: Possiamo utilizzare cookie, web beacon, pixel di tracciamento e altre tecnologie di tracciamento sul Sito per aiutare a personalizzare il Sito e migliorare la vostra esperienza. Questo sito utilizza Google Analytics, un servizio di analisi web fornito da Google, Inc. Google Analytics utilizza i cookie per aiutare il sito web ad analizzare come gli utenti utilizzano il sito. Potete saperne di più su come Google utilizza i dati quando utilizzate i siti o le app dei nostri partner su www.google.com/policies/privacy/partners/. b) Pubblicità Basata sugli Interessi: Inoltre, potremmo utilizzare cookie di terze parti per scopi pubblicitari. Potete scegliere di non ricevere pubblicità basata sugli interessi tramite gli strumenti forniti dalla Digital Advertising Alliance.",
+      "5. SICUREZZA DELLE VOSTRE INFORMAZIONI. Utilizziamo misure di sicurezza amministrative, tecniche e fisiche per proteggere le vostre informazioni personali. Sebbene abbiamo adottato misure ragionevoli per proteggere le informazioni personali che ci fornite, siate consapevoli che, nonostante i nostri sforzi, nessuna misura di sicurezza è perfetta o impenetrabile e nessun metodo di trasmissione dei dati può essere garantito contro qualsiasi intercettazione o altro tipo di uso improprio.",
+      "6. DIRITTI DELL'UTENTE (GDPR E CCPA). Se siete residenti nello Spazio Economico Europeo (SEE) o in California, avete determinati diritti sulla protezione dei dati. Miriamo a prendere misure ragionevoli per consentirvi di correggere, modificare, eliminare o limitare l'uso dei vostri Dati Personali. Se desiderate essere informati su quali Dati Personali deteniamo su di voi e se volete che vengano rimossi dai nostri sistemi, contattateci a robluna.mkt@gmail.com.",
+      "7. LINK A SITI WEB DI TERZE PARTI. Il Sito può contenere link a siti web e applicazioni di terze parti di interesse, inclusi annunci e servizi esterni, che non sono affiliati a noi. Una volta che avete utilizzato questi link per lasciare il Sito, qualsiasi informazione che fornite a queste terze parti non è coperta da questa Informativa sulla Privacy e non possiamo garantire la sicurezza e la privacy delle vostre informazioni.",
+      "8. POLITICA PER I MINORI. Non sollecitiamo consapevolmente informazioni da o commercializziamo a bambini di età inferiore ai 13 anni. Se veniamo a conoscenza di aver raccolto informazioni personali da un bambino di età inferiore ai 13 anni senza la verifica del consenso dei genitori, elimineremo tempestivamente tali informazioni dai nostri archivi.",
+      "9. MODIFICHE A QUESTA INFORMATIVA SULLA PRIVACY. Ci riserviamo il diritto di apportare modifiche a questa Informativa sulla Privacy in qualsiasi momento e per qualsiasi motivo. Vi avviseremo di eventuali modifiche aggiornando la data di 'Ultimo aggiornamento' di questa Informativa sulla Privacy.",
+      "10. CONTATTACI. Se avete domande o commenti su questa Informativa sulla Privacy, contattateci a: robluna.mkt@gmail.com."
+    ]
   }
 }
