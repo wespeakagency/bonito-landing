@@ -206,11 +206,11 @@ export default function Home() {
         <div id="spotify">
           <SpotifySection />
         </div>
-        <div id="contacto">
-          <ContactSection />
-        </div>
         <div id="comprar">
           <CtaSection />
+        </div>
+        <div id="contacto">
+          <ContactSection />
         </div>
       </main>
 
