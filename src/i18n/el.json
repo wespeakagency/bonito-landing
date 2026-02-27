@@ -84,5 +84,48 @@
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
+  },
+  "contact": {
+    "title": "Μείνετε σε Επαφή",
+    "subtitle": "Αφήστε τα στοιχεία σας για να λαμβάνετε νέα και αποκλειστικό περιεχόμενο για μελλοντικές εκδόσεις και εκδηλώσεις.",
+    "form": {
+      "name": {
+        "label": "Όνομα",
+        "placeholder": "Το πλήρες όνομά σας"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your.email@example.com"
+      },
+      "source": {
+        "label": "Πώς μάθατε για το βιβλίο;",
+        "placeholder": "Επιλέξτε μια επιλογή",
+        "options": [
+          { "value": "social_media", "label": "Μέσα Κοινωνικής Δικτύωσης" },
+          { "value": "recommendation", "label": "Σύσταση φίλου" },
+          { "value": "web_search", "label": "Αναζήτηση στο διαδίκτυο" },
+          { "value": "event", "label": "Εκδήλωση ή συνέδριο" },
+          { "value": "other", "label": "Άλλο" }
+        ]
+      },
+      "submitButton": "Αποστολή",
+      "errors": {
+        "name": "Παρακαλώ εισάγετε τουλάχιστον 2 χαρακτήρες.",
+        "email": "Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email."
+      },
+      "successMessage": {
+        "title": "Ευχαριστούμε για την εγγραφή σας!",
+        "description": "Θα ανακατευθυνθείτε στον email client σας για να στείλετε τις πληροφορίες."
+      }
+    },
+    "email": {
+      "subject": "Νέα Επαφή από το Negociando Bonito",
+      "body": {
+        "name": "Όνομα",
+        "email": "Email",
+        "source": "Πηγή",
+        "sourceNotSpecified": "Δεν καθορίστηκε"
+      }
+    }
   }
 }

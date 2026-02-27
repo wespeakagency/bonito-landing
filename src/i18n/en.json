@@ -84,5 +84,48 @@
   },
   "footer": {
     "copyright": "Roberto. All Rights Reserved."
+  },
+  "contact": {
+    "title": "Stay in Touch",
+    "subtitle": "Leave me your details to receive news and exclusive content about future publications and events.",
+    "form": {
+      "name": {
+        "label": "Name",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your.email@example.com"
+      },
+      "source": {
+        "label": "How did you hear about the book?",
+        "placeholder": "Select an option",
+        "options": [
+          { "value": "social_media", "label": "Social Media" },
+          { "value": "recommendation", "label": "Friend's recommendation" },
+          { "value": "web_search", "label": "Web search" },
+          { "value": "event", "label": "Event or conference" },
+          { "value": "other", "label": "Other" }
+        ]
+      },
+      "submitButton": "Send",
+      "errors": {
+        "name": "Please enter at least 2 characters.",
+        "email": "Please enter a valid email address."
+      },
+      "successMessage": {
+        "title": "Thanks for signing up!",
+        "description": "You will be redirected to your email client to send the information."
+      }
+    },
+    "email": {
+      "subject": "New Contact from Negociando Bonito",
+      "body": {
+        "name": "Name",
+        "email": "Email",
+        "source": "Source",
+        "sourceNotSpecified": "Not specified"
+      }
+    }
   }
 }

@@ -84,5 +84,48 @@
   },
   "footer": {
     "copyright": "罗伯托。版权所有。"
+  },
+  "contact": {
+    "title": "保持联系",
+    "subtitle": "留下您的详细信息，以接收有关未来出版物和活动的新闻和独家内容。",
+    "form": {
+      "name": {
+        "label": "姓名",
+        "placeholder": "您的全名"
+      },
+      "email": {
+        "label": "电子邮件",
+        "placeholder": "your.email@example.com"
+      },
+      "source": {
+        "label": "您是如何知道这本书的？",
+        "placeholder": "选择一个选项",
+        "options": [
+          { "value": "social_media", "label": "社交媒体" },
+          { "value": "recommendation", "label": "朋友推荐" },
+          { "value": "web_search", "label": "网络搜索" },
+          { "value": "event", "label": "活动或会议" },
+          { "value": "other", "label": "其他" }
+        ]
+      },
+      "submitButton": "发送",
+      "errors": {
+        "name": "请输入至少2个字符。",
+        "email": "请输入有效的电子邮件地址。"
+      },
+      "successMessage": {
+        "title": "感谢您的注册！",
+        "description": "您将被重定向到您的电子邮件客户端以发送信息。"
+      }
+    },
+    "email": {
+      "subject": "来自 Negociando Bonito 的新联系人",
+      "body": {
+        "name": "姓名",
+        "email": "电子邮件",
+        "source": "来源",
+        "sourceNotSpecified": "未指定"
+      }
+    }
   }
 }

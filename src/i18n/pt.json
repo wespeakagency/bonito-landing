@@ -84,5 +84,63 @@
   },
   "footer": {
     "copyright": "Roberto. Todos os direitos reservados."
+  },
+  "contact": {
+    "title": "Mantenha Contato",
+    "subtitle": "Deixe seus dados para receber novidades e conteúdo exclusivo sobre futuras publicações e eventos.",
+    "form": {
+      "name": {
+        "label": "Nome",
+        "placeholder": "Seu nome completo"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "seu.email@exemplo.com"
+      },
+      "source": {
+        "label": "Como você soube do livro?",
+        "placeholder": "Selecione uma opção",
+        "options": [
+          {
+            "value": "social_media",
+            "label": "Redes Sociais"
+          },
+          {
+            "value": "recommendation",
+            "label": "Recomendação de um amigo"
+          },
+          {
+            "value": "web_search",
+            "label": "Pesquisa na web"
+          },
+          {
+            "value": "event",
+            "label": "Evento ou conferência"
+          },
+          {
+            "value": "other",
+            "label": "Outro"
+          }
+        ]
+      },
+      "submitButton": "Enviar",
+      "errors": {
+        "name": "Por favor, insira pelo menos 2 caracteres.",
+        "email": "Por favor, insira um endereço de e-mail válido."
+      },
+      "successMessage": {
+        "title": "Obrigado por se inscrever!",
+        "description": "Você será redirecionado para o seu cliente de e-mail para enviar as informações."
+      }
+    },
+    "email": {
+      "subject": "Novo Contato de Negociando Bonito",
+      "body": {
+        "name": "Nome",
+        "email": "E-mail",
+        "source": "Fonte",
+        "sourceNotSpecified": "Não especificada"
+      }
+    }
   }
 }

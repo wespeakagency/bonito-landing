@@ -84,5 +84,48 @@
   },
   "footer": {
     "copyright": "रॉबर्टो। सर्वाधिकार सुरक्षित।"
+  },
+  "contact": {
+    "title": "संपर्क में रहें",
+    "subtitle": "भविष्य के प्रकाशनों और घटनाओं के बारे में समाचार और विशेष सामग्री प्राप्त करने के लिए अपना विवरण छोड़ दें।",
+    "form": {
+      "name": {
+        "label": "नाम",
+        "placeholder": "आपका पूरा नाम"
+      },
+      "email": {
+        "label": "ईमेल",
+        "placeholder": "your.email@example.com"
+      },
+      "source": {
+        "label": "आपको किताब के बारे में कैसे पता चला?",
+        "placeholder": "एक विकल्प चुनें",
+        "options": [
+          { "value": "social_media", "label": "सोशल मीडिया" },
+          { "value": "recommendation", "label": "दोस्त की सिफारिश" },
+          { "value": "web_search", "label": "वेब खोज" },
+          { "value": "event", "label": "घटना या सम्मेलन" },
+          { "value": "other", "label": "अन्य" }
+        ]
+      },
+      "submitButton": "भेजें",
+      "errors": {
+        "name": "कृपया कम से कम 2 अक्षर दर्ज करें।",
+        "email": "कृपया एक मान्य ईमेल पता दर्ज करें।"
+      },
+      "successMessage": {
+        "title": "साइन अप करने के लिए धन्यवाद!",
+        "description": "जानकारी भेजने के लिए आपको अपने ईमेल क्लाइंट पर रीडायरेक्ट किया जाएगा।"
+      }
+    },
+    "email": {
+      "subject": "Negociando Bonito से नया संपर्क",
+      "body": {
+        "name": "नाम",
+        "email": "ईमेल",
+        "source": "स्रोत",
+        "sourceNotSpecified": "निर्दिष्ट नहीं है"
+      }
+    }
   }
 }

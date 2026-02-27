@@ -16,6 +16,7 @@ import MiniPlayer from '@/components/mini-player';
 import { DonationDialog } from '@/components/donation-dialog';
 import { useTranslation } from '@/context/language-context';
 import { chapters, type Chapter } from '@/lib/chapters';
+import ContactSection from '@/components/contact-section';
 
 export default function Home() {
   const { t, language } = useTranslation();
@@ -204,6 +205,9 @@ export default function Home() {
         </div>
         <div id="spotify">
           <SpotifySection />
+        </div>
+        <div id="contacto">
+          <ContactSection />
         </div>
         <div id="comprar">
           <CtaSection />
