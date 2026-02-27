@@ -1,0 +1,88 @@
+{
+  "header": {
+    "buy": "Acquista"
+  },
+  "hero": {
+    "phrases": [
+      "Negoziare è un'arte.",
+      "Praticala con compassione.",
+      "Un libro per trasformare conversazioni difficili in accordi reciproci."
+    ],
+    "buyButton": "Acquista ora",
+    "introButton": "Guarda l'introduzione",
+    "spotifyBubble": "Ascolta su Spotify",
+    "buyBubble": "Acquista online"
+  },
+  "idea": {
+    "paragraphs": [
+      "Non si tratta di vincere a tutti i costi. Si tratta di costruire ponti, capire l'altro e trovare un terreno comune. Negoziare con eleganza è, in essenza, un atto di empatia e strategia."
+    ]
+  },
+  "principles": {
+    "title": "I 3 pilastri della negoziazione.",
+    "clarity": {
+      "title": "Chiarezza",
+      "description": "Comunica la tua intenzione con semplicità e onestà. La trasparenza è la via più breve per la fiducia."
+    },
+    "activeListening": {
+      "title": "Ascolto Attivo",
+      "description": "Ascolta per capire, non solo per rispondere. Comprendi le necessità e le motivazioni dell'altra parte."
+    },
+    "mutualRespect": {
+      "title": "Rispetto Reciproco",
+      "description": "Sostieni la tua posizione senza rompere la relazione. Il rispetto è la base di qualsiasi accordo duraturo e vantaggioso."
+    }
+  },
+  "author": {
+    "title": "Conosci l'autore",
+    "shortBio": "Roberto Luna è un imprenditore e pensatore che ha trasformato la negoziazione in un atto profondamente umano: meno guerra, più compassione, parole che costruiscono e non distruggono.",
+    "readMore": "Scopri di più",
+    "showLess": "Mostra meno",
+    "fullBioTitle": "Su Roberto Luna",
+    "fullBio": [
+      "Roberto Luna è un imprenditore, leader e pensatore contemporaneo che ha fatto della negoziazione una pratica profondamente umana. Al di là di contratti e numeri, il suo lavoro si concentra su un'idea radicale per il mondo degli affari: negoziare è, prima di tutto, un atto di coscienza, linguaggio e compassione.",
+      "Con una visione che mescola filosofia, esperienza commerciale e sensibilità emotiva, Roberto propone un nuovo modo di dialogare con gli altri e con se stessi. In 'Negoziare con Eleganza', condivide riflessioni nate sia dalla leadership che dal suo percorso personale: l'importanza di ascoltare, di scegliere bene le parole, di capire l'altro e di coltivare relazioni basate sul rispetto e sull'empatia.",
+      "Lungo tutto il libro, Roberto ci invita a vedere la negoziazione non come una battaglia da vincere, ma come uno spazio da curare. Parla di leadership compassionevole, del potere del linguaggio, della capacità di adattarsi come l'acqua e dell'urgenza di umanizzare gli ambienti professionali senza perdere efficacia o risultati.",
+      "La sua filosofia sostiene che i migliori accordi non nascono dall'imposizione, ma dalla comprensione; non dalla paura, ma dalla chiarezza; non dall'ego, ma dalla presenza. Per lui, negoziare bene è anche vivere meglio.",
+      "'Negoziare con Eleganza' è un'estensione del suo modo di abitare il mondo: con attenzione, con intenzione e con una profonda fede nel fatto che le conversazioni possano trasformare vite."
+    ]
+  },
+  "extracts": [
+    "La chiarezza non è un punto di partenza, è un risultato. Si costruisce.",
+    "Ascolta per capire, non per rispondere. È questa la chiave.",
+    "Negoziare con eleganza significa curare la relazione senza tradire la propria intenzione."
+  ],
+  "audioPlayer": {
+    "title": "Ascolta il libro completo",
+    "subtitle": "Goditi l'esperienza completa dell'audiolibro, capitolo per capitolo.",
+    "chapterLabel": "CAPITOLO",
+    "chaptersTitle": "Capitoli",
+    "listenButton": "Ascolta l'audiolibro",
+    "comingSoon": "Prossimamente nella tua lingua"
+  },
+  "spotify": {
+    "title": "Disponibile anche su Spotify",
+    "subtitle": "Ascolta l'audiolibro sulla tua piattaforma di streaming preferita.",
+    "button": "Ascolta su Spotify"
+  },
+  "cta": {
+    "title": "Inizia a negoziare con eleganza.",
+    "subtitle": "Disponibile nel tuo formato preferito. Ottieni la tua copia e trasforma le tue conversazioni."
+  },
+  "donation": {
+    "title": "Il tuo supporto fa la differenza",
+    "subtitle": "La creazione di questo audiolibro è stata un atto d'amore e dedizione. Se apprezzi questo lavoro, considera di sostenere l'autore. Il tuo contributo, non importa quanto piccolo, ci ispira a continuare a creare.",
+    "supportButton": "Sostieni con PayPal",
+    "listenButton": "Continua ad ascoltare"
+  },
+  "purchaseDialog": {
+    "title": "Scegli dove acquistare",
+    "subtitle": "Scegli il formato e il negozio che preferisci.",
+    "audiobookTitle": "Audiolibro",
+    "physicalBookTitle": "Libro Fisico",
+    "ebookTitle": "E-book (Kindle)"
+  },
+  "footer": {
+    "copyright": "Roberto. Tutti i diritti riservati."
+  }
+}

@@ -8,14 +8,15 @@ import pt from '@/i18n/pt.json';
 import hi from '@/i18n/hi.json';
 import fr from '@/i18n/fr.json';
 import el from '@/i18n/el.json';
+import it from '@/i18n/it.json';
 
-type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi' | 'fr' | 'el';
+type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi' | 'fr' | 'el' | 'it';
 
 type Translations = {
   [key: string]: any;
 };
 
-const translations: Record<Locale, Translations> = { es, en, zh, pt, hi, fr, el };
+const translations: Record<Locale, Translations> = { es, en, zh, pt, hi, fr, el, it };
 
 interface LanguageContextType {
   language: Locale;

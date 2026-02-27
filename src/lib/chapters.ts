@@ -6,7 +6,7 @@ export type Chapter = {
 };
 
 type ChaptersByLanguage = {
-  [key in 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el']: Chapter[];
+  [key in 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el' | 'it']: Chapter[];
 };
 
 export const chapters: ChaptersByLanguage = {
@@ -406,19 +406,19 @@ export const chapters: ChaptersByLanguage = {
       id: 4,
       title: "अध्याय 4 - खूबसूरती से बोलें (क्यूरो लोगों से एक सबक)",
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%204-.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%204-.mp3',
     },
     {
       id: 5,
       title: 'अध्याय 5 - छह पारमिता (पुण्य से व्यापार)',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%205%20-%E0%A4%9B%E0%A4%B9%20%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%20(%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%8D%E0%A4%AF%20%E0%A4%B8%E0%A5%87%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20)-.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%205%20-%E0%A4%9B%E0%A4%B9%20%E0%A4%AA%E0%A4%BE%E0%A4%B0%E0%A4%AE%E0%A4%BF%E0%A4%A4%E0%A4%BE%20(%20%E0%A4%AA%E0%A5%81%E0%A4%A3%E0%A5%8D%E0%A4%AF%20%E0%A4%B8%E0%A5%87%20%E0%A4%B5%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AA%E0%A4%BE%E0%A4%B0%20)-.mp3',
     },
     {
       id: 6,
       title: 'अध्याय 6 - अनलर्निंग',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%206%20-%20%E0%A4%85%E0%A4%A8%E0%A4%B2%E0%A4%B0%E0%A5%8D%E0%A4%A8%E0%A4%BF%E0%A4%82%E0%A4%97-.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%206%20-%20%E0%A4%85%E0%A4%A8%E0%A4%B2%E0%A4%B0%E0%A5%8D%E0%A4%A8%E0%A4%BF%E0%A4%82%E0%A4%97-.mp3',
     },
     {
       id: 7,
@@ -430,7 +430,7 @@ export const chapters: ChaptersByLanguage = {
       id: 8,
       title: 'अध्याय 8 - मदद के लिए बातचीत',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%208%20-%20%E0%A4%AE%E0%A4%A6%E0%A4%A6%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%20%E0%A4%AC%E0%A4%BE%E0%A4%A4%E0%A4%9A%E0%A5%80%E0%A4%A4_1.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%208%20-%20%E0%A4%AE%E0%A4%A6%E0%A4%A6%20%E0%A4%95%E0%A5%87%20%E0%A4%B2%E0%A4%BF%E0%A4%8F%20%E0%A4%AC%E0%A4%BE%E0%A4%A4%E0%A4%9A%E0%A5%80%E0%A4%A4_1.mp3',
     },
     {
       id: 9,
@@ -442,13 +442,13 @@ export const chapters: ChaptersByLanguage = {
       id: 10,
       title: 'अध्याय 10 - दर्पण के साथ बातचीत करें',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%2010%20-%20%E0%A4%A6%E0%A4%B0%E0%A5%8D%E0%A4%AA%E0%A4%A3%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%20%E0%A4%AC%E0%A4%BE%E0%A4%A4%E0%A4%9A%E0%A5%80%E0%A4%A4%20%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82_1.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%2010%20-%20%E0%A4%A6%E0%A4%B0%E0%A5%8D%E0%A4%AA%E0%A4%A3%20%E0%A4%95%E0%A5%87%20%E0%A4%B8%E0%A4%BE%E0%A4%A5%20%E0%A4%AC%E0%A4%BE%E0%A4%A4%E0%A4%9A%E0%A5%80%E0%A4%A4%20%E0%A4%95%E0%A4%B0%E0%A5%87%E0%A4%82_1.mp3',
     },
     {
       id: 11,
       title: 'अध्याय 11 - धन्यवाद',
       duration: '',
-      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AF%2011%20-%20%E0%A4%A7%E0%A4%A8%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%BE%E0%A4%A6_1.mp3',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%E0%A4%85%E0%A4%A7%E0%A5%8D%E0%A4%AF%E0%A4%BE%E0%A4%AY%2011%20-%20%E0%A4%A7%E0%A4%A8%E0%A5%8D%E0%A4%AF%E0%A4%B5%E0%A4%BE%E0%A4%A6_1.mp3',
     },
   ],
   el: [
@@ -504,7 +504,7 @@ export const chapters: ChaptersByLanguage = {
       id: 9,
       title: 'Κεφάλαιο 8 - Διαπραγμάτευση για βοήθεια',
       duration: '',
-      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%208%20-%20%CE%94%CE%B9%CE%B1%CF%80%CF%81%CE%B1%CE%B3%CE%BC%CE%AC%CF%84%CE%B5%CF%85%CF%83%CE%B7%20%CE%B3%CE%B9%CE%B1%20%CE%B2%CE%BF%CE%B7%CC%81%CE%B8%CE%B5%CE%B9%CE%B1_1.mp3",
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%208%20-%20%CE%94%CE%B9%CE%B1%CF%80%CF%81%CE%B1%CE%B3%CE%BC%CE%B1%CC%81%CF%84%CE%B5%CF%85%CF%83%CE%B7%20%CE%B3%CE%B9%CE%B1%20%CE%B2%CE%BF%CE%B7%CC%81%CE%B8%CE%B5%CE%B9%CE%B1_1.mp3",
     },
     {
       id: 10,
@@ -523,6 +523,80 @@ export const chapters: ChaptersByLanguage = {
       title: 'Κεφάλαιο 11 - Τελικές σημειώσεις',
       duration: '',
       audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/%CE%9A%CE%B5%CF%86%CE%B1%CC%81%CE%BB%CE%B1%CE%B9%CE%BF%2011%20-%20%CE%A4%CE%B5%CE%BB%CE%B9%CE%BA%CE%B5%CC%81%CF%82%20%CF%83%CE%B7%CE%BC%CE%B5%CE%B9%CF%89%CC%81%CF%83%CE%B5%CE%B9%CF%82_1.mp3",
+    }
+  ],
+  it: [
+    {
+      id: 1,
+      title: 'Prologo',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Prologue%20It_1.mp3',
+    },
+    {
+      id: 2,
+      title: 'Capitolo 1 - Negozia con la Compassione',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%201%20-%20Negozia%20con%20la%20Compassione-.mp3',
+    },
+    {
+      id: 3,
+      title: 'Capitolo 2 - La compassione crea un vantaggio competitivo',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%202%20-%20La%20compassione%20crea%20un%20vantaggio%20competitivo_1.mp3',
+    },
+    {
+      id: 4,
+      title: 'Capitolo 3 - Facciamo uno scambio',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%203%20-%20Facciamo%20uno%20scambio-.mp3',
+    },
+    {
+      id: 5,
+      title: "Capitolo 4 - Parla con bellezza (una lezione dal popolo Q'ero)",
+      duration: '',
+      audioSrc: "https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%204%20-%20Parla%20con%20bellezza(una%20lezione%20dal%20popolo%20Q'ero)_1.mp3",
+    },
+    {
+      id: 6,
+      title: 'Capitolo 5 - Le Sei Paramitas (Scambiare dalla Virtù)',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%205%20-%20Le%20Sei%20Paramitas%20(%20Scambiare%20dalla%20Virtu%CC%80%20)-.mp3',
+    },
+    {
+      id: 7,
+      title: 'Capitolo 6 - Disimparare',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%206%20-%20Disimparare_1.mp3',
+    },
+    {
+      id: 8,
+      title: 'Capitolo 7 - Perdere per vincere',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%207%20-%20Perdere%20per%20vincere_1.mp3',
+    },
+    {
+      id: 9,
+      title: 'Capitolo 8 - Negoziare per aiutare',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%208%20-%20Negoziare%20per%20aiutare_1.mp3',
+    },
+    {
+      id: 10,
+      title: 'Capitolo 9 - Un rapimento',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%209%20-%20Un%20rapimento_1.mp3',
+    },
+    {
+      id: 11,
+      title: 'Capitolo 10 - Negozia con lo specchio',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%2010%20-%20Negozia%20con%20lo%20specchio_1.mp3',
+    },
+    {
+      id: 12,
+      title: 'Capitolo 11 - Note finali',
+      duration: '',
+      audioSrc: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/CAPITOLO%2011%20-%20Note%20finali_1.mp3',
     }
   ],
 };

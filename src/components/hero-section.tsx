@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
 import { PurchaseDialog } from './purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
 
-type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el';
+type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el' | 'it';
 
 const spotifyLinks: Partial<Record<Locale, string>> = {
   es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
