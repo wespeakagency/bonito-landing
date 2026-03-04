@@ -24,12 +24,15 @@ const audioStores = [
 ];
 
 const physicalStores = [
-    { name: 'Amazon', href: 'https://a.co/d/08Njuvns' },
     { name: 'Thyrso Editorial', href: 'https://thyrsoeditorial.com/producto/negociando-bonito-de-roberto-luna/' },
+    { name: 'Amazon (On Demand)', href: 'https://www.amazon.com/dp/B0GQLYNSFV' },
 ];
 
 const ebookStores = [
-    { name: 'Amazon Kindle', href: 'https://www.amazon.com.mx/Negociando-bonito-Roberto-Luna-ebook/dp/B0GNJ9T3R7/' }
+    { name: 'Kindle (Español - amazon.com)', href: 'https://www.amazon.com/Negociando-bonito-Spanish-Roberto-Luna-ebook/dp/B0GNJ9T3R7/' },
+    { name: 'Kindle (Español - amazon.mx)', href: 'https://www.amazon.com.mx/dp/B0GNJ9T3R7' },
+    { name: 'Kindle (English)', href: 'https://www.amazon.com.mx/dp/B0GPLW9ZYT' },
+    { name: 'Kindle (Português)', href: 'https://www.amazon.com.mx/dp/B0G6XRGRPG' },
 ];
 
 export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
