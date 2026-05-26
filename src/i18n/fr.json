@@ -1,6 +1,8 @@
 {
   "header": {
-    "buy": "Acheter"
+    "buy": "Acheter",
+    "changeLanguageSr": "Changer de langue",
+    "languageHint": "Choisissez votre langue"
   },
   "hero": {
     "phrases": [
@@ -11,12 +13,14 @@
     "buyButton": "Acheter maintenant",
     "introButton": "Voir l'intro",
     "spotifyBubble": "Écouter sur Spotify",
-    "buyBubble": "Acheter en ligne"
+    "buyBubble": "Acheter en ligne",
+    "backgroundAlt": "Arrière-plan de mains symboliques"
   },
   "idea": {
     "paragraphs": [
       "Il ne s'agit pas de gagner à tout prix. Il s'agit de construire des ponts, de comprendre l'autre et de trouver un terrain d'entente. Négocier avec élégance est, par essence, un acte d'empathie et de stratégie."
-    ]
+    ],
+    "imageAlt": "Mantra de négociation"
   },
   "principles": {
     "title": "Les 3 piliers de la négociation.",
@@ -45,7 +49,8 @@
       "Tout au long du livre, Roberto nous invite à voir la négociation non pas comme une bataille à gagner, mais comme un espace à entretenir. Il parle de leadership compatissant, du pouvoir du langage, de la capacité de s'adapter comme l'eau, et du besoin urgent d'humaniser les environnements professionnels sans perdre en efficacité ou en résultats.",
       "Sa philosophie soutient que les meilleurs accords ne naissent pas de l'imposition, mais de la compréhension ; pas de la peur, mais de la clarté ; pas de l'ego, mais de la présence. Pour lui, bien négocier, c'est aussi mieux vivre.",
       "'Négocier avec élégance' est une extension de sa manière d'habiter le monde : avec attention, avec intention, et avec une foi profonde que les conversations peuvent transformer des vies."
-    ]
+    ],
+    "imageAlt": "Portrait de Roberto Luna"
   },
   "extracts": [
     "La clarté n'est pas un point de départ, c'est un résultat. Elle se construit.",
@@ -160,5 +165,23 @@
       "9. MODIFICATIONS DE CETTE POLITIQUE DE CONFIDENTIALITÉ. Nous nous réservons le droit d'apporter des modifications à cette politique de confidentialité à tout moment et pour quelque raison que ce soit. Nous vous informerons de toute modification en mettant à jour la date de « Dernière mise à jour » de cette politique de confidentialité.",
       "10. CONTACTEZ-NOUS. Si vous avez des questions ou des commentaires sur cette politique de confidentialité, veuillez nous contacter à l'adresse suivante : robluna.mkt@gmail.com."
     ]
+  },
+  "metadata": {
+    "title": "Negociando Bonito",
+    "description": "Un livre pour transformer les conversations difficiles en accords mutuels."
+  },
+  "miniPlayer": {
+    "playingNow": "Lecture en cours...",
+    "paused": "En pause"
+  },
+  "videoDialog": {
+    "title": "Vidéo d'introduction",
+    "description": "Une vidéo d'introduction au livre Negociando Bonito.",
+    "close": "Fermer"
+  },
+  "common": {
+    "close": "Fermer",
+    "previousSlide": "Diapositive précédente",
+    "nextSlide": "Diapositive suivante"
   }
 }

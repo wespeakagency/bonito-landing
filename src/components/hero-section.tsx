@@ -8,16 +8,7 @@ import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { PurchaseDialog } from './purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
-import { type Locale } from '@/lib/i18n';
-
-const spotifyLinks: Partial<Record<Locale, string>> = {
-  es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
-  en: 'https://open.spotify.com/show/24V2w0YX10O9c5opUWLIDz',
-  fr: 'https://open.spotify.com/show/5i7nLg3STMY7DaURuCFV7z',
-  zh: 'https://open.spotify.com/show/1GDPg4qyzrwfrRtKsOlGWH',
-  pt: 'https://open.spotify.com/show/0I5E2nvtKi6CrmWmsTzZsT',
-  hi: 'https://open.spotify.com/show/3PUZxVNRa2CNFAAqn3PWer',
-};
+import { spotifyLinks } from '@/lib/spotify-links';
 
 export default function HeroSection() {
   const { translations, locale } = useLanguage();
@@ -38,7 +29,7 @@ export default function HeroSection() {
         <div className="absolute inset-0 opacity-20 float">
           <Image
             src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/MANOS.png"
-            alt="Symbolic hands background"
+            alt={translations.hero.backgroundAlt}
             fill
             className="object-cover"
           />
@@ -50,7 +41,7 @@ export default function HeroSection() {
               href="#spotify"
               className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             >
-              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt="Spotify" width={24} height={24} className="h-6 w-6" />
+              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt={translations.hero.spotifyBubble} width={24} height={24} className="h-6 w-6" />
               <span className="font-medium text-sm text-white">{translations.hero.spotifyBubble}</span>
             </a>
           )}

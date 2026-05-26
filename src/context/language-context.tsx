@@ -2,19 +2,8 @@
 
 import React, { createContext, useContext } from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import en from '@/i18n/en.json';
-import es from '@/i18n/es.json';
-import fr from '@/i18n/fr.json';
-import pt from '@/i18n/pt.json';
-import el from '@/i18n/el.json';
-import hi from '@/i18n/hi.json';
-import it from '@/i18n/it.json';
-import zh from '@/i18n/zh.json';
 import { defaultLocale, getLocaleFromPathname, getPathnameForLocale, type Locale } from '@/lib/i18n';
-
-type Translations = typeof es;
-
-const allTranslations: Record<Locale, Translations> = { en, es, fr, pt, el, hi, it, zh };
+import { getTranslations, type Translations } from '@/lib/translations';
 
 interface LanguageContextType {
   locale: Locale;
@@ -42,7 +31,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLoca
     }
   };
 
-  const translations = allTranslations[locale] || allTranslations.es;
+  const translations = getTranslations(locale);
 
   return (
     <LanguageContext.Provider value={{ locale, translations, changeLanguage }}>
@@ -51,12 +40,14 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLoca
   );
 };
 
+export const useOptionalLanguage = () => useContext(LanguageContext);
+
 export const useLanguage = () => {
-  const context = useContext(LanguageContext);
+  const context = useOptionalLanguage();
   if (context === undefined) {
     throw new Error('useLanguage must be used within a LanguageProvider');
   }
   return context;
 };
 
-export type { Locale };
+export type { Locale, Translations };

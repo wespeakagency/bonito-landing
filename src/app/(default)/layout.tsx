@@ -1,11 +1,11 @@
 import '../globals.css';
 import { Providers } from '../providers';
 import { SharedRootLayout } from '../shared-root-layout';
-import { siteMetadata } from '../site-metadata';
+import { getMetadataForLocale } from '../site-metadata';
 import { LanguageProvider } from '@/context/language-context';
 import { defaultLocale } from '@/lib/i18n';
 
-export const metadata = siteMetadata;
+export const metadata = getMetadataForLocale(defaultLocale);
 
 export default function DefaultLayout({
   children,

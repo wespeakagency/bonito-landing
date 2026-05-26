@@ -1,6 +1,8 @@
 {
   "header": {
-    "buy": "购买"
+    "buy": "购买",
+    "changeLanguageSr": "切换语言",
+    "languageHint": "选择你的语言"
   },
   "hero": {
     "phrases": [
@@ -11,12 +13,14 @@
     "buyButton": "立即购买",
     "introButton": "观看介绍",
     "spotifyBubble": "在 Spotify 上收听",
-    "buyBubble": "在线购买"
+    "buyBubble": "在线购买",
+    "backgroundAlt": "象征性的双手背景"
   },
   "idea": {
     "paragraphs": [
       "重要的不是不惜一切代价取胜。而是要搭建桥梁，理解对方，找到共同点。优雅地谈判，本质上是一种同理心和策略的体现。"
-    ]
+    ],
+    "imageAlt": "谈判箴言"
   },
   "principles": {
     "title": "谈判的三大支柱。",
@@ -45,7 +49,8 @@
       "在整本书中，罗伯托邀请我们不要将谈判视为一场需要赢的战斗，而是一个需要培育的空间。他谈到同情心领导力、语言的力量、像水一样适应的能力，以及在不失效率或结果的情况下人性化专业环境的迫切需求。",
       "他的哲学认为，最好的协议不是源于强加，而是源于理解；不是源于恐惧，而是源于清晰；不是源于自我，而是源于当下。对他来说，善于谈判也是为了更好地生活。",
       "《优雅地谈判》是他栖居于世界方式的延伸：专注、有意识，并深信对话可以改变生活。"
-    ]
+    ],
+    "imageAlt": "Roberto Luna 肖像"
   },
   "extracts": [
     "清晰不是一个起点，而是一个结果。它是被建立起来的。",
@@ -102,11 +107,26 @@
         "label": "您是如何知道这本书的？",
         "placeholder": "选择一个选项",
         "options": [
-          { "value": "social_media", "label": "社交媒体" },
-          { "value": "recommendation", "label": "朋友推荐" },
-          { "value": "web_search", "label": "网络搜索" },
-          { "value": "event", "label": "活动或会议" },
-          { "value": "other", "label": "其他" }
+          {
+            "value": "social_media",
+            "label": "社交媒体"
+          },
+          {
+            "value": "recommendation",
+            "label": "朋友推荐"
+          },
+          {
+            "value": "web_search",
+            "label": "网络搜索"
+          },
+          {
+            "value": "event",
+            "label": "活动或会议"
+          },
+          {
+            "value": "other",
+            "label": "其他"
+          }
         ]
       },
       "submitButton": "发送",
@@ -145,5 +165,23 @@
       "9. 本隐私政策的变更。我们保留随时以任何理由对本隐私政策进行更改的权利。我们将通过更新本隐私政策的“最后更新”日期来提醒您任何更改。",
       "10. 联系我们。如果您对本隐私政策有任何问题或意见，请通过以下方式与我们联系：robluna.mkt@gmail.com。"
     ]
+  },
+  "metadata": {
+    "title": "Negociando Bonito",
+    "description": "一本将艰难对话转化为共同协议的书。"
+  },
+  "miniPlayer": {
+    "playingNow": "正在播放...",
+    "paused": "已暂停"
+  },
+  "videoDialog": {
+    "title": "介绍视频",
+    "description": "《Negociando Bonito》一书的介绍视频。",
+    "close": "关闭"
+  },
+  "common": {
+    "close": "关闭",
+    "previousSlide": "上一张幻灯片",
+    "nextSlide": "下一张幻灯片"
   }
 }

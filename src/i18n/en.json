@@ -1,6 +1,8 @@
 {
   "header": {
-    "buy": "Buy"
+    "buy": "Buy",
+    "changeLanguageSr": "Change language",
+    "languageHint": "Select your language"
   },
   "hero": {
     "phrases": [
@@ -11,12 +13,14 @@
     "buyButton": "Buy now",
     "introButton": "Watch intro",
     "spotifyBubble": "Listen on Spotify",
-    "buyBubble": "Buy online"
+    "buyBubble": "Buy online",
+    "backgroundAlt": "Symbolic hands background"
   },
   "idea": {
     "paragraphs": [
       "It's not about winning at all costs. It's about building bridges, understanding the other, and finding common ground. Negotiating beautifully is, in essence, an act of empathy and strategy."
-    ]
+    ],
+    "imageAlt": "Negotiation mantra"
   },
   "principles": {
     "title": "The 3 pillars of negotiation.",
@@ -45,7 +49,8 @@
       "Throughout the book, Roberto invites us to see negotiation not as a battle to be won, but as a space to be nurtured. He speaks of compassionate leadership, the power of language, the ability to adapt like water, and the urgent need to humanize professional environments without losing effectiveness or results.",
       "His philosophy holds that the best agreements are not born from imposition, but from understanding; not from fear, but from clarity; not from the ego, but from presence. For him, to negotiate well is also to live better.",
       "'Negociando Bonito' is an extension of his way of inhabiting the world: with attention, with intention, and with a deep faith that conversations can transform lives."
-    ]
+    ],
+    "imageAlt": "Portrait of Roberto Luna"
   },
   "extracts": [
     "Clarity is not a starting point, it is a result. It is built.",
@@ -102,11 +107,26 @@
         "label": "How did you hear about the book?",
         "placeholder": "Select an option",
         "options": [
-          { "value": "social_media", "label": "Social Media" },
-          { "value": "recommendation", "label": "Friend's recommendation" },
-          { "value": "web_search", "label": "Web search" },
-          { "value": "event", "label": "Event or conference" },
-          { "value": "other", "label": "Other" }
+          {
+            "value": "social_media",
+            "label": "Social Media"
+          },
+          {
+            "value": "recommendation",
+            "label": "Friend's recommendation"
+          },
+          {
+            "value": "web_search",
+            "label": "Web search"
+          },
+          {
+            "value": "event",
+            "label": "Event or conference"
+          },
+          {
+            "value": "other",
+            "label": "Other"
+          }
         ]
       },
       "submitButton": "Send",
@@ -145,5 +165,23 @@
       "9. CHANGES TO THIS PRIVACY POLICY. We reserve the right to make changes to this Privacy Policy at any time and for any reason. We will alert you about any changes by updating the “Last updated” date of this Privacy Policy.",
       "10. CONTACT US. If you have questions or comments about this Privacy Policy, please contact us at: robluna.mkt@gmail.com."
     ]
+  },
+  "metadata": {
+    "title": "Negociando Bonito",
+    "description": "A book to transform difficult conversations into mutual agreements."
+  },
+  "miniPlayer": {
+    "playingNow": "Playing now...",
+    "paused": "Paused"
+  },
+  "videoDialog": {
+    "title": "Intro video",
+    "description": "An introduction video for the book Negociando Bonito.",
+    "close": "Close"
+  },
+  "common": {
+    "close": "Close",
+    "previousSlide": "Previous slide",
+    "nextSlide": "Next slide"
   }
 }

@@ -15,7 +15,7 @@ export default function IdeaSection() {
           <AnimatedBlock animationType="slide-in-left">
             <Image
               src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/mantra.png"
-              alt="Mantra"
+              alt={translations.idea.imageAlt}
               width={500}
               height={500}
               className="rounded-lg object-contain w-full h-auto invert"

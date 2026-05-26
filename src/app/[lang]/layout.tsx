@@ -1,12 +1,20 @@
+import type { Metadata } from 'next';
 import '../globals.css';
 import { notFound, redirect } from 'next/navigation';
 import { Providers } from '../providers';
 import { SharedRootLayout } from '../shared-root-layout';
-import { siteMetadata } from '../site-metadata';
+import { getMetadataForLocale } from '../site-metadata';
 import { LanguageProvider } from '@/context/language-context';
 import { defaultLocale, isLocale } from '@/lib/i18n';
 
-export const metadata = siteMetadata;
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return getMetadataForLocale(isLocale(lang) ? lang : defaultLocale);
+}
 
 export default async function RootLayout({
   children,

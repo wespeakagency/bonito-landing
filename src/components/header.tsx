@@ -75,7 +75,7 @@ export default function Header() {
                   <DropdownMenuTrigger asChild>
                     <Button variant="ghost" size="icon">
                       <Globe />
-                      <span className="sr-only">Change language</span>
+                      <span className="sr-only">{translations.header.changeLanguageSr}</span>
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>

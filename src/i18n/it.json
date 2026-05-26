@@ -1,6 +1,8 @@
 {
   "header": {
-    "buy": "Acquista"
+    "buy": "Acquista",
+    "changeLanguageSr": "Cambia lingua",
+    "languageHint": "Seleziona la tua lingua"
   },
   "hero": {
     "phrases": [
@@ -11,12 +13,14 @@
     "buyButton": "Acquista ora",
     "introButton": "Guarda l'introduzione",
     "spotifyBubble": "Ascolta su Spotify",
-    "buyBubble": "Acquista online"
+    "buyBubble": "Acquista online",
+    "backgroundAlt": "Sfondo di mani simboliche"
   },
   "idea": {
     "paragraphs": [
       "Non si tratta di vincere a tutti i costi. Si tratta di costruire ponti, capire l'altro e trovare un terreno comune. Negoziare con eleganza è, in essenza, un atto di empatia e strategia."
-    ]
+    ],
+    "imageAlt": "Mantra della negoziazione"
   },
   "principles": {
     "title": "I 3 pilastri della negoziazione.",
@@ -45,7 +49,8 @@
       "Lungo tutto il libro, Roberto ci invita a vedere la negoziazione non come una battaglia da vincere, ma come uno spazio da curare. Parla di leadership compassionevole, del potere del linguaggio, della capacità di adattarsi come l'acqua e dell'urgenza di umanizzare gli ambienti professionali senza perdere efficacia o risultati.",
       "La sua filosofia sostiene che i migliori accordi non nascono dall'imposizione, ma dalla comprensione; non dalla paura, ma dalla chiarezza; non dall'ego, ma dalla presenza. Per lui, negoziare bene è anche vivere meglio.",
       "'Negoziare con Eleganza' è un'estensione del suo modo di abitare il mondo: con attenzione, con intenzione e con una profonda fede nel fatto che le conversazioni possano trasformare vite."
-    ]
+    ],
+    "imageAlt": "Ritratto di Roberto Luna"
   },
   "extracts": [
     "La chiarezza non è un punto di partenza, è un risultato. Si costruisce.",
@@ -102,11 +107,26 @@
         "label": "Come hai saputo del libro?",
         "placeholder": "Seleziona un'opzione",
         "options": [
-          { "value": "social_media", "label": "Social Media" },
-          { "value": "recommendation", "label": "Consiglio di un amico" },
-          { "value": "web_search", "label": "Ricerca web" },
-          { "value": "event", "label": "Evento o conferenza" },
-          { "value": "other", "label": "Altro" }
+          {
+            "value": "social_media",
+            "label": "Social Media"
+          },
+          {
+            "value": "recommendation",
+            "label": "Consiglio di un amico"
+          },
+          {
+            "value": "web_search",
+            "label": "Ricerca web"
+          },
+          {
+            "value": "event",
+            "label": "Evento o conferenza"
+          },
+          {
+            "value": "other",
+            "label": "Altro"
+          }
         ]
       },
       "submitButton": "Invia",
@@ -145,5 +165,23 @@
       "9. MODIFICHE A QUESTA INFORMATIVA SULLA PRIVACY. Ci riserviamo il diritto di apportare modifiche a questa Informativa sulla Privacy in qualsiasi momento e per qualsiasi motivo. Vi avviseremo di eventuali modifiche aggiornando la data di 'Ultimo aggiornamento' di questa Informativa sulla Privacy.",
       "10. CONTATTACI. Se avete domande o commenti su questa Informativa sulla Privacy, contattateci a: robluna.mkt@gmail.com."
     ]
+  },
+  "metadata": {
+    "title": "Negociando Bonito",
+    "description": "Un libro per trasformare conversazioni difficili in accordi reciproci."
+  },
+  "miniPlayer": {
+    "playingNow": "In riproduzione...",
+    "paused": "In pausa"
+  },
+  "videoDialog": {
+    "title": "Video introduttivo",
+    "description": "Un video introduttivo al libro Negociando Bonito.",
+    "close": "Chiudi"
+  },
+  "common": {
+    "close": "Chiudi",
+    "previousSlide": "Diapositiva precedente",
+    "nextSlide": "Diapositiva successiva"
   }
 }

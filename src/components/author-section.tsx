@@ -56,16 +56,16 @@ export default function AuthorSection() {
                 <CarouselContent className="-ml-4">
                   {authorImages.map((src, index) => (
                     <CarouselItem key={index} className="pl-4 basis-3/4">
-                       <div className="p-1">
+                      <div className="p-1">
                         <div
-                           className={cn(
+                          className={cn(
                             'aspect-[4/5] relative transition-transform duration-300 ease-out',
                             current === index ? 'scale-100' : 'scale-90 opacity-60'
-                           )}
-                         >
-                           <Image
+                          )}
+                        >
+                          <Image
                             src={src}
-                            alt={`Roberto Luna ${index + 1}`}
+                            alt={`${translations.author.imageAlt} ${index + 1}`}
                             fill
                             className="rounded-lg object-cover"
                           />

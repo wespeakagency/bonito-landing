@@ -1,6 +1,8 @@
 {
   "header": {
-    "buy": "Comprar"
+    "buy": "Comprar",
+    "changeLanguageSr": "Mudar idioma",
+    "languageHint": "Selecione seu idioma"
   },
   "hero": {
     "phrases": [
@@ -11,12 +13,14 @@
     "buyButton": "Compre agora",
     "introButton": "Ver introdução",
     "spotifyBubble": "Ouça no Spotify",
-    "buyBubble": "Compre online"
+    "buyBubble": "Compre online",
+    "backgroundAlt": "Fundo de mãos simbólicas"
   },
   "idea": {
     "paragraphs": [
       "Não se trata de vencer a todo custo. Trata-se de construir pontes, entender o outro e encontrar um terreno comum. Negociar bonito é, em essência, um ato de empatia e estratégia."
-    ]
+    ],
+    "imageAlt": "Mantra de negociação"
   },
   "principles": {
     "title": "Os 3 pilares da negociação.",
@@ -45,7 +49,8 @@
       "Ao longo do livro, Roberto nos convida a ver a negociação não como uma batalha a ser vencida, mas como um espaço a ser cuidado. Ele fala sobre liderança compassiva, o poder da linguagem, a capacidade de se adaptar como a água e a necessidade urgente de humanizar ambientes profissionais sem perder eficácia ou resultados.",
       "Sua filosofia sustenta que os melhores acordos não nascem da imposição, mas da compreensão; não do medo, mas da clareza; não do ego, mas da presença. Para ele, negociar bem é também viver melhor.",
       "'Negociando Bonito' é uma extensão de sua maneira de habitar o mundo: com atenção, com intenção e com uma profunda fé de que as conversas podem transformar vidas."
-    ]
+    ],
+    "imageAlt": "Retrato de Roberto Luna"
   },
   "extracts": [
     "A clareza não é um ponto de partida, é um resultado. Ela se constrói.",
@@ -160,5 +165,23 @@
       "9. ALTERAÇÕES A ESTA POLÍTICA DE PRIVACIDADE. Reservamo-nos o direito de fazer alterações a esta Política de Privacidade a qualquer momento e por qualquer motivo. Iremos alertá-lo sobre quaisquer alterações, atualizando a data da 'Última atualização' desta Política de Privacidade.",
       "10. ENTRE EM CONTATO. Se você tiver dúvidas ou comentários sobre esta Política de Privacidade, entre em contato conosco em: robluna.mkt@gmail.com."
     ]
+  },
+  "metadata": {
+    "title": "Negociando Bonito",
+    "description": "Um livro para transformar conversas difíceis em acordos mútuos."
+  },
+  "miniPlayer": {
+    "playingNow": "Reproduzindo agora...",
+    "paused": "Em pausa"
+  },
+  "videoDialog": {
+    "title": "Vídeo de introdução",
+    "description": "Um vídeo de introdução ao livro Negociando Bonito.",
+    "close": "Fechar"
+  },
+  "common": {
+    "close": "Fechar",
+    "previousSlide": "Slide anterior",
+    "nextSlide": "Próximo slide"
   }
 }
