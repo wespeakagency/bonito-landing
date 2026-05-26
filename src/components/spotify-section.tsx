@@ -3,7 +3,7 @@
 import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
 import { useLanguage } from '@/context/language-context';
-import { Locale } from '@/context/language-context';
+import { type Locale } from '@/lib/i18n';
 
 const spotifyLinks: Partial<Record<Locale, string>> = {
   es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
@@ -16,7 +16,7 @@ const spotifyLinks: Partial<Record<Locale, string>> = {
 
 export default function SpotifySection() {
   const { translations, locale } = useLanguage();
-  const spotifyLink = spotifyLinks[locale as Locale];
+  const spotifyLink = spotifyLinks[locale];
 
   if (!spotifyLink) {
     return null;

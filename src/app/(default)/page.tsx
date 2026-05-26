@@ -1,5 +1,5 @@
 import LandingPage from '@/components/landing-page';
 
-export default function LocalizedHomePage() {
+export default function DefaultHomePage() {
   return <LandingPage />;
 }

@@ -1,34 +1,21 @@
 import '../globals.css';
-import { notFound, redirect } from 'next/navigation';
 import { Providers } from '../providers';
 import { SharedRootLayout } from '../shared-root-layout';
 import { siteMetadata } from '../site-metadata';
 import { LanguageProvider } from '@/context/language-context';
-import { defaultLocale, isLocale } from '@/lib/i18n';
+import { defaultLocale } from '@/lib/i18n';
 
 export const metadata = siteMetadata;
 
-export default async function RootLayout({
+export default function DefaultLayout({
   children,
-  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: Promise<{ lang: string }>;
 }>) {
-  const { lang } = await params;
-
-  if (!isLocale(lang)) {
-    notFound();
-  }
-
-  if (lang === defaultLocale) {
-    redirect('/');
-  }
-
   return (
-    <SharedRootLayout lang={lang}>
+    <SharedRootLayout lang={defaultLocale}>
       <Providers>
-        <LanguageProvider initialLocale={lang}>
+        <LanguageProvider initialLocale={defaultLocale}>
           {children}
         </LanguageProvider>
       </Providers>

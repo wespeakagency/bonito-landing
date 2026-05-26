@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/context/language-context'; // Updated import
+import { useLanguage } from '@/context/language-context';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -14,10 +14,10 @@ import { Globe } from 'lucide-react';
 import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag, FranceFlag, GreeceFlag, ItalyFlag } from './icons';
 import { LanguageHint } from './language-hint';
 import { PurchaseDialog } from './purchase-dialog';
+import { type Locale } from '@/lib/i18n';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  // Updated to use the new language context
   const { translations, changeLanguage, locale } = useLanguage();
   const [showHint, setShowHint] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -28,7 +28,7 @@ export default function Header() {
       setScrolled(window.scrollY > 10);
     };
     window.addEventListener('scroll', handleScroll);
-    
+
     const hintTimer = setTimeout(() => setShowHint(true), 1500);
 
     return () => {
@@ -82,9 +82,7 @@ export default function Header() {
                     {languageOptions.map(({ lang, flag: Flag, name }) => (
                       <DropdownMenuItem
                         key={lang}
-                        // Use the new changeLanguage function
-                        onClick={() => changeLanguage(lang)}
-                        // Disable based on the new locale prop
+                        onClick={() => changeLanguage(lang as Locale)}
                         disabled={locale === lang}
                         className="flex items-center gap-2"
                       >
@@ -96,7 +94,6 @@ export default function Header() {
                 </DropdownMenu>
               </div>
               <Button onClick={() => setPurchaseDialogOpen(true)} className="bg-white text-black hover:bg-white/90 rounded-full">
-                {/* Use the new translations object */}
                 {translations.header.buy}
               </Button>
             </div>
