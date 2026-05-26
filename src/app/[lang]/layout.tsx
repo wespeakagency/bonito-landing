@@ -1,5 +1,5 @@
-import './globals.css';
-import { Providers } from './providers';
+import '../globals.css';
+import { Providers } from '../providers';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { LanguageProvider } from '@/context/language-context';
@@ -14,18 +14,20 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  params,
 }: Readonly<{
   children: React.ReactNode;
+  params: { lang: string };
 }>) {
   return (
-    <html lang="en" className="scroll-smooth dark">
+    <html lang={params.lang} className="scroll-smooth dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <LanguageProvider>
+        <LanguageProvider initialLocale={params.lang as any}>
           <Providers>
             {children}
           </Providers>

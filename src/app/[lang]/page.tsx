@@ -18,13 +18,13 @@ import { useLanguage, Locale } from '@/context/language-context';
 import { chapters, type Chapter } from '@/lib/chapters';
 import ContactSection from '@/components/contact-section';
 
-export default function Home() {
+export default function Home({ params }: { params: { lang: Locale } }) {
   const { locale } = useLanguage();
 
   // State lifted from AudioPlayerSection and Home
   const [isPlayerInView, setPlayerInView] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [activeChapters, setActiveChapters] = useState<Chapter[]>(chapters[locale as Locale]);
+  const [activeChapters, setActiveChapters] = useState<Chapter[]>(chapters[locale as Locale] || []);
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -35,7 +35,7 @@ export default function Home() {
 
   // Update chapters when language changes
   useEffect(() => {
-    setActiveChapters(chapters[locale as Locale]);
+    setActiveChapters(chapters[locale as Locale] || []);
     // Reset player state on language change
     setIsPlaying(false);
     setCurrentChapterIndex(0);
