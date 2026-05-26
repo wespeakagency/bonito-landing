@@ -1,57 +1,62 @@
 'use client';
 
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useContext, type ReactNode, useCallback } from 'react';
+import { usePathname, useRouter } from 'next/navigation';
 import es from '@/i18n/es.json';
 import en from '@/i18n/en.json';
-import zh from '@/i18n/zh.json';
-import pt from '@/i18n/pt.json';
-import hi from '@/i18n/hi.json';
 import fr from '@/i18n/fr.json';
+import pt from '@/i18n/pt.json';
 import el from '@/i18n/el.json';
+import hi from '@/i18n/hi.json';
 import it from '@/i18n/it.json';
+import zh from '@/i18n/zh.json';
 
-type Locale = 'es' | 'en' | 'zh' | 'pt' | 'hi' | 'fr' | 'el' | 'it';
+export type Locale = 'es' | 'en' | 'fr' | 'pt' | 'el' | 'hi' | 'it' | 'zh';
 
-type Translations = {
-  [key: string]: any;
-};
-
-const translations: Record<Locale, Translations> = { es, en, zh, pt, hi, fr, el, it };
+const translations: Record<Locale, any> = { es, en, fr, pt, el, hi, it, zh };
 
 interface LanguageContextType {
-  language: Locale;
-  setLanguage: (language: Locale) => void;
-  t: (key: string, options?: { returnObjects: boolean }) => any;
+  translations: any;
+  changeLanguage: (newLocale: Locale) => void;
+  locale: Locale;
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguage] = useState<Locale>('es');
+// Helper function to get locale from pathname
+const getLocaleFromPathname = (pathname: string): Locale => {
+  const firstPart = pathname.split('/')[1];
+  if (Object.keys(translations).includes(firstPart)) {
+    return firstPart as Locale;
+  }
+  return 'es'; // Default locale
+};
 
-  const t = (key: string, options?: { returnObjects: boolean }) => {
-    const keys = key.split('.');
-    let result = translations[language];
-    for (const k of keys) {
-      result = result?.[k];
-      if (result === undefined) {
-        // Fallback to Spanish if key not found in current language
-        let fallbackResult = translations['es'];
-        for (const fk of keys) {
-          fallbackResult = fallbackResult?.[fk];
-          if (fallbackResult === undefined) {
-            console.warn(`Translation key not found in any language: ${key}`);
-            return key;
-          }
-        }
-        return fallbackResult;
-      }
+export function LanguageProvider({ children }: { children: ReactNode }) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const locale = getLocaleFromPathname(pathname);
+  
+  const changeLanguage = useCallback((newLocale: Locale) => {
+    const currentPath = pathname;
+    const pathParts = currentPath.split('/');
+    if (Object.keys(translations).includes(pathParts[1])) {
+        pathParts[1] = newLocale;
+        const newPath = pathParts.join('/');
+        router.push(newPath);
+    } else {
+        router.push(`/${newLocale}${currentPath}`);
     }
-    return result;
+  }, [pathname, router]);
+
+  const value = {
+    translations: translations[locale],
+    changeLanguage,
+    locale,
   };
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={value}>
       {children}
     </LanguageContext.Provider>
   );
@@ -61,14 +66,6 @@ export function useLanguage() {
   const context = useContext(LanguageContext);
   if (context === undefined) {
     throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
-}
-
-export function useTranslation() {
-  const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useTranslation must be used within a LanguageProvider');
   }
   return context;
 }

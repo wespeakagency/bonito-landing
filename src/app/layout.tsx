@@ -2,6 +2,7 @@ import './globals.css';
 import { Providers } from './providers';
 import type { Metadata } from 'next';
 import Script from 'next/script';
+import { LanguageProvider } from '@/context/language-context';
 
 export const metadata: Metadata = {
   title: 'Negociando Bonito',
@@ -24,9 +25,11 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <Providers>
-          {children}
-        </Providers>
+        <LanguageProvider>
+          <Providers>
+            {children}
+          </Providers>
+        </LanguageProvider>
         <Script
           strategy="afterInteractive"
           src="https://www.googletagmanager.com/gtag/js?id=G-51XL9MEXDK"

@@ -6,7 +6,7 @@ import {
   DialogTitle,
 } from '@/components/ui/dialog';
 import { Button } from './ui/button';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 import { Heart } from 'lucide-react';
 import { PayPalIcon } from './icons';
 
@@ -16,7 +16,7 @@ interface DonationDialogProps {
 }
 
 export function DonationDialog({ isOpen, onAction }: DonationDialogProps) {
-  const { t } = useTranslation();
+  const { translations } = useLanguage();
 
   const handleListen = () => {
     onAction('listen');
@@ -35,18 +35,18 @@ export function DonationDialog({ isOpen, onAction }: DonationDialogProps) {
                 <Heart className="w-10 h-10 text-primary" />
             </div>
             <DialogTitle className="text-2xl font-headline font-bold text-foreground mb-4">
-              {t('donation.title')}
+              {translations.donation.title}
             </DialogTitle>
             <p className="text-muted-foreground mb-8 max-w-sm">
-              {t('donation.subtitle')}
+              {translations.donation.subtitle}
             </p>
             <div className="flex flex-col gap-4 w-full max-w-xs">
               <Button onClick={handleSupport} size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                 <PayPalIcon className="w-5 h-5 mr-2" />
-                {t('donation.supportButton')}
+                {translations.donation.supportButton}
               </Button>
               <Button onClick={handleListen} variant="ghost" size="lg" className="w-full text-muted-foreground hover:bg-white/5">
-                {t('donation.listenButton')}
+                {translations.donation.listenButton}
               </Button>
             </div>
           </div>

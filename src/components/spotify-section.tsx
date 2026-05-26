@@ -2,9 +2,8 @@
 
 import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
-import { useTranslation } from '@/context/language-context';
-
-type Locale = 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el' | 'it';
+import { useLanguage } from '@/context/language-context';
+import { Locale } from '@/context/language-context';
 
 const spotifyLinks: Partial<Record<Locale, string>> = {
   es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
@@ -16,8 +15,8 @@ const spotifyLinks: Partial<Record<Locale, string>> = {
 };
 
 export default function SpotifySection() {
-  const { t, language } = useTranslation();
-  const spotifyLink = spotifyLinks[language as Locale];
+  const { translations, locale } = useLanguage();
+  const spotifyLink = spotifyLinks[locale as Locale];
 
   if (!spotifyLink) {
     return null;
@@ -28,12 +27,12 @@ export default function SpotifySection() {
       <div className="container mx-auto px-4 text-center">
         <AnimatedBlock animationType="zoom-in">
           <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 text-foreground">
-            {t('spotify.title')}
+            {translations.spotify.title}
           </h2>
         </AnimatedBlock>
         <AnimatedBlock animationType="zoom-in" delay={150}>
           <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-            {t('spotify.subtitle')}
+            {translations.spotify.subtitle}
           </p>
         </AnimatedBlock>
         <AnimatedBlock delay={300} animationType="slide-in-up">
@@ -43,7 +42,7 @@ export default function SpotifySection() {
             asChild
           >
             <a href={spotifyLink} target="_blank" rel="noopener noreferrer">
-              {t('spotify.button')}
+              {translations.spotify.button}
             </a>
           </Button>
         </AnimatedBlock>

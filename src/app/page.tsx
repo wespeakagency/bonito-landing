@@ -14,17 +14,17 @@ import FloatingPlayerButton from '@/components/floating-player-button';
 import SpotifySection from '@/components/spotify-section';
 import MiniPlayer from '@/components/mini-player';
 import { DonationDialog } from '@/components/donation-dialog';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage, Locale } from '@/context/language-context';
 import { chapters, type Chapter } from '@/lib/chapters';
 import ContactSection from '@/components/contact-section';
 
 export default function Home() {
-  const { t, language } = useTranslation();
+  const { locale } = useLanguage();
 
   // State lifted from AudioPlayerSection and Home
   const [isPlayerInView, setPlayerInView] = useState(true);
   const audioRef = useRef<HTMLAudioElement>(null);
-  const [activeChapters, setActiveChapters] = useState<Chapter[]>(chapters[language]);
+  const [activeChapters, setActiveChapters] = useState<Chapter[]>(chapters[locale as Locale]);
   const [currentChapterIndex, setCurrentChapterIndex] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -35,14 +35,14 @@ export default function Home() {
 
   // Update chapters when language changes
   useEffect(() => {
-    setActiveChapters(chapters[language]);
+    setActiveChapters(chapters[locale as Locale]);
     // Reset player state on language change
     setIsPlaying(false);
     setCurrentChapterIndex(0);
     setCurrentTime(0);
     setDuration(0);
     // The main audio effect will handle loading the new track because currentChapter will change
-  }, [language]);
+  }, [locale]);
 
   const currentChapter = activeChapters[currentChapterIndex];
 

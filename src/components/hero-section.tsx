@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Headphones, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { PurchaseDialog } from './purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
@@ -22,8 +22,8 @@ const spotifyLinks: Partial<Record<Locale, string>> = {
 
 
 export default function HeroSection() {
-  const { t, language } = useTranslation();
-  const phrases = t('hero.phrases', { returnObjects: true }) as string[];
+  const { translations, language } = useLanguage();
+  const phrases = translations.hero.phrases as string[];
 
   const [step, setStep] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -54,7 +54,7 @@ export default function HeroSection() {
                   className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
               >
                   <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt="Spotify" width={24} height={24} className="h-6 w-6" />
-                  <span className="font-medium text-sm text-white">{t('hero.spotifyBubble')}</span>
+                  <span className="font-medium text-sm text-white">{translations.hero.spotifyBubble}</span>
               </a>
           )}
 
@@ -63,8 +63,8 @@ export default function HeroSection() {
               className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
               style={{ animationDelay: '2s' }}
           >
-              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt={t('hero.buyBubble')} width={24} height={24} className="h-6 w-6 invert" />
-              <span className="font-medium text-sm text-white">{t('hero.buyBubble')}</span>
+              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt={translations.hero.buyBubble} width={24} height={24} className="h-6 w-6 invert" />
+              <span className="font-medium text-sm text-white">{translations.hero.buyBubble}</span>
           </button>
         </div>
         
@@ -90,13 +90,13 @@ export default function HeroSection() {
 
                 <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
                   <Button size="lg" className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90" onClick={() => setIsDialogOpen(true)}>
-                    {t('hero.buyButton')}
+                    {translations.hero.buyButton}
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                   <Button size="lg" variant="ghost" className="font-semibold rounded-full px-8 py-6 text-lg text-white hover:bg-white/10" asChild>
                     <a href="#audiolibro">
                       <Headphones className="mr-2 h-5 w-5" />
-                      {t('audioPlayer.listenButton')}
+                      {translations.audioPlayer.listenButton}
                     </a>
                   </Button>
                 </div>
@@ -109,7 +109,7 @@ export default function HeroSection() {
                             onClick={() => setIsVideoOpen(true)}
                         >
                             <PlayCircle className="mr-2 h-5 w-5" />
-                            {t('hero.introButton')}
+                            {translations.hero.introButton}
                         </Button>
                     </div>
                 )}

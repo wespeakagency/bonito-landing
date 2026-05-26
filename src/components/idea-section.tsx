@@ -2,11 +2,11 @@
 
 import Image from 'next/image';
 import { AnimatedBlock } from './animated-block';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 
 export default function IdeaSection() {
-  const { t } = useTranslation();
-  const ideas = t('idea.paragraphs', { returnObjects: true }) as string[];
+  const { translations } = useLanguage();
+  const ideas = translations.idea.paragraphs as string[];
 
   return (
     <section className="py-24 sm:py-32 bg-background">

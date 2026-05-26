@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context'; // Updated import
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -17,7 +17,8 @@ import { PurchaseDialog } from './purchase-dialog';
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const { t, setLanguage, language } = useTranslation();
+  // Updated to use the new language context
+  const { translations, changeLanguage, locale } = useLanguage();
   const [showHint, setShowHint] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPurchaseDialogOpen, setPurchaseDialogOpen] = useState(false);
@@ -28,7 +29,6 @@ export default function Header() {
     };
     window.addEventListener('scroll', handleScroll);
     
-    // Show the hint after a short delay
     const hintTimer = setTimeout(() => setShowHint(true), 1500);
 
     return () => {
@@ -50,7 +50,6 @@ export default function Header() {
 
   const handleMenuOpenChange = (open: boolean) => {
     setIsMenuOpen(open);
-    // When the menu is opened, permanently hide the hint
     if (open) {
       setShowHint(false);
     }
@@ -83,8 +82,10 @@ export default function Header() {
                     {languageOptions.map(({ lang, flag: Flag, name }) => (
                       <DropdownMenuItem
                         key={lang}
-                        onClick={() => setLanguage(lang as any)}
-                        disabled={language === lang}
+                        // Use the new changeLanguage function
+                        onClick={() => changeLanguage(lang)}
+                        // Disable based on the new locale prop
+                        disabled={locale === lang}
                         className="flex items-center gap-2"
                       >
                         <Flag className="h-4 w-6 rounded-sm" />
@@ -95,7 +96,8 @@ export default function Header() {
                 </DropdownMenu>
               </div>
               <Button onClick={() => setPurchaseDialogOpen(true)} className="bg-white text-black hover:bg-white/90 rounded-full">
-                {t('header.buy')}
+                {/* Use the new translations object */}
+                {translations.header.buy}
               </Button>
             </div>
           </div>

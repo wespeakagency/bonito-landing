@@ -4,11 +4,11 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
 import { AnimatedBlock } from './animated-block';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 import { PurchaseDialog } from './purchase-dialog';
 
 export default function CtaSection() {
-  const { t } = useTranslation();
+  const { translations } = useLanguage();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
@@ -18,12 +18,12 @@ export default function CtaSection() {
         <div className="container mx-auto px-4 text-center">
           <AnimatedBlock animationType="zoom-in">
             <h2 className="text-4xl md:text-5xl font-headline font-bold mb-6 text-foreground">
-              {t('cta.title')}
+              {translations.cta.title}
             </h2>
           </AnimatedBlock>
           <AnimatedBlock animationType="zoom-in" delay={150}>
             <p className="text-xl md:text-2xl text-muted-foreground mb-12 max-w-3xl mx-auto">
-              {t('cta.subtitle')}
+              {translations.cta.subtitle}
             </p>
           </AnimatedBlock>
           <AnimatedBlock delay={300} animationType="slide-in-up">
@@ -33,7 +33,7 @@ export default function CtaSection() {
               onClick={() => setIsDialogOpen(true)}
             >
               <ShoppingCart className="mr-2 h-5 w-5" />
-              {t('hero.buyButton')}
+              {translations.hero.buyButton}
             </Button>
           </AnimatedBlock>
         </div>

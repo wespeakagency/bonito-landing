@@ -8,7 +8,7 @@ import {
   DialogDescription,
 } from '@/components/ui/dialog';
 import { Button } from './ui/button';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 
 interface PurchaseDialogProps {
   isOpen: boolean;
@@ -36,22 +36,22 @@ const ebookStores = [
 ];
 
 export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
-  const { t } = useTranslation();
+  const { translations } = useLanguage();
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
       <DialogContent className="bg-background/80 backdrop-blur-xl border-white/10 sm:max-w-lg p-6 shadow-2xl">
         <DialogHeader>
           <DialogTitle className="text-2xl font-headline font-bold text-foreground text-center mb-2">
-            {t('purchaseDialog.title')}
+            {translations.purchaseDialog.title}
           </DialogTitle>
           <DialogDescription className="text-center text-muted-foreground">
-            {t('purchaseDialog.subtitle')}
+            {translations.purchaseDialog.subtitle}
           </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col gap-6 pt-4">
           <div>
-            <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.audiobookTitle')}</h3>
+            <h3 className="mb-3 text-lg font-semibold text-foreground">{translations.purchaseDialog.audiobookTitle}</h3>
             <div className="flex flex-col gap-2">
               {audioStores.map((store) => (
                 <Button
@@ -69,7 +69,7 @@ export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
             </div>
           </div>
           <div>
-             <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.physicalBookTitle')}</h3>
+             <h3 className="mb-3 text-lg font-semibold text-foreground">{translations.purchaseDialog.physicalBookTitle}</h3>
             <div className="flex flex-col gap-2">
               {physicalStores.map((store) => (
                 <Button
@@ -87,7 +87,7 @@ export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
             </div>
           </div>
           <div>
-             <h3 className="mb-3 text-lg font-semibold text-foreground">{t('purchaseDialog.ebookTitle')}</h3>
+             <h3 className="mb-3 text-lg font-semibold text-foreground">{translations.purchaseDialog.ebookTitle}</h3>
             <div className="flex flex-col gap-2">
               {ebookStores.map((store) => (
                 <Button

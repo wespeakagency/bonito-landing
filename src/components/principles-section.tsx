@@ -7,49 +7,43 @@ import { Eye, HeartHandshake } from 'lucide-react';
 import { EarIcon } from './icons';
 import { AnimatedBlock } from './animated-block';
 import { cn } from '@/lib/utils';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 
-type Principle = {
-  icon: ComponentType<LucideProps>;
-  titleKey: string;
-  descriptionKey: string;
-};
+export default function PrinciplesSection() {
+  const { translations } = useLanguage();
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
-const principlesData: Principle[] = [
+  const principles = [
     {
       icon: Eye,
-      titleKey: 'principles.clarity.title',
-      descriptionKey: 'principles.clarity.description',
+      title: translations.principles.clarity.title,
+      description: translations.principles.clarity.description,
     },
     {
       icon: EarIcon,
-      titleKey: 'principles.activeListening.title',
-      descriptionKey: 'principles.activeListening.description',
+      title: translations.principles.activeListening.title,
+      description: translations.principles.activeListening.description,
     },
     {
       icon: HeartHandshake,
-      titleKey: 'principles.mutualRespect.title',
-      descriptionKey: 'principles.mutualRespect.description',
+      title: translations.principles.mutualRespect.title,
+      description: translations.principles.mutualRespect.description,
     },
   ];
-
-export default function PrinciplesSection() {
-  const { t } = useTranslation();
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section className="relative py-24 sm:py-32 bg-background text-foreground overflow-hidden">
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType='slide-in-up'>
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-16 text-foreground">
-            {t('principles.title')}
+            {translations.principles.title}
           </h2>
         </AnimatedBlock>
         <div 
           className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto"
           onMouseLeave={() => setHoveredIndex(null)}
         >
-          {principlesData.map((principle, index) => (
+          {principles.map((principle, index) => (
              <AnimatedBlock 
                 key={index} 
                 delay={150 * (index + 1)} 
@@ -66,12 +60,12 @@ export default function PrinciplesSection() {
                          <principle.icon className="h-8 w-8 text-primary" />
                     </div>
                     <CardTitle className="font-headline text-2xl font-semibold text-foreground">
-                        {t(principle.titleKey)}
+                        {principle.title}
                     </CardTitle>
                 </CardContent>
                 <CardContent className='pt-4 pb-8'>
                     <CardDescription className="text-muted-foreground text-md">
-                        {t(principle.descriptionKey)}
+                        {principle.description}
                     </CardDescription>
                 </CardContent>
               </Card>

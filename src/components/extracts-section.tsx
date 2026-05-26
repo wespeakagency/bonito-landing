@@ -10,12 +10,12 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel';
 import { Typewriter } from '@/components/typewriter';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 import { AnimatedBlock } from './animated-block';
 
 export default function ExtractsSection() {
-  const { t } = useTranslation();
-  const extracts = t('extracts', { returnObjects: true }) as string[];
+  const { translations } = useLanguage();
+  const extracts = translations.extracts as string[];
   
   const [api, setApi] = useState<CarouselApi>();
   const [current, setCurrent] = useState(0);

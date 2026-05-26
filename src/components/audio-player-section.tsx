@@ -13,7 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Card } from '@/components/ui/card';
 import { AnimatedBlock } from './animated-block';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
 import { ScrollArea } from './ui/scroll-area';
 import { type Chapter } from '@/lib/chapters';
@@ -49,7 +49,7 @@ export default function AudioPlayerSection({
   handleProgressChange,
   formatTime,
 }: AudioPlayerSectionProps) {
-  const { t } = useTranslation();
+  const { translations } = useLanguage();
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -77,12 +77,12 @@ export default function AudioPlayerSection({
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType="slide-in-up">
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-foreground">
-            {t('audioPlayer.title')}
+            {translations.audioPlayer.title}
           </h2>
         </AnimatedBlock>
         <AnimatedBlock animationType="slide-in-up" delay={150}>
           <p className="text-xl md:text-2xl text-center text-muted-foreground mb-16 max-w-3xl mx-auto">
-            {t('audioPlayer.subtitle')}
+            {translations.audioPlayer.subtitle}
           </p>
         </AnimatedBlock>
         
@@ -93,7 +93,7 @@ export default function AudioPlayerSection({
                 <div className="md:col-span-1 p-8 bg-muted/30 flex flex-col justify-between">
                   <div>
                     <p className="text-sm text-muted-foreground font-medium mb-1">
-                      {t('audioPlayer.chapterLabel')} {currentChapter?.id}
+                      {translations.audioPlayer.chapterLabel} {currentChapter?.id}
                     </p>
                     <h3 className="text-2xl font-bold font-headline text-foreground">
                       {currentChapter?.title}
@@ -152,7 +152,7 @@ export default function AudioPlayerSection({
                   <ScrollArea className="h-96 w-full">
                     <div className="p-4">
                       <h4 className="text-lg font-semibold font-headline p-4 text-foreground">
-                        {t('audioPlayer.chaptersTitle')}
+                        {translations.audioPlayer.chaptersTitle}
                       </h4>
                       <ul className="space-y-1">
                         {chapters.map((chapter, index) => (
@@ -202,7 +202,7 @@ export default function AudioPlayerSection({
               <Card className="bg-background border-border shadow-2xl rounded-2xl flex flex-col items-center justify-center p-16 h-[514px] md:h-auto">
                   <Clock className="w-16 h-16 text-primary mb-6" />
                   <h3 className="text-2xl font-bold font-headline text-foreground text-center">
-                      {t('audioPlayer.comingSoon')}
+                      {translations.audioPlayer.comingSoon}
                   </h3>
               </Card>
           </AnimatedBlock>

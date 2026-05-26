@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
-import { useTranslation } from '@/context/language-context';
+import { useLanguage } from '@/context/language-context';
 import { AnimatePresence, motion } from 'framer-motion';
 import {
   Carousel,
@@ -22,8 +22,8 @@ const authorImages = [
 ];
 
 export default function AuthorSection() {
-  const { t } = useTranslation();
-  const fullBioParagraphs = t('author.fullBio', { returnObjects: true }) as string[];
+  const { translations } = useLanguage();
+  const fullBioParagraphs = translations.author.fullBio as string[];
   const [isExpanded, setIsExpanded] = useState(false);
 
   const [api, setApi] = useState<CarouselApi>();
@@ -79,17 +79,17 @@ export default function AuthorSection() {
             <AnimatedBlock animationType="slide-in-right" delay={200}>
               <div className="space-y-6 text-center md:text-left">
                 <h2 className="text-4xl md:text-5xl font-headline font-bold text-foreground">
-                  {t('author.title')}
+                  {translations.author.title}
                 </h2>
                 <p className="text-xl md:text-2xl font-headline leading-tight text-foreground/80">
-                  {t('author.shortBio')}
+                  {translations.author.shortBio}
                 </p>
                 <Button
                   variant="link"
                   className="text-lg p-0 h-auto text-primary hover:text-primary/80"
                   onClick={() => setIsExpanded(!isExpanded)}
                 >
-                  {isExpanded ? t('author.showLess') : t('author.readMore')}
+                  {isExpanded ? translations.author.showLess : translations.author.readMore}
                 </Button>
               </div>
             </AnimatedBlock>
@@ -106,7 +106,7 @@ export default function AuthorSection() {
               >
                 <div className="mt-16">
                   <h3 className="text-2xl md:text-3xl font-headline font-bold text-foreground mb-6 text-center">
-                    {t('author.fullBioTitle')}
+                    {translations.author.fullBioTitle}
                   </h3>
                   <div className="text-muted-foreground text-base leading-relaxed md:columns-2 gap-8 space-y-4">
                     {fullBioParagraphs.map((paragraph, index) => (
