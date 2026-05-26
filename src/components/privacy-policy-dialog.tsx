@@ -27,15 +27,15 @@ export function PrivacyPolicyDialog({ isOpen, onOpenChange }: PrivacyPolicyDialo
             {translations.privacyPolicy.title}
           </DialogTitle>
           <DialogDescription className="text-sm text-muted-foreground">
-            {translations.privacyPolicy.lastUpdated} {new Date().toLocaleDateString()}
+            {translations.privacyPolicy.lastUpdated} {translations.privacyPolicy.lastUpdatedDate}
           </DialogDescription>
         </DialogHeader>
         <ScrollArea className="h-96 w-full pr-4">
-            <div className="text-muted-foreground text-sm space-y-4">
-                {policyContent.map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                ))}
-            </div>
+          <div className="text-muted-foreground text-sm space-y-4">
+            {policyContent.map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
         </ScrollArea>
       </DialogContent>
     </Dialog>
