@@ -1,6 +1,6 @@
 'use client';
 
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, Suspense } from 'react'; // 🔹 agregar Suspense
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { defaultLocale, getLocaleFromPathname, getPathnameForLocale, type Locale } from '@/lib/i18n';
 import { getTranslations, type Translations } from '@/lib/translations';
@@ -13,7 +13,8 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLocale: Locale }> = ({ children, initialLocale }) => {
+// 🔹 Nuevo componente interno que contiene la lógica con useSearchParams
+const LanguageProviderInner: React.FC<{ children: React.ReactNode; initialLocale: Locale }> = ({ children, initialLocale }) => {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -37,6 +38,17 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLoca
     <LanguageContext.Provider value={{ locale, translations, changeLanguage }}>
       {children}
     </LanguageContext.Provider>
+  );
+};
+
+// 🔹 El export ahora envuelve Inner en Suspense
+export const LanguageProvider: React.FC<{ children: React.ReactNode; initialLocale: Locale }> = ({ children, initialLocale }) => {
+  return (
+    <Suspense fallback={null}>
+      <LanguageProviderInner initialLocale={initialLocale}>
+        {children}
+      </LanguageProviderInner>
+    </Suspense>
   );
 };
 
