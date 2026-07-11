@@ -1,3 +1,5 @@
+import { type Locale } from '@/lib/i18n';
+
 export type Chapter = {
   id: number;
   title: string;
@@ -5,9 +7,7 @@ export type Chapter = {
   audioSrc: string | null;
 };
 
-type ChaptersByLanguage = {
-  [key in 'es' | 'en' | 'fr' | 'zh' | 'pt' | 'hi' | 'el' | 'it']: Chapter[];
-};
+type ChaptersByLanguage = Record<Locale, Chapter[]>;
 
 export const chapters: ChaptersByLanguage = {
   es: [
@@ -600,3 +600,7 @@ export const chapters: ChaptersByLanguage = {
     }
   ],
 };
+
+export function getChaptersForLocale(locale: Locale) {
+  return chapters[locale] ?? [];
+}

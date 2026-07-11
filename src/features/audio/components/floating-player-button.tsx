@@ -1,7 +1,7 @@
 'use client';
 
 import { Headphones } from 'lucide-react';
-import { Button } from './ui/button';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/language-context';
 
 export default function FloatingPlayerButton({ isVisible }: { isVisible: boolean }) {

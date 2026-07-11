@@ -1,6 +1,8 @@
 import { type Locale } from '@/lib/i18n';
 
-export const spotifyLinks: Partial<Record<Locale, string>> = {
+export const DONATION_SUPPORT_URL = 'https://paypal.me/negociandobonito';
+
+export const SPOTIFY_SHOW_LINKS: Partial<Record<Locale, string>> = {
   es: 'https://open.spotify.com/show/1ObwenjHOAGHVapd9V2y8B',
   en: 'https://open.spotify.com/show/24V2w0YX10O9c5opUWLIDz',
   fr: 'https://open.spotify.com/show/5i7nLg3STMY7DaURuCFV7z',

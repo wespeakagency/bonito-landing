@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ShoppingCart } from 'lucide-react';
 import { AnimatedBlock } from './animated-block';
 import { useLanguage } from '@/context/language-context';
-import { PurchaseDialog } from './purchase-dialog';
+import { PurchaseDialog } from '@/features/purchase/components/purchase-dialog';
 
 export default function CtaSection() {
   const { translations } = useLanguage();

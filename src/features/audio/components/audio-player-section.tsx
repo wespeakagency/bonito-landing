@@ -12,11 +12,11 @@ import {
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Card } from '@/components/ui/card';
-import { AnimatedBlock } from './animated-block';
+import { AnimatedBlock } from '@/components/animated-block';
 import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
-import { ScrollArea } from './ui/scroll-area';
-import { type Chapter } from '@/lib/chapters';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { type Chapter } from '@/features/audio/model/chapters';
 
 interface AudioPlayerSectionProps {
   setPlayerInView: Dispatch<SetStateAction<boolean>>;

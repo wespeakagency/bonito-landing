@@ -6,9 +6,15 @@ import { ArrowRight, Headphones, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
-import { PurchaseDialog } from './purchase-dialog';
+import {
+  HERO_BACKGROUND_IMAGE_SRC,
+  HERO_BUY_ICON_SRC,
+  HERO_INTRO_VIDEO_SRC,
+  HERO_SPOTIFY_ICON_SRC,
+} from '@/config/media';
+import { SPOTIFY_SHOW_LINKS } from '@/config/external-links';
+import { PurchaseDialog } from '@/features/purchase/components/purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
-import { spotifyLinks } from '@/lib/spotify-links';
 
 export default function HeroSection() {
   const { translations, locale } = useLanguage();
@@ -18,17 +24,16 @@ export default function HeroSection() {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
 
-  const videoSrc = 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Prologo%20v2_espan%CC%83ol_landing.mp4';
-  const spotifyLink = spotifyLinks[locale];
+  const spotifyLink = SPOTIFY_SHOW_LINKS[locale];
 
   return (
     <>
       <PurchaseDialog isOpen={isDialogOpen} onOpenChange={setIsDialogOpen} />
-      <VideoPlayerDialog isOpen={isVideoOpen} onOpenChange={setIsVideoOpen} videoSrc={videoSrc} />
+      <VideoPlayerDialog isOpen={isVideoOpen} onOpenChange={setIsVideoOpen} videoSrc={HERO_INTRO_VIDEO_SRC} />
       <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
         <div className="absolute inset-0 opacity-20 float">
           <Image
-            src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/MANOS.png"
+            src={HERO_BACKGROUND_IMAGE_SRC}
             alt={translations.hero.backgroundAlt}
             fill
             className="object-cover"
@@ -41,7 +46,7 @@ export default function HeroSection() {
               href="#spotify"
               className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             >
-              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt={translations.hero.spotifyBubble} width={24} height={24} className="h-6 w-6" />
+              <Image src={HERO_SPOTIFY_ICON_SRC} alt={translations.hero.spotifyBubble} width={24} height={24} className="h-6 w-6" />
               <span className="font-medium text-sm text-white">{translations.hero.spotifyBubble}</span>
             </a>
           )}
@@ -51,7 +56,7 @@ export default function HeroSection() {
             className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             style={{ animationDelay: '2s' }}
           >
-            <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt={translations.hero.buyBubble} width={24} height={24} className="h-6 w-6 invert" />
+            <Image src={HERO_BUY_ICON_SRC} alt={translations.hero.buyBubble} width={24} height={24} className="h-6 w-6 invert" />
             <span className="font-medium text-sm text-white">{translations.hero.buyBubble}</span>
           </button>
         </div>

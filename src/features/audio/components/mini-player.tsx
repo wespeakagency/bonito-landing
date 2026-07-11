@@ -5,13 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
 import { cn } from '@/lib/utils';
 import { useLanguage } from '@/context/language-context';
-
-type Chapter = {
-  id: number;
-  title: string;
-  duration: string;
-  audioSrc: string | null;
-};
+import { type Chapter } from '@/features/audio/model/chapters';
 
 interface MiniPlayerProps {
   isVisible: boolean;

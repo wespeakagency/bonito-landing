@@ -3,11 +3,11 @@
 import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
 import { useLanguage } from '@/context/language-context';
-import { spotifyLinks } from '@/lib/spotify-links';
+import { SPOTIFY_SHOW_LINKS } from '@/config/external-links';
 
 export default function SpotifySection() {
   const { translations, locale } = useLanguage();
-  const spotifyLink = spotifyLinks[locale];
+  const spotifyLink = SPOTIFY_SHOW_LINKS[locale];
 
   if (!spotifyLink) {
     return null;

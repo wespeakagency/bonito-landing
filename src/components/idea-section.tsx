@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { AnimatedBlock } from './animated-block';
 import { useLanguage } from '@/context/language-context';
+import { IDEA_MANTRA_IMAGE_SRC } from '@/config/media';
 
 export default function IdeaSection() {
   const { translations } = useLanguage();
@@ -14,7 +15,7 @@ export default function IdeaSection() {
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center max-w-6xl mx-auto">
           <AnimatedBlock animationType="slide-in-left">
             <Image
-              src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/mantra.png"
+              src={IDEA_MANTRA_IMAGE_SRC}
               alt={translations.idea.imageAlt}
               width={500}
               height={500}

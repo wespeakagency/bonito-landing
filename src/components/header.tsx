@@ -13,7 +13,7 @@ import {
 import { Globe } from 'lucide-react';
 import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag, FranceFlag, GreeceFlag, ItalyFlag } from './icons';
 import { LanguageHint } from './language-hint';
-import { PurchaseDialog } from './purchase-dialog';
+import { PurchaseDialog } from '@/features/purchase/components/purchase-dialog';
 import { type Locale } from '@/lib/i18n';
 
 export default function Header() {

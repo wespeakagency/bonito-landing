@@ -5,7 +5,7 @@ import { useLanguage } from '@/context/language-context';
 import { AnimatedBlock } from './animated-block';
 import { PrivacyPolicyDialog } from './privacy-policy-dialog';
 import { Button } from './ui/button';
-import { COPYRIGHT_YEAR } from '@/lib/site-config';
+import { COPYRIGHT_YEAR } from '@/config/site';
 
 export default function Footer() {
   const { translations } = useLanguage();
