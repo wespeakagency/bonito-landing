@@ -29,6 +29,7 @@ export default function LandingPage() {
     currentChapterIndex,
     currentTime,
     duration,
+    handleAudioEnded,
     formatTime,
     handleAudioPause,
     handleAudioPlay,
@@ -92,7 +93,7 @@ export default function LandingPage() {
         ref={audioRef}
         onPlay={handleAudioPlay}
         onPause={handleAudioPause}
-        onEnded={handleNext}
+        onEnded={handleAudioEnded}
         onLoadedData={handleLoadedData}
         onTimeUpdate={handleTimeUpdate}
         preload="metadata"

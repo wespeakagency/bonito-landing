@@ -14,6 +14,7 @@ import { Globe } from 'lucide-react';
 import { SpainFlag, UKFlag, ChinaFlag, PortugalFlag, IndiaFlag, FranceFlag, GreeceFlag, ItalyFlag } from './icons';
 import { LanguageHint } from './language-hint';
 import { PurchaseDialog } from '@/features/purchase/components/purchase-dialog';
+import { trackPurchaseDialogOpen } from '@/features/analytics/track';
 import { type Locale } from '@/lib/i18n';
 
 export default function Header() {
@@ -22,6 +23,11 @@ export default function Header() {
   const [showHint, setShowHint] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isPurchaseDialogOpen, setPurchaseDialogOpen] = useState(false);
+
+  const openPurchaseDialog = () => {
+    trackPurchaseDialogOpen('header_buy', locale);
+    setPurchaseDialogOpen(true);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,7 +63,11 @@ export default function Header() {
 
   return (
     <>
-      <PurchaseDialog isOpen={isPurchaseDialogOpen} onOpenChange={setPurchaseDialogOpen} />
+      <PurchaseDialog
+        isOpen={isPurchaseDialogOpen}
+        onOpenChange={setPurchaseDialogOpen}
+        origin="header_buy"
+      />
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
@@ -93,7 +103,7 @@ export default function Header() {
                   </DropdownMenuContent>
                 </DropdownMenu>
               </div>
-              <Button onClick={() => setPurchaseDialogOpen(true)} className="bg-white text-black hover:bg-white/90 rounded-full">
+              <Button onClick={openPurchaseDialog} className="bg-white text-black hover:bg-white/90 rounded-full">
                 {translations.header.buy}
               </Button>
             </div>

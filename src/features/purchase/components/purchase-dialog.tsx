@@ -10,14 +10,16 @@ import {
 import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/language-context';
 import { purchaseStoreGroups } from '@/features/purchase/model/stores';
+import { trackPurchaseStoreClick } from '@/features/analytics/track';
 
 interface PurchaseDialogProps {
   isOpen: boolean;
   onOpenChange: (open: boolean) => void;
+  origin: string;
 }
 
-export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
-  const { translations } = useLanguage();
+export function PurchaseDialog({ isOpen, onOpenChange, origin }: PurchaseDialogProps) {
+  const { translations, locale } = useLanguage();
 
   return (
     <Dialog open={isOpen} onOpenChange={onOpenChange}>
@@ -45,7 +47,14 @@ export function PurchaseDialog({ isOpen, onOpenChange }: PurchaseDialogProps) {
                     className="w-full justify-start text-base"
                     asChild
                   >
-                    <a href={store.href} target="_blank" rel="noopener noreferrer">
+                    <a
+                      href={store.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() =>
+                        trackPurchaseStoreClick(origin, store.name, group.type, locale)
+                      }
+                    >
                       {store.name}
                     </a>
                   </Button>

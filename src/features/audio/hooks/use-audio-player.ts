@@ -2,6 +2,17 @@
 
 import { type RefObject, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { MEDIA_SESSION_ARTWORK_SRC } from '@/config/media';
+import {
+  trackAudioChapterSelect,
+  trackAudioComplete,
+  trackAudioGateAction,
+  trackAudioGateOpen,
+  trackAudioNavigation,
+  trackAudioPause,
+  trackAudioPlay,
+  trackAudioProgress,
+  trackAudioSeek,
+} from '@/features/analytics/track';
 import { type Locale } from '@/lib/i18n';
 import { getChaptersForLocale, type Chapter } from '@/features/audio/model/chapters';
 import { type DonationDialogAction } from '@/features/audio/types';
@@ -13,6 +24,7 @@ export interface UseAudioPlayerResult {
   currentChapterIndex: number;
   currentTime: number;
   duration: number;
+  handleAudioEnded: () => void;
   handleAudioPause: () => void;
   handleAudioPlay: () => void;
   formatTime: (time: number) => string;
@@ -40,15 +52,22 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
   const [hasInteractedWithDonation, setHasInteractedWithDonation] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
+  const trackedMilestonesRef = useRef(new Set<number>());
+  const previousGateOpenStateRef = useRef(false);
 
   useEffect(() => {
     setIsPlaying(false);
     setCurrentChapterIndex(0);
     setCurrentTime(0);
     setDuration(0);
+    trackedMilestonesRef.current.clear();
   }, [locale]);
 
   const currentChapter = activeChapters[currentChapterIndex];
+
+  useEffect(() => {
+    trackedMilestonesRef.current.clear();
+  }, [currentChapter?.id]);
 
   const getNextPlayableChapterIndex = useCallback(
     (fromIndex: number, direction: 1 | -1) => {
@@ -68,6 +87,8 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
   );
 
   const handleNext = useCallback(() => {
+    trackAudioNavigation('next', currentChapter?.id, currentChapter?.title, locale);
+
     if (!activeChapters.length) return;
 
     setCurrentChapterIndex((prevIndex) => getNextPlayableChapterIndex(prevIndex, 1));
@@ -75,9 +96,18 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
     if (hasInteractedWithDonation) {
       setIsPlaying(true);
     }
-  }, [activeChapters.length, getNextPlayableChapterIndex, hasInteractedWithDonation]);
+  }, [
+    activeChapters.length,
+    currentChapter?.id,
+    currentChapter?.title,
+    getNextPlayableChapterIndex,
+    hasInteractedWithDonation,
+    locale,
+  ]);
 
   const handlePrevious = useCallback(() => {
+    trackAudioNavigation('previous', currentChapter?.id, currentChapter?.title, locale);
+
     if (!activeChapters.length) return;
 
     setCurrentChapterIndex((prevIndex) => getNextPlayableChapterIndex(prevIndex, -1));
@@ -85,7 +115,14 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
     if (hasInteractedWithDonation) {
       setIsPlaying(true);
     }
-  }, [activeChapters.length, getNextPlayableChapterIndex, hasInteractedWithDonation]);
+  }, [
+    activeChapters.length,
+    currentChapter?.id,
+    currentChapter?.title,
+    getNextPlayableChapterIndex,
+    hasInteractedWithDonation,
+    locale,
+  ]);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -151,6 +188,14 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
     };
   }, [handleNext, handlePrevious, hasInteractedWithDonation]);
 
+  useEffect(() => {
+    if (isDonationDialogOpen && !previousGateOpenStateRef.current) {
+      trackAudioGateOpen(currentChapter?.id, locale);
+    }
+
+    previousGateOpenStateRef.current = isDonationDialogOpen;
+  }, [currentChapter?.id, isDonationDialogOpen, locale]);
+
   const handlePlayPause = useCallback(() => {
     if (!currentChapter?.audioSrc) return;
 
@@ -170,6 +215,11 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
 
   const selectChapter = useCallback(
     (index: number) => {
+      const selectedChapter = activeChapters[index];
+      if (selectedChapter) {
+        trackAudioChapterSelect(selectedChapter.id, selectedChapter.title, locale);
+      }
+
       setCurrentChapterIndex(index);
 
       if (!hasInteractedWithDonation) {
@@ -180,10 +230,11 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
       setIsPlaying(true);
       setHasPlayedOnce(true);
     },
-    [hasInteractedWithDonation]
+    [activeChapters, hasInteractedWithDonation, locale]
   );
 
   const handleDialogAction = useCallback((action: DonationDialogAction) => {
+    trackAudioGateAction(action, currentChapter?.id, locale);
     setIsDonationDialogOpen(false);
 
     if (action === 'listen') {
@@ -196,21 +247,47 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
     if (action === 'support') {
       setHasInteractedWithDonation(true);
     }
-  }, []);
+  }, [currentChapter?.id, locale]);
 
   const handleProgressChange = useCallback((value: number[]) => {
     if (audioRef.current) {
+      if (currentChapter) {
+        trackAudioSeek(
+          currentChapter.id,
+          currentChapter.title,
+          locale,
+          audioRef.current.currentTime,
+          value[0]
+        );
+      }
+
       audioRef.current.currentTime = value[0];
     }
-  }, []);
+  }, [currentChapter, locale]);
 
   const handleAudioPlay = useCallback(() => {
+    if (currentChapter) {
+      trackAudioPlay(currentChapter.id, currentChapter.title, locale);
+    }
+
     setIsPlaying(true);
-  }, []);
+  }, [currentChapter, locale]);
 
   const handleAudioPause = useCallback(() => {
+    if (currentChapter && currentTime > 0) {
+      trackAudioPause(currentChapter.id, currentChapter.title, locale);
+    }
+
     setIsPlaying(false);
-  }, []);
+  }, [currentChapter, currentTime, locale]);
+
+  const handleAudioEnded = useCallback(() => {
+    if (currentChapter) {
+      trackAudioComplete(currentChapter.id, currentChapter.title, locale);
+    }
+
+    handleNext();
+  }, [currentChapter, handleNext, locale]);
 
   const handleLoadedData = useCallback(() => {
     if (!audioRef.current) return;
@@ -229,9 +306,28 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
 
   const handleTimeUpdate = useCallback(() => {
     if (audioRef.current) {
-      setCurrentTime(audioRef.current.currentTime);
+      const nextTime = audioRef.current.currentTime;
+      const nextDuration = audioRef.current.duration || 0;
+
+      setCurrentTime(nextTime);
+
+      if (!currentChapter || !nextDuration) {
+        return;
+      }
+
+      const completionRatio = (nextTime / nextDuration) * 100;
+
+      ([25, 50, 75, 90] as const).forEach((milestone) => {
+        if (
+          completionRatio >= milestone &&
+          !trackedMilestonesRef.current.has(milestone)
+        ) {
+          trackedMilestonesRef.current.add(milestone);
+          trackAudioProgress(currentChapter.id, currentChapter.title, locale, milestone);
+        }
+      });
     }
-  }, []);
+  }, [currentChapter, locale]);
 
   const formatTime = useCallback((time: number) => {
     if (isNaN(time) || time === 0) return '0:00';
@@ -249,6 +345,7 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
     currentChapterIndex,
     currentTime,
     duration,
+    handleAudioEnded,
     handleAudioPause,
     handleAudioPlay,
     formatTime,
