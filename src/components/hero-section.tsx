@@ -6,9 +6,23 @@ import { ArrowRight, Headphones, PlayCircle } from 'lucide-react';
 import { Typewriter } from './typewriter';
 import { useLanguage } from '@/context/language-context';
 import { cn } from '@/lib/utils';
-import { PurchaseDialog } from './purchase-dialog';
+import {
+  HERO_BACKGROUND_IMAGE_SRC,
+  HERO_BUY_ICON_SRC,
+  HERO_INTRO_VIDEO_SRC,
+  HERO_SPOTIFY_ICON_SRC,
+} from '@/config/media';
+import { SPOTIFY_SHOW_LINKS } from '@/config/external-links';
+import { useTrackSectionView } from '@/features/analytics/hooks/use-track-section-view';
+import {
+  trackIntroVideoClose,
+  trackIntroVideoComplete,
+  trackIntroVideoOpen,
+  trackPurchaseDialogOpen,
+  trackSpotifyClick,
+} from '@/features/analytics/track';
+import { PurchaseDialog } from '@/features/purchase/components/purchase-dialog';
 import { VideoPlayerDialog } from './video-player-dialog';
-import { spotifyLinks } from '@/lib/spotify-links';
 
 export default function HeroSection() {
   const { translations, locale } = useLanguage();
@@ -17,18 +31,40 @@ export default function HeroSection() {
   const [step, setStep] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [purchaseDialogOrigin, setPurchaseDialogOrigin] = useState('hero_buy_cta');
+  const sectionRef = useTrackSectionView<HTMLElement>('hero', locale);
 
-  const videoSrc = 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Prologo%20v2_espan%CC%83ol_landing.mp4';
-  const spotifyLink = spotifyLinks[locale];
+  const spotifyLink = SPOTIFY_SHOW_LINKS[locale];
+
+  const openPurchaseDialog = (origin: string) => {
+    setPurchaseDialogOrigin(origin);
+    trackPurchaseDialogOpen(origin, locale);
+    setIsDialogOpen(true);
+  };
+
+  const openVideoDialog = () => {
+    trackIntroVideoOpen(locale);
+    setIsVideoOpen(true);
+  };
 
   return (
     <>
-      <PurchaseDialog isOpen={isDialogOpen} onOpenChange={setIsDialogOpen} />
-      <VideoPlayerDialog isOpen={isVideoOpen} onOpenChange={setIsVideoOpen} videoSrc={videoSrc} />
-      <section className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
+      <PurchaseDialog
+        isOpen={isDialogOpen}
+        onOpenChange={setIsDialogOpen}
+        origin={purchaseDialogOrigin}
+      />
+      <VideoPlayerDialog
+        isOpen={isVideoOpen}
+        onOpenChange={setIsVideoOpen}
+        onClose={() => trackIntroVideoClose(locale)}
+        onComplete={() => trackIntroVideoComplete(locale)}
+        videoSrc={HERO_INTRO_VIDEO_SRC}
+      />
+      <section ref={sectionRef} className="relative bg-black text-white flex flex-col justify-center py-48 md:py-64 overflow-hidden">
         <div className="absolute inset-0 opacity-20 float">
           <Image
-            src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/MANOS.png"
+            src={HERO_BACKGROUND_IMAGE_SRC}
             alt={translations.hero.backgroundAlt}
             fill
             className="object-cover"
@@ -39,19 +75,22 @@ export default function HeroSection() {
           {spotifyLink && (
             <a
               href="#spotify"
+              onClick={() =>
+                trackSpotifyClick('hero_spotify_bubble', locale, spotifyLink)
+              }
               className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             >
-              <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/Spotify.png" alt={translations.hero.spotifyBubble} width={24} height={24} className="h-6 w-6" />
+              <Image src={HERO_SPOTIFY_ICON_SRC} alt={translations.hero.spotifyBubble} width={24} height={24} className="h-6 w-6" />
               <span className="font-medium text-sm text-white">{translations.hero.spotifyBubble}</span>
             </a>
           )}
 
           <button
-            onClick={() => setIsDialogOpen(true)}
+            onClick={() => openPurchaseDialog('hero_buy_bubble')}
             className="flex float items-center gap-3 bg-background/50 backdrop-blur-md border border-white/10 rounded-full px-4 py-2 shadow-lg hover:scale-105 hover:bg-background/70 transition-all"
             style={{ animationDelay: '2s' }}
           >
-            <Image src="https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/amazon-icon-logo-png_seeklogo-405254.png" alt={translations.hero.buyBubble} width={24} height={24} className="h-6 w-6 invert" />
+            <Image src={HERO_BUY_ICON_SRC} alt={translations.hero.buyBubble} width={24} height={24} className="h-6 w-6 invert" />
             <span className="font-medium text-sm text-white">{translations.hero.buyBubble}</span>
           </button>
         </div>
@@ -72,7 +111,11 @@ export default function HeroSection() {
               <p className="text-xl md:text-2xl lg:text-3xl text-white/80 max-w-4xl mx-auto mt-24">{phrases[2]}</p>
 
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-8">
-                <Button size="lg" className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90" onClick={() => setIsDialogOpen(true)}>
+                <Button
+                  size="lg"
+                  className="font-semibold rounded-full px-8 py-6 text-lg bg-white text-black hover:bg-white/90"
+                  onClick={() => openPurchaseDialog('hero_buy_cta')}
+                >
                   {translations.hero.buyButton}
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -89,7 +132,7 @@ export default function HeroSection() {
                     size="lg"
                     variant="link"
                     className="font-semibold rounded-full px-8 py-6 text-lg text-white hover:text-white/80"
-                    onClick={() => setIsVideoOpen(true)}
+                    onClick={openVideoDialog}
                   >
                     <PlayCircle className="mr-2 h-5 w-5" />
                     {translations.hero.introButton}

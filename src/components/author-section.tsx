@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { AnimatedBlock } from './animated-block';
 import { useLanguage } from '@/context/language-context';
 import { AnimatePresence, motion } from 'framer-motion';
+import { AUTHOR_IMAGE_SRCS } from '@/config/media';
 import {
   Carousel,
   CarouselContent,
@@ -14,12 +15,6 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/lib/utils';
-
-const authorImages = [
-  'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/WhatsApp%20Image%202025-11-27%20at%2018.21.40.jpeg',
-  'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/WhatsApp%20Image%202025-11-30%20at%2023.19.38.jpeg',
-  'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/WhatsApp%20Image%202025-11-30%20at%2023.20.06.jpeg',
-];
 
 export default function AuthorSection() {
   const { translations } = useLanguage();
@@ -54,7 +49,7 @@ export default function AuthorSection() {
                 className="w-full max-w-md mx-auto"
               >
                 <CarouselContent className="-ml-4">
-                  {authorImages.map((src, index) => (
+                  {AUTHOR_IMAGE_SRCS.map((src, index) => (
                     <CarouselItem key={index} className="pl-4 basis-3/4">
                       <div className="p-1">
                         <div

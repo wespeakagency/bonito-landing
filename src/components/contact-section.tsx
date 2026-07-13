@@ -1,5 +1,6 @@
 'use client';
 
+import { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -24,10 +25,19 @@ import { AnimatedBlock } from './animated-block';
 import { useLanguage } from '@/context/language-context';
 import { useToast } from '@/hooks/use-toast';
 import { Mail } from 'lucide-react';
+import { useTrackSectionView } from '@/features/analytics/hooks/use-track-section-view';
+import {
+  trackContactFormStart,
+  trackContactMailtoOpen,
+  trackContactSourceSelect,
+  trackContactSubmitAttempt,
+} from '@/features/analytics/track';
 
 export default function ContactSection() {
-  const { translations } = useLanguage();
+  const { translations, locale } = useLanguage();
   const { toast } = useToast();
+  const sectionRef = useTrackSectionView<HTMLElement>('contact', locale);
+  const hasTrackedStartRef = useRef(false);
 
   const FormSchema = z.object({
     name: z.string().min(2, {
@@ -48,7 +58,19 @@ export default function ContactSection() {
     },
   });
 
+  const trackFormStartOnce = () => {
+    if (hasTrackedStartRef.current) {
+      return;
+    }
+
+    trackContactFormStart(locale);
+    hasTrackedStartRef.current = true;
+  };
+
   function onSubmit(values: z.infer<typeof FormSchema>) {
+    trackFormStartOnce();
+    trackContactSubmitAttempt(locale, values.source);
+
     const subject = encodeURIComponent(translations.contact.email.subject);
     const body = encodeURIComponent(
       `${translations.contact.email.body.name}: ${values.name}\n` +
@@ -62,14 +84,16 @@ export default function ContactSection() {
       description: translations.contact.form.successMessage.description,
     });
 
+    trackContactMailtoOpen(locale, values.source);
     window.location.href = mailtoLink;
     form.reset();
+    hasTrackedStartRef.current = false;
   }
   
   const sourceOptions = translations.contact.form.source.options as { value: string; label: string }[];
 
   return (
-    <section className="py-24 sm:py-32 bg-secondary text-foreground">
+    <section ref={sectionRef} className="py-24 sm:py-32 bg-secondary text-foreground">
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType="slide-in-up">
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-foreground">
@@ -93,7 +117,11 @@ export default function ContactSection() {
                       <FormItem>
                         <FormLabel>{translations.contact.form.name.label}</FormLabel>
                         <FormControl>
-                          <Input placeholder={translations.contact.form.name.placeholder} {...field} />
+                          <Input
+                            placeholder={translations.contact.form.name.placeholder}
+                            onFocus={trackFormStartOnce}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -106,7 +134,11 @@ export default function ContactSection() {
                       <FormItem>
                         <FormLabel>{translations.contact.form.email.label}</FormLabel>
                         <FormControl>
-                          <Input placeholder={translations.contact.form.email.placeholder} {...field} />
+                          <Input
+                            placeholder={translations.contact.form.email.placeholder}
+                            onFocus={trackFormStartOnce}
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -116,10 +148,17 @@ export default function ContactSection() {
                 <FormField
                   control={form.control}
                   name="source"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel>{translations.contact.form.source.label}</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>{translations.contact.form.source.label}</FormLabel>
+                      <Select
+                        onValueChange={(value) => {
+                          trackFormStartOnce();
+                          trackContactSourceSelect(locale, value);
+                          field.onChange(value);
+                        }}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder={translations.contact.form.source.placeholder} />

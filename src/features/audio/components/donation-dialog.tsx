@@ -5,14 +5,16 @@ import {
   DialogContent,
   DialogTitle,
 } from '@/components/ui/dialog';
-import { Button } from './ui/button';
+import { DONATION_SUPPORT_URL } from '@/config/external-links';
+import { Button } from '@/components/ui/button';
 import { useLanguage } from '@/context/language-context';
+import { type DonationDialogAction } from '@/features/audio/types';
 import { Heart } from 'lucide-react';
-import { PayPalIcon } from './icons';
+import { PayPalIcon } from '@/components/icons';
 
 interface DonationDialogProps {
   isOpen: boolean;
-  onAction: (action: 'listen' | 'support' | 'close') => void;
+  onAction: (action: DonationDialogAction) => void;
 }
 
 export function DonationDialog({ isOpen, onAction }: DonationDialogProps) {
@@ -23,7 +25,7 @@ export function DonationDialog({ isOpen, onAction }: DonationDialogProps) {
   };
 
   const handleSupport = () => {
-    window.open('https://paypal.me/negociandobonito', '_blank');
+    window.open(DONATION_SUPPORT_URL, '_blank');
     onAction('support');
   };
 

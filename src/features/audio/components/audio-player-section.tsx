@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useEffect, Dispatch, SetStateAction } from 'react';
+import { useCallback, useEffect, useState, type Dispatch, type SetStateAction } from 'react';
 import {
   Play,
   Pause,
@@ -12,11 +12,12 @@ import {
 import { Button } from '@/components/ui/button';
 import { Slider } from '@/components/ui/slider';
 import { Card } from '@/components/ui/card';
-import { AnimatedBlock } from './animated-block';
+import { AnimatedBlock } from '@/components/animated-block';
 import { useLanguage } from '@/context/language-context';
+import { useTrackSectionView } from '@/features/analytics/hooks/use-track-section-view';
 import { cn } from '@/lib/utils';
-import { ScrollArea } from './ui/scroll-area';
-import { type Chapter } from '@/lib/chapters';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { type Chapter } from '@/features/audio/model/chapters';
 
 interface AudioPlayerSectionProps {
   setPlayerInView: Dispatch<SetStateAction<boolean>>;
@@ -49,10 +50,15 @@ export default function AudioPlayerSection({
   handleProgressChange,
   formatTime,
 }: AudioPlayerSectionProps) {
-  const { translations } = useLanguage();
-  const sectionRef = useRef<HTMLDivElement>(null);
+  const { translations, locale } = useLanguage();
+  const [sectionElement, setSectionElement] = useState<HTMLElement | null>(null);
+  const sectionTrackingRef = useTrackSectionView<HTMLElement>('audiobook', locale);
 
   useEffect(() => {
+    if (!sectionElement) {
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         setPlayerInView(entry.isIntersecting);
@@ -60,20 +66,23 @@ export default function AudioPlayerSection({
       { threshold: 0.1 }
     );
 
-    const currentSectionRef = sectionRef.current;
-    if (currentSectionRef) {
-      observer.observe(currentSectionRef);
-    }
+    observer.observe(sectionElement);
 
     return () => {
-      if (currentSectionRef) {
-        observer.unobserve(currentSectionRef);
-      }
+      observer.unobserve(sectionElement);
     };
-  }, [setPlayerInView]);
+  }, [sectionElement, setPlayerInView]);
+
+  const handleSectionRef = useCallback((node: HTMLElement | null) => {
+    setSectionElement(node);
+    sectionTrackingRef(node);
+  }, [sectionTrackingRef]);
 
   return (
-    <section ref={sectionRef} className="py-24 sm:py-32 bg-secondary text-foreground">
+    <section
+      ref={handleSectionRef}
+      className="py-24 sm:py-32 bg-secondary text-foreground"
+    >
       <div className="container mx-auto px-4">
         <AnimatedBlock animationType="slide-in-up">
           <h2 className="text-4xl md:text-5xl font-headline font-bold text-center mb-4 text-foreground">

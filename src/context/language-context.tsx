@@ -4,6 +4,7 @@ import React, { createContext, useContext, Suspense } from 'react'; // 🔹 agre
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { defaultLocale, getLocaleFromPathname, getPathnameForLocale, type Locale } from '@/lib/i18n';
 import { getTranslations, type Translations } from '@/lib/translations';
+import { trackLanguageChange } from '@/features/analytics/track';
 
 interface LanguageContextType {
   locale: Locale;
@@ -23,6 +24,8 @@ const LanguageProviderInner: React.FC<{ children: React.ReactNode; initialLocale
 
   const changeLanguage = (newLocale: Locale) => {
     if (newLocale !== locale) {
+      trackLanguageChange(locale, newLocale);
+
       const nextPath = getPathnameForLocale(pathname, newLocale);
       const queryString = searchParams.toString();
       const hash = typeof window !== 'undefined' ? window.location.hash : '';
