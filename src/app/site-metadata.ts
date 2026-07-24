@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { defaultLocale, locales, type Locale } from '@/lib/i18n';
 import { getTranslations } from '@/lib/translations';
 
+const FACEBOOK_DOMAIN_VERIFICATION = 'cn53d5lc0a22uznk4ld5k0t0iwpwp3';
+
 const openGraphLocales: Record<Locale, string> = {
   es: 'es_ES',
   en: 'en_US',
@@ -29,6 +31,11 @@ export function getMetadataForLocale(locale: Locale = defaultLocale): Metadata {
     },
     icons: {
       icon: 'https://raw.githubusercontent.com/ryandoelsol/negociandobonito/main/golondrina.png',
+    },
+    verification: {
+      other: {
+        'facebook-domain-verification': FACEBOOK_DOMAIN_VERIFICATION,
+      },
     },
     openGraph: {
       title: translations.metadata.title,
