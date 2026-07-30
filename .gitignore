@@ -43,3 +43,7 @@ next-env.d.ts
 # firebase
 firebase-debug.log
 firestore-debug.log
+
+# internal docs (not public)
+docs/analytics-setup.md
+docs/exports/
