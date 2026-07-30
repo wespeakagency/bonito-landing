@@ -5,9 +5,11 @@ import {
   GA_MEASUREMENT_ID,
   GTM_CONTAINER_ID,
   GTM_ENABLED,
+  META_PIXEL_ENABLED,
+  META_PIXEL_ID,
 } from '@/config/analytics';
 
-export function AnalyticsHeadScripts() {
+function GoogleHeadScripts() {
   if (GTM_ENABLED) {
     return (
       <>
@@ -50,19 +52,63 @@ export function AnalyticsHeadScripts() {
   return null;
 }
 
-export function AnalyticsBodyStart() {
-  if (!GTM_ENABLED) {
+function MetaPixelHeadScript() {
+  if (!META_PIXEL_ENABLED) {
     return null;
   }
 
   return (
-    <noscript>
-      <iframe
-        src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
-        height="0"
-        width="0"
-        style={{ display: 'none', visibility: 'hidden' }}
-      />
-    </noscript>
+    <Script id="meta-pixel" strategy="afterInteractive">
+      {`
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '${META_PIXEL_ID}');
+        fbq('track', 'PageView');
+      `}
+    </Script>
+  );
+}
+
+export function AnalyticsHeadScripts() {
+  return (
+    <>
+      <GoogleHeadScripts />
+      <MetaPixelHeadScript />
+    </>
+  );
+}
+
+export function AnalyticsBodyStart() {
+  return (
+    <>
+      {GTM_ENABLED ? (
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_CONTAINER_ID}`}
+            height="0"
+            width="0"
+            style={{ display: 'none', visibility: 'hidden' }}
+          />
+        </noscript>
+      ) : null}
+      {META_PIXEL_ENABLED ? (
+        <noscript>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            height="1"
+            width="1"
+            style={{ display: 'none' }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
+      ) : null}
+    </>
   );
 }

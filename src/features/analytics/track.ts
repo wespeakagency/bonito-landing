@@ -4,6 +4,7 @@ import {
   type AnalyticsEventName,
   type AnalyticsEventParams,
 } from '@/features/analytics/events';
+import { dispatchToMetaPixel } from '@/features/analytics/meta-pixel';
 
 export function trackEvent<TEventName extends AnalyticsEventName>(
   event: TEventName,
@@ -13,6 +14,8 @@ export function trackEvent<TEventName extends AnalyticsEventName>(
     event,
     ...params,
   });
+
+  dispatchToMetaPixel(event, params);
 }
 
 export function trackSectionView(sectionName: string, locale: string) {
