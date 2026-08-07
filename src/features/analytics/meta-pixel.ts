@@ -16,11 +16,23 @@ type MetaStandardEvent =
   | 'Search'
   | 'AddToCart';
 
+type FbqOptions = {
+  eventID?: string;
+};
+
 type FbqFunction = (
   command: 'track' | 'trackCustom' | 'init',
   eventName: string,
-  params?: Record<string, unknown>
+  params?: Record<string, unknown>,
+  options?: FbqOptions
 ) => void;
+
+function generateEventId(): string {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') {
+    return crypto.randomUUID();
+  }
+  return `${Date.now()}-${Math.random().toString(36).slice(2, 11)}`;
+}
 
 declare global {
   interface Window {
@@ -39,17 +51,15 @@ const EVENT_MAP: Partial<
   >
 > = {
   [ANALYTICS_EVENTS.purchaseDialogOpen]: {
-    event: 'InitiateCheckout',
+    event: 'AddToCart',
     buildParams: (params) => ({
       content_category: 'book_purchase',
       origin: params.origin,
     }),
   },
   [ANALYTICS_EVENTS.purchaseStoreClick]: {
-    event: 'Purchase',
+    event: 'InitiateCheckout',
     buildParams: (params) => ({
-      value: 0,
-      currency: 'USD',
       content_name: params.store_name,
       content_category: params.store_type,
       origin: params.origin,
@@ -125,7 +135,7 @@ export function trackFbEvent(
     return;
   }
 
-  window.fbq('track', event, params);
+  window.fbq('track', event, params, { eventID: generateEventId() });
 }
 
 export function dispatchToMetaPixel(

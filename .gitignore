@@ -47,3 +47,4 @@ firestore-debug.log
 # internal docs (not public)
 docs/analytics-setup.md
 docs/exports/
+docs/meta-analytics-audit-agent-prompt.md
