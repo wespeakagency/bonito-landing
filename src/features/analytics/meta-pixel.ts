@@ -14,7 +14,8 @@ type MetaStandardEvent =
   | 'Purchase'
   | 'CompleteRegistration'
   | 'Search'
-  | 'AddToCart';
+  | 'AddToCart'
+  | 'Donate';
 
 type FbqOptions = {
   eventID?: string;
@@ -117,6 +118,21 @@ const EVENT_MAP: Partial<
       locale: params.locale,
     }),
   },
+  [ANALYTICS_EVENTS.donationSupportClick]: {
+    event: 'Donate',
+    buildParams: (params) => ({
+      content_category: 'audiobook_gate',
+      chapter_id: params.chapter_id,
+      locale: params.locale,
+    }),
+  },
+  [ANALYTICS_EVENTS.authorBioExpand]: {
+    event: 'ViewContent',
+    buildParams: (params) => ({
+      content_type: 'author_bio',
+      locale: params.locale,
+    }),
+  },
   [ANALYTICS_EVENTS.spotifyClick]: {
     event: 'ViewContent',
     buildParams: (params) => ({
@@ -126,6 +142,8 @@ const EVENT_MAP: Partial<
     }),
   },
 };
+
+const AUDIO_HIGH_ENGAGEMENT_THRESHOLD = 75;
 
 export function trackFbEvent(
   event: MetaStandardEvent,
@@ -138,10 +156,43 @@ export function trackFbEvent(
   window.fbq('track', event, params, { eventID: generateEventId() });
 }
 
+export function trackFbCustomEvent(
+  eventName: string,
+  params?: Record<string, unknown>
+) {
+  if (!META_PIXEL_ENABLED || typeof window === 'undefined' || !window.fbq) {
+    return;
+  }
+
+  window.fbq('trackCustom', eventName, params, { eventID: generateEventId() });
+}
+
+function dispatchAudioHighEngagement(params: AnalyticsEventParams) {
+  const percent = Number(params.percent_complete);
+  if (!Number.isFinite(percent) || percent < AUDIO_HIGH_ENGAGEMENT_THRESHOLD) {
+    return;
+  }
+
+  trackFbCustomEvent('AudioHighEngagement', {
+    content_type: 'audio_chapter',
+    content_ids: [String(params.chapter_id ?? '')],
+    content_name: params.chapter_title,
+    percent_complete: percent,
+    current_time: params.current_time,
+    duration: params.duration,
+    locale: params.locale,
+  });
+}
+
 export function dispatchToMetaPixel(
   eventName: AnalyticsEventName,
   params: AnalyticsEventParams
 ) {
+  if (eventName === ANALYTICS_EVENTS.audioSessionEnd) {
+    dispatchAudioHighEngagement(params);
+    return;
+  }
+
   const mapping = EVENT_MAP[eventName];
 
   if (!mapping) {

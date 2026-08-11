@@ -15,9 +15,10 @@ import {
 } from '@/components/ui/carousel';
 import Autoplay from 'embla-carousel-autoplay';
 import { cn } from '@/lib/utils';
+import { trackAuthorBioExpand } from '@/features/analytics/track';
 
 export default function AuthorSection() {
-  const { translations } = useLanguage();
+  const { translations, locale } = useLanguage();
   const fullBioParagraphs = translations.author.fullBio as string[];
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -82,7 +83,12 @@ export default function AuthorSection() {
                 <Button
                   variant="link"
                   className="text-lg p-0 h-auto text-primary hover:text-primary/80"
-                  onClick={() => setIsExpanded(!isExpanded)}
+                  onClick={() => {
+                    if (!isExpanded) {
+                      trackAuthorBioExpand(locale);
+                    }
+                    setIsExpanded(!isExpanded);
+                  }}
                 >
                   {isExpanded ? translations.author.showLess : translations.author.readMore}
                 </Button>

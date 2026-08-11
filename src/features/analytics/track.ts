@@ -61,23 +61,57 @@ export function trackAudioPlay(chapterId: number, chapterTitle: string, locale: 
   });
 }
 
-export function trackAudioPause(chapterId: number, chapterTitle: string, locale: string) {
+function computePercentComplete(currentTime: number, duration: number) {
+  if (!duration || !Number.isFinite(duration)) return 0;
+  return Math.min(100, Math.round((currentTime / duration) * 100));
+}
+
+export function trackAudioPause(
+  chapterId: number,
+  chapterTitle: string,
+  locale: string,
+  currentTime: number,
+  duration: number
+) {
   trackEvent(ANALYTICS_EVENTS.audioPause, {
     chapter_id: chapterId,
     chapter_title: chapterTitle,
     locale,
+    current_time: Math.round(currentTime),
+    duration: Math.round(duration),
+    percent_complete: computePercentComplete(currentTime, duration),
   });
 }
 
 export function trackAudioComplete(
   chapterId: number,
   chapterTitle: string,
-  locale: string
+  locale: string,
+  duration: number
 ) {
   trackEvent(ANALYTICS_EVENTS.audioComplete, {
     chapter_id: chapterId,
     chapter_title: chapterTitle,
     locale,
+    duration: Math.round(duration),
+    percent_complete: 100,
+  });
+}
+
+export function trackAudioSessionEnd(
+  chapterId: number,
+  chapterTitle: string,
+  locale: string,
+  currentTime: number,
+  duration: number
+) {
+  trackEvent(ANALYTICS_EVENTS.audioSessionEnd, {
+    chapter_id: chapterId,
+    chapter_title: chapterTitle,
+    locale,
+    current_time: Math.round(currentTime),
+    duration: Math.round(duration),
+    percent_complete: computePercentComplete(currentTime, duration),
   });
 }
 
@@ -201,4 +235,22 @@ export function trackIntroVideoComplete(locale: string) {
 
 export function trackIntroVideoClose(locale: string) {
   trackEvent(ANALYTICS_EVENTS.introVideoClose, { locale });
+}
+
+export function trackDonationSupportClick(
+  chapterId: number | undefined,
+  locale: string
+) {
+  trackEvent(ANALYTICS_EVENTS.donationSupportClick, {
+    chapter_id: chapterId,
+    locale,
+  });
+}
+
+export function trackAuthorBioExpand(locale: string) {
+  trackEvent(ANALYTICS_EVENTS.authorBioExpand, { locale });
+}
+
+export function trackPrivacyPolicyOpen(locale: string) {
+  trackEvent(ANALYTICS_EVENTS.privacyPolicyOpen, { locale });
 }

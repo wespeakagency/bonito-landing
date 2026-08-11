@@ -6,9 +6,10 @@ import { AnimatedBlock } from './animated-block';
 import { PrivacyPolicyDialog } from './privacy-policy-dialog';
 import { Button } from './ui/button';
 import { COPYRIGHT_YEAR } from '@/config/site';
+import { trackPrivacyPolicyOpen } from '@/features/analytics/track';
 
 export default function Footer() {
-  const { translations } = useLanguage();
+  const { translations, locale } = useLanguage();
   const [isPrivacyOpen, setIsPrivacyOpen] = useState(false);
 
   return (
@@ -24,7 +25,10 @@ export default function Footer() {
             <Button 
               variant="link" 
               className="p-0 h-auto text-sm text-muted-foreground hover:text-foreground"
-              onClick={() => setIsPrivacyOpen(true)}
+              onClick={() => {
+                trackPrivacyPolicyOpen(locale);
+                setIsPrivacyOpen(true);
+              }}
             >
               {translations.footer.privacyPolicy}
             </Button>

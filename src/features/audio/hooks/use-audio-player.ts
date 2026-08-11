@@ -12,6 +12,8 @@ import {
   trackAudioPlay,
   trackAudioProgress,
   trackAudioSeek,
+  trackAudioSessionEnd,
+  trackDonationSupportClick,
 } from '@/features/analytics/track';
 import { type Locale } from '@/lib/i18n';
 import { getChaptersForLocale, type Chapter } from '@/features/audio/model/chapters';
@@ -54,6 +56,14 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
   const [hasPlayedOnce, setHasPlayedOnce] = useState(false);
   const trackedMilestonesRef = useRef(new Set<number>());
   const previousGateOpenStateRef = useRef(false);
+  const sessionSnapshotRef = useRef<{
+    chapterId: number;
+    chapterTitle: string;
+    currentTime: number;
+    duration: number;
+    hasPlayback: boolean;
+  } | null>(null);
+  const sessionEndSentRef = useRef(false);
 
   useEffect(() => {
     setIsPlaying(false);
@@ -67,7 +77,54 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
 
   useEffect(() => {
     trackedMilestonesRef.current.clear();
+    sessionEndSentRef.current = false;
+    sessionSnapshotRef.current = null;
   }, [currentChapter?.id]);
+
+  useEffect(() => {
+    if (!currentChapter) return;
+    if (currentTime <= 0) return;
+
+    sessionSnapshotRef.current = {
+      chapterId: currentChapter.id,
+      chapterTitle: currentChapter.title,
+      currentTime,
+      duration,
+      hasPlayback: true,
+    };
+    sessionEndSentRef.current = false;
+  }, [currentChapter, currentTime, duration]);
+
+  useEffect(() => {
+    const flushSessionEnd = () => {
+      const snapshot = sessionSnapshotRef.current;
+      if (!snapshot || !snapshot.hasPlayback) return;
+      if (sessionEndSentRef.current) return;
+
+      sessionEndSentRef.current = true;
+      trackAudioSessionEnd(
+        snapshot.chapterId,
+        snapshot.chapterTitle,
+        locale,
+        snapshot.currentTime,
+        snapshot.duration
+      );
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'hidden') {
+        flushSessionEnd();
+      }
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    window.addEventListener('pagehide', flushSessionEnd);
+
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      window.removeEventListener('pagehide', flushSessionEnd);
+    };
+  }, [locale]);
 
   const getNextPlayableChapterIndex = useCallback(
     (fromIndex: number, direction: 1 | -1) => {
@@ -245,6 +302,7 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
     }
 
     if (action === 'support') {
+      trackDonationSupportClick(currentChapter?.id, locale);
       setHasInteractedWithDonation(true);
     }
   }, [currentChapter?.id, locale]);
@@ -275,19 +333,25 @@ export function useAudioPlayer(locale: Locale): UseAudioPlayerResult {
 
   const handleAudioPause = useCallback(() => {
     if (currentChapter && currentTime > 0) {
-      trackAudioPause(currentChapter.id, currentChapter.title, locale);
+      trackAudioPause(
+        currentChapter.id,
+        currentChapter.title,
+        locale,
+        currentTime,
+        duration
+      );
     }
 
     setIsPlaying(false);
-  }, [currentChapter, currentTime, locale]);
+  }, [currentChapter, currentTime, duration, locale]);
 
   const handleAudioEnded = useCallback(() => {
     if (currentChapter) {
-      trackAudioComplete(currentChapter.id, currentChapter.title, locale);
+      trackAudioComplete(currentChapter.id, currentChapter.title, locale, duration);
     }
 
     handleNext();
-  }, [currentChapter, handleNext, locale]);
+  }, [currentChapter, duration, handleNext, locale]);
 
   const handleLoadedData = useCallback(() => {
     if (!audioRef.current) return;
